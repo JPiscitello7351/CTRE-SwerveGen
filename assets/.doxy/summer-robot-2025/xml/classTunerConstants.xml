@@ -1,0 +1,1103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTunerConstants" kind="class" language="C++" prot="public">
+    <compoundname>TunerConstants</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classTunerConstants_1ab1e8e615994beff51ea4e825f82843d2" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr configs::Slot0Configs</type>
+        <definition>constexpr configs::Slot0Configs TunerConstants::steerGains</definition>
+        <argsstring></argsstring>
+        <name>steerGains</name>
+        <qualifiedname>TunerConstants::steerGains</qualifiedname>
+        <initializer>= configs::Slot0Configs{}
+        .WithKP(100).WithKI(0).WithKD(0.5)
+        .WithKS(0.1).WithKV(1.59).WithKA(0)
+        .WithStaticFeedforwardSign(signals::StaticFeedforwardSignValue::UseClosedLoopSign)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="19" column="44" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a5120f9b357b390d38f55c04675ac8060" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr configs::Slot0Configs</type>
+        <definition>constexpr configs::Slot0Configs TunerConstants::driveGains</definition>
+        <argsstring></argsstring>
+        <name>driveGains</name>
+        <qualifiedname>TunerConstants::driveGains</qualifiedname>
+        <initializer>= configs::Slot0Configs{}
+        .WithKP(0.1).WithKI(0).WithKD(0)
+        .WithKS(0).WithKV(0.124)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="25" column="44" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ab7ba0ca052a7f0ff52cfa0d60b6a1dd1" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::ClosedLoopOutputType</type>
+        <definition>constexpr swerve::ClosedLoopOutputType TunerConstants::kSteerClosedLoopOutput</definition>
+        <argsstring></argsstring>
+        <name>kSteerClosedLoopOutput</name>
+        <qualifiedname>TunerConstants::kSteerClosedLoopOutput</qualifiedname>
+        <initializer>= swerve::ClosedLoopOutputType::Voltage</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="31" column="51" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1acca79c896c83fda5aec604ae4a8f1af0" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::ClosedLoopOutputType</type>
+        <definition>constexpr swerve::ClosedLoopOutputType TunerConstants::kDriveClosedLoopOutput</definition>
+        <argsstring></argsstring>
+        <name>kDriveClosedLoopOutput</name>
+        <qualifiedname>TunerConstants::kDriveClosedLoopOutput</qualifiedname>
+        <initializer>= swerve::ClosedLoopOutputType::Voltage</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="34" column="51" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1aa534297f2dff47da2d13698ece2855ba" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::DriveMotorArrangement</type>
+        <definition>constexpr swerve::DriveMotorArrangement TunerConstants::kDriveMotorType</definition>
+        <argsstring></argsstring>
+        <name>kDriveMotorType</name>
+        <qualifiedname>TunerConstants::kDriveMotorType</qualifiedname>
+        <initializer>= swerve::DriveMotorArrangement::TalonFX_Integrated</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="37" column="52" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a93b07f81655ee5339bfd45624d887aa2" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::SteerMotorArrangement</type>
+        <definition>constexpr swerve::SteerMotorArrangement TunerConstants::kSteerMotorType</definition>
+        <argsstring></argsstring>
+        <name>kSteerMotorType</name>
+        <qualifiedname>TunerConstants::kSteerMotorType</qualifiedname>
+        <initializer>= swerve::SteerMotorArrangement::TalonFX_Integrated</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="39" column="52" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ac0d8c09356befba151d1b5c250c8e5df" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::SteerFeedbackType</type>
+        <definition>constexpr swerve::SteerFeedbackType TunerConstants::kSteerFeedbackType</definition>
+        <argsstring></argsstring>
+        <name>kSteerFeedbackType</name>
+        <qualifiedname>TunerConstants::kSteerFeedbackType</qualifiedname>
+        <initializer>= swerve::SteerFeedbackType::FusedCANcoder</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="43" column="48" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a9e0f36f05d912cba91d98f6d9395c03d" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::ampere_t</type>
+        <definition>constexpr units::ampere_t TunerConstants::kSlipCurrent</definition>
+        <argsstring></argsstring>
+        <name>kSlipCurrent</name>
+        <qualifiedname>TunerConstants::kSlipCurrent</qualifiedname>
+        <initializer>= 120_A</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="47" column="38" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a8de4905fa24394de3d3e0a95a3c6bf08" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr configs::TalonFXConfiguration</type>
+        <definition>constexpr configs::TalonFXConfiguration TunerConstants::driveInitialConfigs</definition>
+        <argsstring></argsstring>
+        <name>driveInitialConfigs</name>
+        <qualifiedname>TunerConstants::driveInitialConfigs</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="51" column="52" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a55f56d80817f6331afdeacf6e6c593de" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr configs::TalonFXConfiguration</type>
+        <definition>constexpr configs::TalonFXConfiguration TunerConstants::steerInitialConfigs</definition>
+        <argsstring></argsstring>
+        <name>steerInitialConfigs</name>
+        <qualifiedname>TunerConstants::steerInitialConfigs</qualifiedname>
+        <initializer>= configs::TalonFXConfiguration{}
+        .WithCurrentLimits(
+            configs::CurrentLimitsConfigs{}
+                
+                
+                .WithStatorCurrentLimit(60_A)
+                .WithStatorCurrentLimitEnable(true)
+        )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="52" column="52" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a92781cf155cf0ac9926fcaae4910c69b" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr configs::CANcoderConfiguration</type>
+        <definition>constexpr configs::CANcoderConfiguration TunerConstants::encoderInitialConfigs</definition>
+        <argsstring></argsstring>
+        <name>encoderInitialConfigs</name>
+        <qualifiedname>TunerConstants::encoderInitialConfigs</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="61" column="53" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ad77c2c07a811a6014b098a2058230e17" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr std::optional&lt; configs::Pigeon2Configuration &gt;</type>
+        <definition>constexpr std::optional&lt;configs::Pigeon2Configuration&gt; TunerConstants::pigeonConfigs</definition>
+        <argsstring></argsstring>
+        <name>pigeonConfigs</name>
+        <qualifiedname>TunerConstants::pigeonConfigs</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="63" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a2c01dad7268156c0eb4bec30f43e8863" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr std::string_view</type>
+        <definition>constexpr std::string_view TunerConstants::kCANBusName</definition>
+        <argsstring></argsstring>
+        <name>kCANBusName</name>
+        <qualifiedname>TunerConstants::kCANBusName</qualifiedname>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="65" column="39" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a34d22a47f7ca2e2a75321532924cb0e1" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::scalar_t</type>
+        <definition>constexpr units::scalar_t TunerConstants::kCoupleRatio</definition>
+        <argsstring></argsstring>
+        <name>kCoupleRatio</name>
+        <qualifiedname>TunerConstants::kCoupleRatio</qualifiedname>
+        <initializer>= 3.5714285714285716</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="79" column="38" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a197c6038e95a936783b5302238a48554" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::scalar_t</type>
+        <definition>constexpr units::scalar_t TunerConstants::kDriveGearRatio</definition>
+        <argsstring></argsstring>
+        <name>kDriveGearRatio</name>
+        <qualifiedname>TunerConstants::kDriveGearRatio</qualifiedname>
+        <initializer>= 6.122448979591837</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="81" column="38" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1aa2891eaa22234a0d759507577e71e380" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::scalar_t</type>
+        <definition>constexpr units::scalar_t TunerConstants::kSteerGearRatio</definition>
+        <argsstring></argsstring>
+        <name>kSteerGearRatio</name>
+        <qualifiedname>TunerConstants::kSteerGearRatio</qualifiedname>
+        <initializer>= 12.8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="82" column="38" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a4d8a4034fc9b22bc3fa6a41f6c77dc0b" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::inch_t</type>
+        <definition>constexpr units::inch_t TunerConstants::kWheelRadius</definition>
+        <argsstring></argsstring>
+        <name>kWheelRadius</name>
+        <qualifiedname>TunerConstants::kWheelRadius</qualifiedname>
+        <initializer>= 1.9_in</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="83" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a050ef1c4a726fa9888577d6b47762657" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kInvertLeftSide</definition>
+        <argsstring></argsstring>
+        <name>kInvertLeftSide</name>
+        <qualifiedname>TunerConstants::kInvertLeftSide</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="85" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a56d8cf7d47dff17da5984732535a1487" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kInvertRightSide</definition>
+        <argsstring></argsstring>
+        <name>kInvertRightSide</name>
+        <qualifiedname>TunerConstants::kInvertRightSide</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="86" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a40b5b2bcb074a5c4beb1a745feb67e08" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kPigeonId</definition>
+        <argsstring></argsstring>
+        <name>kPigeonId</name>
+        <qualifiedname>TunerConstants::kPigeonId</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="88" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1aeada3e8fdd95a1bf77ce979c785c3392" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::kilogram_square_meter_t</type>
+        <definition>constexpr units::kilogram_square_meter_t TunerConstants::kSteerInertia</definition>
+        <argsstring></argsstring>
+        <name>kSteerInertia</name>
+        <qualifiedname>TunerConstants::kSteerInertia</qualifiedname>
+        <initializer>= 0.01_kg_sq_m</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="91" column="53" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1af6c817184e9c9845e1ce22dfa49d42a3" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::kilogram_square_meter_t</type>
+        <definition>constexpr units::kilogram_square_meter_t TunerConstants::kDriveInertia</definition>
+        <argsstring></argsstring>
+        <name>kDriveInertia</name>
+        <qualifiedname>TunerConstants::kDriveInertia</qualifiedname>
+        <initializer>= 0.01_kg_sq_m</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="92" column="53" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ae1af828dcdf30e6752f30db26668191a" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::volt_t</type>
+        <definition>constexpr units::volt_t TunerConstants::kSteerFrictionVoltage</definition>
+        <argsstring></argsstring>
+        <name>kSteerFrictionVoltage</name>
+        <qualifiedname>TunerConstants::kSteerFrictionVoltage</qualifiedname>
+        <initializer>= 0.2_V</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="94" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a5397d2b6ff58b9711f28a2243baa741a" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::volt_t</type>
+        <definition>constexpr units::volt_t TunerConstants::kDriveFrictionVoltage</definition>
+        <argsstring></argsstring>
+        <name>kDriveFrictionVoltage</name>
+        <qualifiedname>TunerConstants::kDriveFrictionVoltage</qualifiedname>
+        <initializer>= 0.2_V</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="95" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a96582c952ac5f85bde338385e23332a5" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::SwerveModuleConstantsFactory</type>
+        <definition>constexpr swerve::SwerveModuleConstantsFactory TunerConstants::ConstantCreator</definition>
+        <argsstring></argsstring>
+        <name>ConstantCreator</name>
+        <qualifiedname>TunerConstants::ConstantCreator</qualifiedname>
+        <initializer>=
+        swerve::SwerveModuleConstantsFactory&lt;configs::TalonFXConfiguration, configs::TalonFXConfiguration, configs::CANcoderConfiguration&gt;{}
+            .WithDriveMotorGearRatio(kDriveGearRatio)
+            .WithSteerMotorGearRatio(kSteerGearRatio)
+            .WithCouplingGearRatio(kCoupleRatio)
+            .WithWheelRadius(kWheelRadius)
+            .WithSteerMotorGains(steerGains)
+            .WithDriveMotorGains(driveGains)
+            .WithSteerMotorClosedLoopOutput(kSteerClosedLoopOutput)
+            .WithDriveMotorClosedLoopOutput(kDriveClosedLoopOutput)
+            .WithSlipCurrent(kSlipCurrent)
+            .WithSpeedAt12Volts(kSpeedAt12Volts)
+            .WithDriveMotorType(kDriveMotorType)
+            .WithSteerMotorType(kSteerMotorType)
+            .WithFeedbackSource(kSteerFeedbackType)
+            .WithDriveMotorInitialConfigs(driveInitialConfigs)
+            .WithSteerMotorInitialConfigs(steerInitialConfigs)
+            .WithEncoderInitialConfigs(encoderInitialConfigs)
+            .WithSteerInertia(kSteerInertia)
+            .WithDriveInertia(kDriveInertia)
+            .WithSteerFrictionVoltage(kSteerFrictionVoltage)
+            .WithDriveFrictionVoltage(kDriveFrictionVoltage)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="104" column="59" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="104" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a262480aa6254ed5533674eb0408e7c2f" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kFrontLeftDriveMotorId</definition>
+        <argsstring></argsstring>
+        <name>kFrontLeftDriveMotorId</name>
+        <qualifiedname>TunerConstants::kFrontLeftDriveMotorId</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="129" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1aed7d1b37b00606494a3d91e89e82f925" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kFrontLeftSteerMotorId</definition>
+        <argsstring></argsstring>
+        <name>kFrontLeftSteerMotorId</name>
+        <qualifiedname>TunerConstants::kFrontLeftSteerMotorId</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="130" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a923480878939206a6e1528079055c20a" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kFrontLeftEncoderId</definition>
+        <argsstring></argsstring>
+        <name>kFrontLeftEncoderId</name>
+        <qualifiedname>TunerConstants::kFrontLeftEncoderId</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="131" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ae9e8ab0c4e6401268f034f0476ea3596" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::turn_t</type>
+        <definition>constexpr units::turn_t TunerConstants::kFrontLeftEncoderOffset</definition>
+        <argsstring></argsstring>
+        <name>kFrontLeftEncoderOffset</name>
+        <qualifiedname>TunerConstants::kFrontLeftEncoderOffset</qualifiedname>
+        <initializer>= 0.249267578125_tr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="132" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a1b9dd7511f6e86629b17cac71d26ffbd" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kFrontLeftSteerMotorInverted</definition>
+        <argsstring></argsstring>
+        <name>kFrontLeftSteerMotorInverted</name>
+        <qualifiedname>TunerConstants::kFrontLeftSteerMotorInverted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="133" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1afe271449b68137469fad7b9ed4cb26be" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kFrontLeftEncoderInverted</definition>
+        <argsstring></argsstring>
+        <name>kFrontLeftEncoderInverted</name>
+        <qualifiedname>TunerConstants::kFrontLeftEncoderInverted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="134" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a1eeba655ffeab1575fbf181afa4a5cf8" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::inch_t</type>
+        <definition>constexpr units::inch_t TunerConstants::kFrontLeftXPos</definition>
+        <argsstring></argsstring>
+        <name>kFrontLeftXPos</name>
+        <qualifiedname>TunerConstants::kFrontLeftXPos</qualifiedname>
+        <initializer>= 7_in</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="136" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1abe986c273b7355c901be8c7681cd5a9e" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::inch_t</type>
+        <definition>constexpr units::inch_t TunerConstants::kFrontLeftYPos</definition>
+        <argsstring></argsstring>
+        <name>kFrontLeftYPos</name>
+        <qualifiedname>TunerConstants::kFrontLeftYPos</qualifiedname>
+        <initializer>= 8.75_in</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="137" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a77bfb2dad242c79913bbf4f2a1eada20" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kFrontRightDriveMotorId</definition>
+        <argsstring></argsstring>
+        <name>kFrontRightDriveMotorId</name>
+        <qualifiedname>TunerConstants::kFrontRightDriveMotorId</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="140" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a0333741fec5442fd677d5ae5757980c5" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kFrontRightSteerMotorId</definition>
+        <argsstring></argsstring>
+        <name>kFrontRightSteerMotorId</name>
+        <qualifiedname>TunerConstants::kFrontRightSteerMotorId</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="141" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a8069365b0c2f2944adf15fc3aa8b6424" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kFrontRightEncoderId</definition>
+        <argsstring></argsstring>
+        <name>kFrontRightEncoderId</name>
+        <qualifiedname>TunerConstants::kFrontRightEncoderId</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="142" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ac93299a3931b4e33a38456ae9ce1ce35" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::turn_t</type>
+        <definition>constexpr units::turn_t TunerConstants::kFrontRightEncoderOffset</definition>
+        <argsstring></argsstring>
+        <name>kFrontRightEncoderOffset</name>
+        <qualifiedname>TunerConstants::kFrontRightEncoderOffset</qualifiedname>
+        <initializer>= -0.1572265625_tr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="143" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a099ed218970cc4373f2e5471ac0f2b59" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kFrontRightSteerMotorInverted</definition>
+        <argsstring></argsstring>
+        <name>kFrontRightSteerMotorInverted</name>
+        <qualifiedname>TunerConstants::kFrontRightSteerMotorInverted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="144" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a6bc81610a33b02a1ab4a326a3025a93b" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kFrontRightEncoderInverted</definition>
+        <argsstring></argsstring>
+        <name>kFrontRightEncoderInverted</name>
+        <qualifiedname>TunerConstants::kFrontRightEncoderInverted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="145" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a6a0a0122b48b450db17d2d2185e05bdb" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::inch_t</type>
+        <definition>constexpr units::inch_t TunerConstants::kFrontRightXPos</definition>
+        <argsstring></argsstring>
+        <name>kFrontRightXPos</name>
+        <qualifiedname>TunerConstants::kFrontRightXPos</qualifiedname>
+        <initializer>= 7_in</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="147" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a0631cf09fdba517e8357acf90f9e870f" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::inch_t</type>
+        <definition>constexpr units::inch_t TunerConstants::kFrontRightYPos</definition>
+        <argsstring></argsstring>
+        <name>kFrontRightYPos</name>
+        <qualifiedname>TunerConstants::kFrontRightYPos</qualifiedname>
+        <initializer>= -8.75_in</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="148" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1af88e7d5019397e335c6a4fcc82b11001" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kBackLeftDriveMotorId</definition>
+        <argsstring></argsstring>
+        <name>kBackLeftDriveMotorId</name>
+        <qualifiedname>TunerConstants::kBackLeftDriveMotorId</qualifiedname>
+        <initializer>= 7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="151" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ab8f10e8da109edeb92ff5290f43a0ed9" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kBackLeftSteerMotorId</definition>
+        <argsstring></argsstring>
+        <name>kBackLeftSteerMotorId</name>
+        <qualifiedname>TunerConstants::kBackLeftSteerMotorId</qualifiedname>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="152" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ae3b3330bdb600b729a6eab3dc9221084" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kBackLeftEncoderId</definition>
+        <argsstring></argsstring>
+        <name>kBackLeftEncoderId</name>
+        <qualifiedname>TunerConstants::kBackLeftEncoderId</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="153" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ac9e387a7d1882fc6f261256112aee09e" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::turn_t</type>
+        <definition>constexpr units::turn_t TunerConstants::kBackLeftEncoderOffset</definition>
+        <argsstring></argsstring>
+        <name>kBackLeftEncoderOffset</name>
+        <qualifiedname>TunerConstants::kBackLeftEncoderOffset</qualifiedname>
+        <initializer>= 0.133056640625_tr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="154" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a029e47fd3daa86a987b0d3f542f98fd3" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kBackLeftSteerMotorInverted</definition>
+        <argsstring></argsstring>
+        <name>kBackLeftSteerMotorInverted</name>
+        <qualifiedname>TunerConstants::kBackLeftSteerMotorInverted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="155" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ac8f5d52015fef41173f1ffeb654fc90c" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kBackLeftEncoderInverted</definition>
+        <argsstring></argsstring>
+        <name>kBackLeftEncoderInverted</name>
+        <qualifiedname>TunerConstants::kBackLeftEncoderInverted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="156" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a7ce95fe61130d205e35022c4001448b5" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::inch_t</type>
+        <definition>constexpr units::inch_t TunerConstants::kBackLeftXPos</definition>
+        <argsstring></argsstring>
+        <name>kBackLeftXPos</name>
+        <qualifiedname>TunerConstants::kBackLeftXPos</qualifiedname>
+        <initializer>= -7_in</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="158" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1aa7c8f3bdc23dc2d4e8641feac34e7bd9" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::inch_t</type>
+        <definition>constexpr units::inch_t TunerConstants::kBackLeftYPos</definition>
+        <argsstring></argsstring>
+        <name>kBackLeftYPos</name>
+        <qualifiedname>TunerConstants::kBackLeftYPos</qualifiedname>
+        <initializer>= 8.75_in</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="159" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a5d6e7ce5ee840285b2173d692f6ae787" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kBackRightDriveMotorId</definition>
+        <argsstring></argsstring>
+        <name>kBackRightDriveMotorId</name>
+        <qualifiedname>TunerConstants::kBackRightDriveMotorId</qualifiedname>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="162" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a273f44efb7e60e6af6bb9cda93fdc80d" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kBackRightSteerMotorId</definition>
+        <argsstring></argsstring>
+        <name>kBackRightSteerMotorId</name>
+        <qualifiedname>TunerConstants::kBackRightSteerMotorId</qualifiedname>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="163" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a386b7588ad0190a9b95d0aa073ff8f51" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int TunerConstants::kBackRightEncoderId</definition>
+        <argsstring></argsstring>
+        <name>kBackRightEncoderId</name>
+        <qualifiedname>TunerConstants::kBackRightEncoderId</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="164" column="26" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a83faff9d05b681104a81d3893bac5cca" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::turn_t</type>
+        <definition>constexpr units::turn_t TunerConstants::kBackRightEncoderOffset</definition>
+        <argsstring></argsstring>
+        <name>kBackRightEncoderOffset</name>
+        <qualifiedname>TunerConstants::kBackRightEncoderOffset</qualifiedname>
+        <initializer>= 0.455078125_tr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="165" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ad521b427fd3ff28b899f9a69ef86fe95" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kBackRightSteerMotorInverted</definition>
+        <argsstring></argsstring>
+        <name>kBackRightSteerMotorInverted</name>
+        <qualifiedname>TunerConstants::kBackRightSteerMotorInverted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="166" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a0e8ce40fcc86a3d27fa80ea1c70c9c31" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool TunerConstants::kBackRightEncoderInverted</definition>
+        <argsstring></argsstring>
+        <name>kBackRightEncoderInverted</name>
+        <qualifiedname>TunerConstants::kBackRightEncoderInverted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="167" column="27" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ab48ef531bfdbfe9734b5ea6f7e55f8ac" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::inch_t</type>
+        <definition>constexpr units::inch_t TunerConstants::kBackRightXPos</definition>
+        <argsstring></argsstring>
+        <name>kBackRightXPos</name>
+        <qualifiedname>TunerConstants::kBackRightXPos</qualifiedname>
+        <initializer>= -7_in</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="169" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a072bb5739dec908156ab494a0a318ee2" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::inch_t</type>
+        <definition>constexpr units::inch_t TunerConstants::kBackRightYPos</definition>
+        <argsstring></argsstring>
+        <name>kBackRightYPos</name>
+        <qualifiedname>TunerConstants::kBackRightYPos</qualifiedname>
+        <initializer>= -8.75_in</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="170" column="36" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classTunerConstants_1aa469efbceab3a31cdea6564b5f5cafa9" prot="public" static="yes" mutable="no">
+        <type>const CANBus</type>
+        <definition>const CANBus TunerConstants::kCANBus</definition>
+        <argsstring></argsstring>
+        <name>kCANBus</name>
+        <qualifiedname>TunerConstants::kCANBus</qualifiedname>
+        <initializer>{kCANBusName, &quot;./logs/example.hoot&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="70" column="32" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a725d38e45a1a9876bb245be614e81d80" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr units::meters_per_second_t</type>
+        <definition>constexpr units::meters_per_second_t TunerConstants::kSpeedAt12Volts</definition>
+        <argsstring></argsstring>
+        <name>kSpeedAt12Volts</name>
+        <qualifiedname>TunerConstants::kSpeedAt12Volts</qualifiedname>
+        <initializer>= 5.21_mps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="74" column="49" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1af50eeb92162de4ccaacf753ade6504be" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::SwerveDrivetrainConstants</type>
+        <definition>constexpr swerve::SwerveDrivetrainConstants TunerConstants::DrivetrainConstants</definition>
+        <argsstring></argsstring>
+        <name>DrivetrainConstants</name>
+        <qualifiedname>TunerConstants::DrivetrainConstants</qualifiedname>
+        <initializer>= swerve::SwerveDrivetrainConstants{}
+            .WithCANBusName(kCANBusName)
+            .WithPigeon2Id(kPigeonId)
+            .WithPigeon2Configs(pigeonConfigs)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="98" column="56" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1acd96fe234876ed90a639957576545953" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::SwerveModuleConstants</type>
+        <definition>constexpr swerve::SwerveModuleConstants TunerConstants::FrontLeft</definition>
+        <argsstring></argsstring>
+        <name>FrontLeft</name>
+        <qualifiedname>TunerConstants::FrontLeft</qualifiedname>
+        <initializer>= ConstantCreator.CreateModuleConstants(
+            kFrontLeftSteerMotorId, kFrontLeftDriveMotorId, kFrontLeftEncoderId, kFrontLeftEncoderOffset,
+            kFrontLeftXPos, kFrontLeftYPos, kInvertLeftSide, kFrontLeftSteerMotorInverted, kFrontLeftEncoderInverted)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="174" column="52" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1ad620af9372212a2fddcb56e1d0524dc7" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::SwerveModuleConstants</type>
+        <definition>constexpr swerve::SwerveModuleConstants TunerConstants::FrontRight</definition>
+        <argsstring></argsstring>
+        <name>FrontRight</name>
+        <qualifiedname>TunerConstants::FrontRight</qualifiedname>
+        <initializer>= ConstantCreator.CreateModuleConstants(
+            kFrontRightSteerMotorId, kFrontRightDriveMotorId, kFrontRightEncoderId, kFrontRightEncoderOffset,
+            kFrontRightXPos, kFrontRightYPos, kInvertRightSide, kFrontRightSteerMotorInverted, kFrontRightEncoderInverted)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="177" column="52" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a07fdf4f1fbafb187aaefdc181a64bd4f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::SwerveModuleConstants</type>
+        <definition>constexpr swerve::SwerveModuleConstants TunerConstants::BackLeft</definition>
+        <argsstring></argsstring>
+        <name>BackLeft</name>
+        <qualifiedname>TunerConstants::BackLeft</qualifiedname>
+        <initializer>= ConstantCreator.CreateModuleConstants(
+            kBackLeftSteerMotorId, kBackLeftDriveMotorId, kBackLeftEncoderId, kBackLeftEncoderOffset,
+            kBackLeftXPos, kBackLeftYPos, kInvertLeftSide, kBackLeftSteerMotorInverted, kBackLeftEncoderInverted)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="180" column="52" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTunerConstants_1a4652396dca1ee693f68a0ed8cec2a5fe" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr swerve::SwerveModuleConstants</type>
+        <definition>constexpr swerve::SwerveModuleConstants TunerConstants::BackRight</definition>
+        <argsstring></argsstring>
+        <name>BackRight</name>
+        <qualifiedname>TunerConstants::BackRight</qualifiedname>
+        <initializer>= ConstantCreator.CreateModuleConstants(
+            kBackRightSteerMotorId, kBackRightDriveMotorId, kBackRightEncoderId, kBackRightEncoderOffset,
+            kBackRightXPos, kBackRightYPos, kInvertRightSide, kBackRightSteerMotorInverted, kBackRightEncoderInverted)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="183" column="52" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classTunerConstants_1abbe59b658724f13d56a2a9f903d151be" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classsubsystems_1_1CommandSwerveDrivetrain" kindref="compound">subsystems::CommandSwerveDrivetrain</ref></type>
+        <definition>subsystems::CommandSwerveDrivetrain TunerConstants::CreateDrivetrain</definition>
+        <argsstring>()</argsstring>
+        <name>CreateDrivetrain</name>
+        <qualifiedname>TunerConstants::CreateDrivetrain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a CommandSwerveDrivetrain instance. This should only be called once in your robot program. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/generated/TunerConstants.h" line="191" column="48" bodyfile="src/main/cpp/generated/TunerConstants.cpp" bodystart="4" bodyend="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/main/include/generated/TunerConstants.h" line="14" column="1" bodyfile="src/main/include/generated/TunerConstants.h" bodystart="14" bodyend="192"/>
+    <listofallmembers>
+      <member refid="classTunerConstants_1a07fdf4f1fbafb187aaefdc181a64bd4f" prot="public" virt="non-virtual"><scope>TunerConstants</scope><name>BackLeft</name></member>
+      <member refid="classTunerConstants_1a4652396dca1ee693f68a0ed8cec2a5fe" prot="public" virt="non-virtual"><scope>TunerConstants</scope><name>BackRight</name></member>
+      <member refid="classTunerConstants_1a96582c952ac5f85bde338385e23332a5" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>ConstantCreator</name></member>
+      <member refid="classTunerConstants_1abbe59b658724f13d56a2a9f903d151be" prot="public" virt="non-virtual"><scope>TunerConstants</scope><name>CreateDrivetrain</name></member>
+      <member refid="classTunerConstants_1a5120f9b357b390d38f55c04675ac8060" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>driveGains</name></member>
+      <member refid="classTunerConstants_1a8de4905fa24394de3d3e0a95a3c6bf08" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>driveInitialConfigs</name></member>
+      <member refid="classTunerConstants_1af50eeb92162de4ccaacf753ade6504be" prot="public" virt="non-virtual"><scope>TunerConstants</scope><name>DrivetrainConstants</name></member>
+      <member refid="classTunerConstants_1a92781cf155cf0ac9926fcaae4910c69b" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>encoderInitialConfigs</name></member>
+      <member refid="classTunerConstants_1acd96fe234876ed90a639957576545953" prot="public" virt="non-virtual"><scope>TunerConstants</scope><name>FrontLeft</name></member>
+      <member refid="classTunerConstants_1ad620af9372212a2fddcb56e1d0524dc7" prot="public" virt="non-virtual"><scope>TunerConstants</scope><name>FrontRight</name></member>
+      <member refid="classTunerConstants_1af88e7d5019397e335c6a4fcc82b11001" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackLeftDriveMotorId</name></member>
+      <member refid="classTunerConstants_1ae3b3330bdb600b729a6eab3dc9221084" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackLeftEncoderId</name></member>
+      <member refid="classTunerConstants_1ac8f5d52015fef41173f1ffeb654fc90c" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackLeftEncoderInverted</name></member>
+      <member refid="classTunerConstants_1ac9e387a7d1882fc6f261256112aee09e" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackLeftEncoderOffset</name></member>
+      <member refid="classTunerConstants_1ab8f10e8da109edeb92ff5290f43a0ed9" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackLeftSteerMotorId</name></member>
+      <member refid="classTunerConstants_1a029e47fd3daa86a987b0d3f542f98fd3" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackLeftSteerMotorInverted</name></member>
+      <member refid="classTunerConstants_1a7ce95fe61130d205e35022c4001448b5" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackLeftXPos</name></member>
+      <member refid="classTunerConstants_1aa7c8f3bdc23dc2d4e8641feac34e7bd9" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackLeftYPos</name></member>
+      <member refid="classTunerConstants_1a5d6e7ce5ee840285b2173d692f6ae787" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackRightDriveMotorId</name></member>
+      <member refid="classTunerConstants_1a386b7588ad0190a9b95d0aa073ff8f51" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackRightEncoderId</name></member>
+      <member refid="classTunerConstants_1a0e8ce40fcc86a3d27fa80ea1c70c9c31" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackRightEncoderInverted</name></member>
+      <member refid="classTunerConstants_1a83faff9d05b681104a81d3893bac5cca" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackRightEncoderOffset</name></member>
+      <member refid="classTunerConstants_1a273f44efb7e60e6af6bb9cda93fdc80d" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackRightSteerMotorId</name></member>
+      <member refid="classTunerConstants_1ad521b427fd3ff28b899f9a69ef86fe95" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackRightSteerMotorInverted</name></member>
+      <member refid="classTunerConstants_1ab48ef531bfdbfe9734b5ea6f7e55f8ac" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackRightXPos</name></member>
+      <member refid="classTunerConstants_1a072bb5739dec908156ab494a0a318ee2" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kBackRightYPos</name></member>
+      <member refid="classTunerConstants_1aa469efbceab3a31cdea6564b5f5cafa9" prot="public" virt="non-virtual"><scope>TunerConstants</scope><name>kCANBus</name></member>
+      <member refid="classTunerConstants_1a2c01dad7268156c0eb4bec30f43e8863" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kCANBusName</name></member>
+      <member refid="classTunerConstants_1a34d22a47f7ca2e2a75321532924cb0e1" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kCoupleRatio</name></member>
+      <member refid="classTunerConstants_1acca79c896c83fda5aec604ae4a8f1af0" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kDriveClosedLoopOutput</name></member>
+      <member refid="classTunerConstants_1a5397d2b6ff58b9711f28a2243baa741a" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kDriveFrictionVoltage</name></member>
+      <member refid="classTunerConstants_1a197c6038e95a936783b5302238a48554" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kDriveGearRatio</name></member>
+      <member refid="classTunerConstants_1af6c817184e9c9845e1ce22dfa49d42a3" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kDriveInertia</name></member>
+      <member refid="classTunerConstants_1aa534297f2dff47da2d13698ece2855ba" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kDriveMotorType</name></member>
+      <member refid="classTunerConstants_1a262480aa6254ed5533674eb0408e7c2f" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontLeftDriveMotorId</name></member>
+      <member refid="classTunerConstants_1a923480878939206a6e1528079055c20a" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontLeftEncoderId</name></member>
+      <member refid="classTunerConstants_1afe271449b68137469fad7b9ed4cb26be" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontLeftEncoderInverted</name></member>
+      <member refid="classTunerConstants_1ae9e8ab0c4e6401268f034f0476ea3596" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontLeftEncoderOffset</name></member>
+      <member refid="classTunerConstants_1aed7d1b37b00606494a3d91e89e82f925" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontLeftSteerMotorId</name></member>
+      <member refid="classTunerConstants_1a1b9dd7511f6e86629b17cac71d26ffbd" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontLeftSteerMotorInverted</name></member>
+      <member refid="classTunerConstants_1a1eeba655ffeab1575fbf181afa4a5cf8" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontLeftXPos</name></member>
+      <member refid="classTunerConstants_1abe986c273b7355c901be8c7681cd5a9e" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontLeftYPos</name></member>
+      <member refid="classTunerConstants_1a77bfb2dad242c79913bbf4f2a1eada20" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontRightDriveMotorId</name></member>
+      <member refid="classTunerConstants_1a8069365b0c2f2944adf15fc3aa8b6424" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontRightEncoderId</name></member>
+      <member refid="classTunerConstants_1a6bc81610a33b02a1ab4a326a3025a93b" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontRightEncoderInverted</name></member>
+      <member refid="classTunerConstants_1ac93299a3931b4e33a38456ae9ce1ce35" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontRightEncoderOffset</name></member>
+      <member refid="classTunerConstants_1a0333741fec5442fd677d5ae5757980c5" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontRightSteerMotorId</name></member>
+      <member refid="classTunerConstants_1a099ed218970cc4373f2e5471ac0f2b59" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontRightSteerMotorInverted</name></member>
+      <member refid="classTunerConstants_1a6a0a0122b48b450db17d2d2185e05bdb" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontRightXPos</name></member>
+      <member refid="classTunerConstants_1a0631cf09fdba517e8357acf90f9e870f" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kFrontRightYPos</name></member>
+      <member refid="classTunerConstants_1a050ef1c4a726fa9888577d6b47762657" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kInvertLeftSide</name></member>
+      <member refid="classTunerConstants_1a56d8cf7d47dff17da5984732535a1487" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kInvertRightSide</name></member>
+      <member refid="classTunerConstants_1a40b5b2bcb074a5c4beb1a745feb67e08" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kPigeonId</name></member>
+      <member refid="classTunerConstants_1a9e0f36f05d912cba91d98f6d9395c03d" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kSlipCurrent</name></member>
+      <member refid="classTunerConstants_1a725d38e45a1a9876bb245be614e81d80" prot="public" virt="non-virtual"><scope>TunerConstants</scope><name>kSpeedAt12Volts</name></member>
+      <member refid="classTunerConstants_1ab7ba0ca052a7f0ff52cfa0d60b6a1dd1" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kSteerClosedLoopOutput</name></member>
+      <member refid="classTunerConstants_1ac0d8c09356befba151d1b5c250c8e5df" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kSteerFeedbackType</name></member>
+      <member refid="classTunerConstants_1ae1af828dcdf30e6752f30db26668191a" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kSteerFrictionVoltage</name></member>
+      <member refid="classTunerConstants_1aa2891eaa22234a0d759507577e71e380" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kSteerGearRatio</name></member>
+      <member refid="classTunerConstants_1aeada3e8fdd95a1bf77ce979c785c3392" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kSteerInertia</name></member>
+      <member refid="classTunerConstants_1a93b07f81655ee5339bfd45624d887aa2" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kSteerMotorType</name></member>
+      <member refid="classTunerConstants_1a4d8a4034fc9b22bc3fa6a41f6c77dc0b" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>kWheelRadius</name></member>
+      <member refid="classTunerConstants_1ad77c2c07a811a6014b098a2058230e17" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>pigeonConfigs</name></member>
+      <member refid="classTunerConstants_1ab1e8e615994beff51ea4e825f82843d2" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>steerGains</name></member>
+      <member refid="classTunerConstants_1a55f56d80817f6331afdeacf6e6c593de" prot="private" virt="non-virtual"><scope>TunerConstants</scope><name>steerInitialConfigs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

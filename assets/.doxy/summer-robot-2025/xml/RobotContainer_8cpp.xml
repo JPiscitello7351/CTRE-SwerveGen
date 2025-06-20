@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="RobotContainer_8cpp" kind="file" language="C++">
+    <compoundname>RobotContainer.cpp</compoundname>
+    <includes refid="RobotContainer_8h" local="yes">RobotContainer.h</includes>
+    <includes local="no">frc2/command/Commands.h</includes>
+    <includes local="no">frc2/command/button/RobotModeTriggers.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/main/cpp/RobotContainer.cpp</label>
+        <link refid="RobotContainer_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Constants.h</label>
+        <link refid="Constants_8h_source"/>
+      </node>
+      <node id="2">
+        <label>RobotContainer.h</label>
+        <link refid="RobotContainer_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Telemetry.h</label>
+        <link refid="Telemetry_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>generated/TunerConstants.h</label>
+        <link refid="TunerConstants_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>subsystems/CommandSwerveDrivetrain.h</label>
+        <link refid="CommandSwerveDrivetrain_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ctre/phoenix6/SignalLogger.hpp</label>
+      </node>
+      <node id="12">
+        <label>ctre/phoenix6/swerve/SwerveDrivetrain.hpp</label>
+      </node>
+      <node id="7">
+        <label>frc/DriverStation.h</label>
+      </node>
+      <node id="8">
+        <label>frc/Notifier.h</label>
+      </node>
+      <node id="14">
+        <label>frc/smartdashboard/Mechanism2d.h</label>
+      </node>
+      <node id="15">
+        <label>frc/smartdashboard/MechanismLigament2d.h</label>
+      </node>
+      <node id="3">
+        <label>frc2/command/CommandPtr.h</label>
+      </node>
+      <node id="23">
+        <label>frc2/command/Commands.h</label>
+      </node>
+      <node id="9">
+        <label>frc2/command/SubsystemBase.h</label>
+      </node>
+      <node id="4">
+        <label>frc2/command/button/CommandXboxController.h</label>
+      </node>
+      <node id="24">
+        <label>frc2/command/button/RobotModeTriggers.h</label>
+      </node>
+      <node id="10">
+        <label>frc2/command/sysid/SysIdRoutine.h</label>
+      </node>
+      <node id="17">
+        <label>networktables/DoubleArrayTopic.h</label>
+      </node>
+      <node id="18">
+        <label>networktables/DoubleTopic.h</label>
+      </node>
+      <node id="16">
+        <label>networktables/NetworkTableInstance.h</label>
+      </node>
+      <node id="19">
+        <label>networktables/StringTopic.h</label>
+      </node>
+      <node id="20">
+        <label>networktables/StructArrayTopic.h</label>
+      </node>
+      <node id="21">
+        <label>networktables/StructTopic.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>(c)<sp/>FIRST<sp/>and<sp/>other<sp/>WPILib<sp/>contributors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Open<sp/>Source<sp/>Software;<sp/>you<sp/>can<sp/>modify<sp/>and/or<sp/>share<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>WPILib<sp/>BSD<sp/>license<sp/>file<sp/>in<sp/>the<sp/>root<sp/>directory<sp/>of<sp/>this<sp/>project.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;RobotContainer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc2/command/Commands.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc2/command/button/RobotModeTriggers.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">RobotContainer::RobotContainer()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>ConfigureBindings();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RobotContainer::ConfigureBindings()</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Note<sp/>that<sp/>X<sp/>is<sp/>defined<sp/>as<sp/>forward<sp/>according<sp/>to<sp/>WPILib<sp/>convention,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>Y<sp/>is<sp/>defined<sp/>as<sp/>to<sp/>the<sp/>left<sp/>according<sp/>to<sp/>WPILib<sp/>convention.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>drivetrain.SetDefaultCommand(</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Drivetrain<sp/>will<sp/>execute<sp/>this<sp/>command<sp/>periodically</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>drivetrain.<ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1ac3c4ee883fbb80dfd9673014e18cee63" kindref="member">ApplyRequest</ref>([</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>-&gt;<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_driveSpeedMultiplier<sp/>=<sp/>speeds::drive::driveSpeedMultiplier;<sp/></highlight><highlight class="comment">//<sp/>Drive<sp/>speed<sp/>multiplier<sp/>defined<sp/>in<sp/>constants.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_turnSpeedMultiplier<sp/>=<sp/>speeds::drive::turnSpeedMultiplier;<sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>speed<sp/>multiplier<sp/>defined<sp/>in<sp/>constants.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(joystick.RightBumper().Get()){<sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>state<sp/>of<sp/>the<sp/>right<sp/>bumper<sp/>and<sp/>apply<sp/>speed<sp/>changes<sp/>if<sp/>bumper<sp/>is<sp/>pressed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_driveSpeedMultiplier<sp/>=<sp/>speeds::drive::turboDriveSpeedMultiplier;<sp/></highlight><highlight class="comment">//<sp/>Turbo<sp/>speed!!!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_turnSpeedMultiplier<sp/>=<sp/>speeds::drive::turboTurnSpeedMultiplier;<sp/></highlight><highlight class="comment">//<sp/>Turbo<sp/>turn<sp/>rate!!!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>drive.WithVelocityX(-joystick.GetLeftY()<sp/>*<sp/>MaxSpeed<sp/>*<sp/>m_driveSpeedMultiplier)<sp/></highlight><highlight class="comment">//<sp/>Drive<sp/>forward<sp/>with<sp/>negative<sp/>Y<sp/>(forward)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithVelocityY(-joystick.GetLeftX()<sp/>*<sp/>MaxSpeed<sp/>*<sp/>m_driveSpeedMultiplier)<sp/></highlight><highlight class="comment">//<sp/>Drive<sp/>left<sp/>with<sp/>negative<sp/>X<sp/>(left)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.WithRotationalRate(-joystick.GetRightX()<sp/>*<sp/>MaxAngularRate<sp/>*<sp/>m_turnSpeedMultiplier);<sp/></highlight><highlight class="comment">//<sp/>Drive<sp/>counterclockwise<sp/>with<sp/>negative<sp/>X<sp/>(left)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Idle<sp/>while<sp/>the<sp/>robot<sp/>is<sp/>disabled.<sp/>This<sp/>ensures<sp/>the<sp/>configured</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>neutral<sp/>mode<sp/>is<sp/>applied<sp/>to<sp/>the<sp/>drive<sp/>motors<sp/>while<sp/>disabled.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>frc2::RobotModeTriggers::Disabled().WhileTrue(</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>drivetrain.ApplyRequest([]<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>swerve::requests::Idle{};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}).IgnoringDisable(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>joystick.A().WhileTrue(drivetrain.ApplyRequest([</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>-&gt;<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>brake;<sp/>}));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>joystick.B().WhileTrue(drivetrain.ApplyRequest([</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>-&gt;<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>point.WithModuleDirection(frc::Rotation2d{-joystick.GetLeftY(),<sp/>-joystick.GetLeftX()});</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Run<sp/>SysId<sp/>routines<sp/>when<sp/>holding<sp/>back/start<sp/>and<sp/>X/Y.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Note<sp/>that<sp/>each<sp/>routine<sp/>should<sp/>be<sp/>run<sp/>exactly<sp/>once<sp/>in<sp/>a<sp/>single<sp/>log.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>(joystick.Back()<sp/>&amp;&amp;<sp/>joystick.Y()).WhileTrue(drivetrain.SysIdDynamic(frc2::sysid::Direction::kForward));</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>(joystick.Back()<sp/>&amp;&amp;<sp/>joystick.X()).WhileTrue(drivetrain.SysIdDynamic(frc2::sysid::Direction::kReverse));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>(joystick.Start()<sp/>&amp;&amp;<sp/>joystick.Y()).WhileTrue(drivetrain.SysIdQuasistatic(frc2::sysid::Direction::kForward));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>(joystick.Start()<sp/>&amp;&amp;<sp/>joystick.X()).WhileTrue(drivetrain.SysIdQuasistatic(frc2::sysid::Direction::kReverse));</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reset<sp/>the<sp/>field-centric<sp/>heading<sp/>on<sp/>left<sp/>bumper<sp/>press</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>joystick.LeftBumper().OnTrue(drivetrain.RunOnce([</highlight><highlight class="keyword">this</highlight><highlight class="normal">]<sp/>{<sp/>drivetrain.SeedFieldCentric();<sp/>}));</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>drivetrain.RegisterTelemetry([</highlight><highlight class="keyword">this</highlight><highlight class="normal">](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;state)<sp/>{<sp/>logger.Telemeterize(state);<sp/>});</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">frc2::CommandPtr<sp/>RobotContainer::GetAutonomousCommand()</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frc2::cmd::Print(</highlight><highlight class="stringliteral">&quot;No<sp/>autonomous<sp/>command<sp/>configured&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/main/cpp/RobotContainer.cpp"/>
+  </compounddef>
+</doxygen>

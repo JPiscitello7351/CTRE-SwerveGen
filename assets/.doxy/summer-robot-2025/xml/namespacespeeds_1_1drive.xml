@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacespeeds_1_1drive" kind="namespace" language="C++">
+    <compoundname>speeds::drive</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="Constants_8h_1a278bd699625ac7086c3d4b609ae5244c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double speeds::drive::driveSpeedMultiplier</definition>
+        <argsstring></argsstring>
+        <name>driveSpeedMultiplier</name>
+        <qualifiedname>speeds::drive::driveSpeedMultiplier</qualifiedname>
+        <initializer>= 0.5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Constants.h" line="19" column="26" bodyfile="src/main/include/Constants.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Constants_8h_1ad2329a40f040142b5608cd31c900e0eb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double speeds::drive::turnSpeedMultiplier</definition>
+        <argsstring></argsstring>
+        <name>turnSpeedMultiplier</name>
+        <qualifiedname>speeds::drive::turnSpeedMultiplier</qualifiedname>
+        <initializer>= 1.25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Constants.h" line="20" column="26" bodyfile="src/main/include/Constants.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Constants_8h_1a31a06277839f46f31cffdb3a934a1035" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double speeds::drive::turboDriveSpeedMultiplier</definition>
+        <argsstring></argsstring>
+        <name>turboDriveSpeedMultiplier</name>
+        <qualifiedname>speeds::drive::turboDriveSpeedMultiplier</qualifiedname>
+        <initializer>= 0.75</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Constants.h" line="21" column="26" bodyfile="src/main/include/Constants.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Constants_8h_1adf4698a9283044ca662ea9a4d910dcdc" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double speeds::drive::turboTurnSpeedMultiplier</definition>
+        <argsstring></argsstring>
+        <name>turboTurnSpeedMultiplier</name>
+        <qualifiedname>speeds::drive::turboTurnSpeedMultiplier</qualifiedname>
+        <initializer>= 1.25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Constants.h" line="22" column="26" bodyfile="src/main/include/Constants.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/main/include/Constants.h" line="18" column="5"/>
+  </compounddef>
+</doxygen>

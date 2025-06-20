@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_df3bee86fdbfb464c3a94507855b0bdc" kind="dir">
+    <compoundname>src/main/include</compoundname>
+    <innerdir refid="dir_0124c58e4f5bd23a187964ec70117c77">src/main/include/generated</innerdir>
+    <innerdir refid="dir_5b31952f813df36dabbaa31d5b8f92e5">src/main/include/subsystems</innerdir>
+    <innerfile refid="Constants_8h">Constants.h</innerfile>
+    <innerfile refid="Robot_8h">Robot.h</innerfile>
+    <innerfile refid="RobotContainer_8h">RobotContainer.h</innerfile>
+    <innerfile refid="Telemetry_8h">Telemetry.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/main/include/"/>
+  </compounddef>
+</doxygen>

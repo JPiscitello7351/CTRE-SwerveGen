@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="CommandSwerveDrivetrain_8cpp" kind="file" language="C++">
+    <compoundname>CommandSwerveDrivetrain.cpp</compoundname>
+    <includes refid="CommandSwerveDrivetrain_8h" local="yes">subsystems/CommandSwerveDrivetrain.h</includes>
+    <includes local="no">frc/RobotController.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/main/cpp/subsystems/CommandSwerveDrivetrain.cpp</label>
+        <link refid="CommandSwerveDrivetrain_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>generated/TunerConstants.h</label>
+        <link refid="TunerConstants_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>subsystems/CommandSwerveDrivetrain.h</label>
+        <link refid="CommandSwerveDrivetrain_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ctre/phoenix6/SignalLogger.hpp</label>
+      </node>
+      <node id="10">
+        <label>ctre/phoenix6/swerve/SwerveDrivetrain.hpp</label>
+      </node>
+      <node id="4">
+        <label>frc/DriverStation.h</label>
+      </node>
+      <node id="5">
+        <label>frc/Notifier.h</label>
+      </node>
+      <node id="11">
+        <label>frc/RobotController.h</label>
+      </node>
+      <node id="6">
+        <label>frc2/command/CommandPtr.h</label>
+      </node>
+      <node id="7">
+        <label>frc2/command/SubsystemBase.h</label>
+      </node>
+      <node id="8">
+        <label>frc2/command/sysid/SysIdRoutine.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;subsystems/CommandSwerveDrivetrain.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc/RobotController.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">subsystems;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CommandSwerveDrivetrain::Periodic()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Periodically<sp/>try<sp/>to<sp/>apply<sp/>the<sp/>operator<sp/>perspective.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>If<sp/>we<sp/>haven&apos;t<sp/>applied<sp/>the<sp/>operator<sp/>perspective<sp/>before,<sp/>then<sp/>we<sp/>should<sp/>apply<sp/>it<sp/>regardless<sp/>of<sp/>DS<sp/>state.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>This<sp/>allows<sp/>us<sp/>to<sp/>correct<sp/>the<sp/>perspective<sp/>in<sp/>case<sp/>the<sp/>robot<sp/>code<sp/>restarts<sp/>mid-match.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Otherwise,<sp/>only<sp/>check<sp/>and<sp/>apply<sp/>the<sp/>operator<sp/>perspective<sp/>if<sp/>the<sp/>DS<sp/>is<sp/>disabled.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>This<sp/>ensures<sp/>driving<sp/>behavior<sp/>doesn&apos;t<sp/>change<sp/>until<sp/>an<sp/>explicit<sp/>disable<sp/>event<sp/>occurs<sp/>during<sp/>testing.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!m_hasAppliedOperatorPerspective<sp/>||<sp/>frc::DriverStation::IsDisabled())<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>allianceColor<sp/>=<sp/>frc::DriverStation::GetAlliance();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(allianceColor)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetOperatorPerspectiveForward(</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*allianceColor<sp/>==<sp/>frc::DriverStation::Alliance::kRed</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>kRedAlliancePerspectiveRotation</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>kBlueAlliancePerspectiveRotation</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_hasAppliedOperatorPerspective<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CommandSwerveDrivetrain::StartSimThread()</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>m_lastSimTime<sp/>=<sp/>utils::GetCurrentTime();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>m_simNotifier<sp/>=<sp/>std::make_unique&lt;frc::Notifier&gt;([</highlight><highlight class="keyword">this</highlight><highlight class="normal">]<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>units::second_t<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>currentTime<sp/>=<sp/>utils::GetCurrentTime();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>deltaTime<sp/>=<sp/>currentTime<sp/>-<sp/>m_lastSimTime;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_lastSimTime<sp/>=<sp/>currentTime;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>use<sp/>the<sp/>measured<sp/>time<sp/>delta,<sp/>get<sp/>battery<sp/>voltage<sp/>from<sp/>WPILib<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UpdateSimState(deltaTime,<sp/>frc::RobotController::GetBatteryVoltage());</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>m_simNotifier-&gt;StartPeriodic(kSimLoopPeriod);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/main/cpp/subsystems/CommandSwerveDrivetrain.cpp"/>
+  </compounddef>
+</doxygen>

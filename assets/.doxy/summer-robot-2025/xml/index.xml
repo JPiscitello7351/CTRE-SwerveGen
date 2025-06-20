@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classsubsystems_1_1CommandSwerveDrivetrain" kind="class"><name>subsystems::CommandSwerveDrivetrain</name>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a16ceb75efc259b77cf42a35099272d5b" kind="variable"><name>kSimLoopPeriod</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1aa6650c78a8e88082743c45f54805c9cf" kind="variable"><name>kBlueAlliancePerspectiveRotation</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a5104a8d334d95c442a9f9c34a7ffffce" kind="variable"><name>kRedAlliancePerspectiveRotation</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a852cdb662c4f5dc9ddc5df4a8a500fca" kind="variable"><name>m_simNotifier</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a21f0aa9f1a2887b0a589aa79f886b469" kind="variable"><name>m_lastSimTime</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1ab454b508a3deba06a2e313863455fdf2" kind="variable"><name>m_hasAppliedOperatorPerspective</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a39988c888ad641ac0b7d93634f016acb" kind="variable"><name>m_translationCharacterization</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1ab1302a856a4708fe2115f7ac946d8d2d" kind="variable"><name>m_steerCharacterization</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1afa6704971af0f9fcb64f60ddcf3c66cb" kind="variable"><name>m_rotationCharacterization</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1af02f3f69e54811f67f89c2b4271fd093" kind="variable"><name>m_sysIdRoutineTranslation</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a9d3e84d816cf8b1f49ce508f2f149b0a" kind="variable"><name>m_sysIdRoutineSteer</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1add726ff82f43a7abbe87d47baba5fccb" kind="variable"><name>m_sysIdRoutineRotation</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a549efe677d86ad2a35e2b66c687b8373" kind="variable"><name>m_sysIdRoutineToApply</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a7c7e962a40c66081e53b451aa3e46c51" kind="function"><name>CommandSwerveDrivetrain</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a2e64964c211ba0bed80da64501758658" kind="function"><name>CommandSwerveDrivetrain</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a3892ff275298d3388f94b5acc0efde76" kind="function"><name>CommandSwerveDrivetrain</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1ac3c4ee883fbb80dfd9673014e18cee63" kind="function"><name>ApplyRequest</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1ad17a01c40e4fc5aacda371c660b656ea" kind="function"><name>ApplyRequest</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a0ff6c866ecd5045e61cc40941c5db42c" kind="function"><name>Periodic</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1af403818c21ec3ebe0a3e65839e8e7e8d" kind="function"><name>SysIdQuasistatic</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a4421bfdeb6697f18512d8b0250f1ff70" kind="function"><name>SysIdDynamic</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1aae2282f06e966a8777eb9612681721db" kind="function"><name>AddVisionMeasurement</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a4fc3f74712ea5142af04ecaddf5546b4" kind="function"><name>AddVisionMeasurement</name></member>
+    <member refid="classsubsystems_1_1CommandSwerveDrivetrain_1a8279933692e046d8e24b9c6a2d2b9577" kind="function"><name>StartSimThread</name></member>
+  </compound>
+  <compound refid="classRobot" kind="class"><name>Robot</name>
+    <member refid="classRobot_1acd05116368239145afa411529a261f19" kind="variable"><name>m_autonomousCommand</name></member>
+    <member refid="classRobot_1ae31bf18f9afb23bab45458605fb73ea7" kind="variable"><name>m_container</name></member>
+    <member refid="classRobot_1a4fc7c70ae20623f05e06f2ecb388b6c4" kind="function"><name>Robot</name></member>
+    <member refid="classRobot_1a8fad82c2250bcfb83b743b5c0dd6ed27" kind="function"><name>RobotPeriodic</name></member>
+    <member refid="classRobot_1a810e6143a208a6314491366e3c714357" kind="function"><name>DisabledInit</name></member>
+    <member refid="classRobot_1a8c7309f5f1cb242ea8c74f1abf03b540" kind="function"><name>DisabledPeriodic</name></member>
+    <member refid="classRobot_1a3e8290a0f78f2c48a6150b54dd219430" kind="function"><name>DisabledExit</name></member>
+    <member refid="classRobot_1a2136cfc015936285218c8a8db984d6bc" kind="function"><name>AutonomousInit</name></member>
+    <member refid="classRobot_1ac11143dd674e0e02fef5329e2df24830" kind="function"><name>AutonomousPeriodic</name></member>
+    <member refid="classRobot_1adc43256c650520c26a7922a25c989164" kind="function"><name>AutonomousExit</name></member>
+    <member refid="classRobot_1aa3e246794bfbbb4406fc87f351762038" kind="function"><name>TeleopInit</name></member>
+    <member refid="classRobot_1a324322627c63b3870daf7c7ddc5bea63" kind="function"><name>TeleopPeriodic</name></member>
+    <member refid="classRobot_1a86358dc300c228a6ec137b94923b6ca6" kind="function"><name>TeleopExit</name></member>
+    <member refid="classRobot_1a9ac222d45d30a6d0c572fd36d18c6ccc" kind="function"><name>TestInit</name></member>
+    <member refid="classRobot_1af0ac44a962e609e9b042285e699d1db8" kind="function"><name>TestPeriodic</name></member>
+    <member refid="classRobot_1a59bc9b0a3a369f6724f6a736e8446397" kind="function"><name>TestExit</name></member>
+  </compound>
+  <compound refid="classRobotContainer" kind="class"><name>RobotContainer</name>
+    <member refid="classRobotContainer_1a4c08f4474337ac22e159a0e6d3aa9c5f" kind="variable"><name>MaxSpeed</name></member>
+    <member refid="classRobotContainer_1a907a2c31ff4413f5e611efeebae49d15" kind="variable"><name>MaxAngularRate</name></member>
+    <member refid="classRobotContainer_1aa12446ce9aebea50f5fef3f01f886a1e" kind="variable"><name>m_driveSpeedMultiplier</name></member>
+    <member refid="classRobotContainer_1a680f0697acf2b0d5bdc6d9804bee4e41" kind="variable"><name>m_turnSpeedMultiplier</name></member>
+    <member refid="classRobotContainer_1a80a725e7344ff3232fb426cba6bd861c" kind="variable"><name>drive</name></member>
+    <member refid="classRobotContainer_1a6a2ca7319c07454e23b1ad24c4059e8b" kind="variable"><name>brake</name></member>
+    <member refid="classRobotContainer_1a53ccdc2ad9f6e0066e772ed8d3cd3c2e" kind="variable"><name>point</name></member>
+    <member refid="classRobotContainer_1ae79ac0ea1157312b636c089f1cae8af7" kind="variable"><name>logger</name></member>
+    <member refid="classRobotContainer_1a8e99d92c84f681e7752be2f28b7cd4e6" kind="variable"><name>joystick</name></member>
+    <member refid="classRobotContainer_1a28918417c1d54557f7b71caabcad48ad" kind="variable"><name>drivetrain</name></member>
+    <member refid="classRobotContainer_1ac508e6c51edfa97eb18e3412fe83ad8f" kind="function"><name>RobotContainer</name></member>
+    <member refid="classRobotContainer_1ac4c0fbb295701307cc4ef82c2a9cafc0" kind="function"><name>GetAutonomousCommand</name></member>
+    <member refid="classRobotContainer_1a7ef289b1e2aab4def60d7b6c708c8a37" kind="function"><name>ConfigureBindings</name></member>
+  </compound>
+  <compound refid="classTelemetry" kind="class"><name>Telemetry</name>
+    <member refid="classTelemetry_1aa98e20abc16e48c31c029bb4e6c50722" kind="variable"><name>MaxSpeed</name></member>
+    <member refid="classTelemetry_1a678a88c73b74625b6b282cd9a547d124" kind="variable"><name>inst</name></member>
+    <member refid="classTelemetry_1ada6ef824055c3633da4f10e3d01394ce" kind="variable"><name>driveStateTable</name></member>
+    <member refid="classTelemetry_1ad91d90336b8da4703444a68adbfe8024" kind="variable"><name>drivePose</name></member>
+    <member refid="classTelemetry_1a8a49205c9b6e2833586a8930fbfc7aa6" kind="variable"><name>driveSpeeds</name></member>
+    <member refid="classTelemetry_1a20f2fee0bed662f5da5283c74992d6fe" kind="variable"><name>driveModuleStates</name></member>
+    <member refid="classTelemetry_1af63a3402bb2c91be46a96dac87466d93" kind="variable"><name>driveModuleTargets</name></member>
+    <member refid="classTelemetry_1a565ae85dd90dd16ec80a6b7952c8083c" kind="variable"><name>driveModulePositions</name></member>
+    <member refid="classTelemetry_1a247cf1d9217d9c2fdea3e72e57732f1b" kind="variable"><name>driveTimestamp</name></member>
+    <member refid="classTelemetry_1adbf70a8bbce014bbd097e6f505e6f267" kind="variable"><name>driveOdometryFrequency</name></member>
+    <member refid="classTelemetry_1a5955c1129d0cbf477bb0694f0c20dcdb" kind="variable"><name>table</name></member>
+    <member refid="classTelemetry_1af5391383c169963883a3c97348374340" kind="variable"><name>fieldPub</name></member>
+    <member refid="classTelemetry_1ab7096bfdc22ca431101b7d989aad0d7f" kind="variable"><name>fieldTypePub</name></member>
+    <member refid="classTelemetry_1ac8b0b67aff255d9d67b8b7ea7d255ccc" kind="variable"><name>m_moduleMechanisms</name></member>
+    <member refid="classTelemetry_1a64f0aff892e93fa21adf87831478f938" kind="variable"><name>m_moduleSpeeds</name></member>
+    <member refid="classTelemetry_1a81090daa9ebf268c06f9dc2af7bb73f1" kind="variable"><name>m_moduleDirections</name></member>
+    <member refid="classTelemetry_1a288dded9cb9535abcb597582307022a9" kind="function"><name>Telemetry</name></member>
+    <member refid="classTelemetry_1a8725e4b0514dc7021d3e46db08d3371f" kind="function"><name>Telemeterize</name></member>
+  </compound>
+  <compound refid="classTunerConstants" kind="class"><name>TunerConstants</name>
+    <member refid="classTunerConstants_1ab1e8e615994beff51ea4e825f82843d2" kind="variable"><name>steerGains</name></member>
+    <member refid="classTunerConstants_1a5120f9b357b390d38f55c04675ac8060" kind="variable"><name>driveGains</name></member>
+    <member refid="classTunerConstants_1ab7ba0ca052a7f0ff52cfa0d60b6a1dd1" kind="variable"><name>kSteerClosedLoopOutput</name></member>
+    <member refid="classTunerConstants_1acca79c896c83fda5aec604ae4a8f1af0" kind="variable"><name>kDriveClosedLoopOutput</name></member>
+    <member refid="classTunerConstants_1aa534297f2dff47da2d13698ece2855ba" kind="variable"><name>kDriveMotorType</name></member>
+    <member refid="classTunerConstants_1a93b07f81655ee5339bfd45624d887aa2" kind="variable"><name>kSteerMotorType</name></member>
+    <member refid="classTunerConstants_1ac0d8c09356befba151d1b5c250c8e5df" kind="variable"><name>kSteerFeedbackType</name></member>
+    <member refid="classTunerConstants_1a9e0f36f05d912cba91d98f6d9395c03d" kind="variable"><name>kSlipCurrent</name></member>
+    <member refid="classTunerConstants_1a8de4905fa24394de3d3e0a95a3c6bf08" kind="variable"><name>driveInitialConfigs</name></member>
+    <member refid="classTunerConstants_1a55f56d80817f6331afdeacf6e6c593de" kind="variable"><name>steerInitialConfigs</name></member>
+    <member refid="classTunerConstants_1a92781cf155cf0ac9926fcaae4910c69b" kind="variable"><name>encoderInitialConfigs</name></member>
+    <member refid="classTunerConstants_1ad77c2c07a811a6014b098a2058230e17" kind="variable"><name>pigeonConfigs</name></member>
+    <member refid="classTunerConstants_1a2c01dad7268156c0eb4bec30f43e8863" kind="variable"><name>kCANBusName</name></member>
+    <member refid="classTunerConstants_1a34d22a47f7ca2e2a75321532924cb0e1" kind="variable"><name>kCoupleRatio</name></member>
+    <member refid="classTunerConstants_1a197c6038e95a936783b5302238a48554" kind="variable"><name>kDriveGearRatio</name></member>
+    <member refid="classTunerConstants_1aa2891eaa22234a0d759507577e71e380" kind="variable"><name>kSteerGearRatio</name></member>
+    <member refid="classTunerConstants_1a4d8a4034fc9b22bc3fa6a41f6c77dc0b" kind="variable"><name>kWheelRadius</name></member>
+    <member refid="classTunerConstants_1a050ef1c4a726fa9888577d6b47762657" kind="variable"><name>kInvertLeftSide</name></member>
+    <member refid="classTunerConstants_1a56d8cf7d47dff17da5984732535a1487" kind="variable"><name>kInvertRightSide</name></member>
+    <member refid="classTunerConstants_1a40b5b2bcb074a5c4beb1a745feb67e08" kind="variable"><name>kPigeonId</name></member>
+    <member refid="classTunerConstants_1aeada3e8fdd95a1bf77ce979c785c3392" kind="variable"><name>kSteerInertia</name></member>
+    <member refid="classTunerConstants_1af6c817184e9c9845e1ce22dfa49d42a3" kind="variable"><name>kDriveInertia</name></member>
+    <member refid="classTunerConstants_1ae1af828dcdf30e6752f30db26668191a" kind="variable"><name>kSteerFrictionVoltage</name></member>
+    <member refid="classTunerConstants_1a5397d2b6ff58b9711f28a2243baa741a" kind="variable"><name>kDriveFrictionVoltage</name></member>
+    <member refid="classTunerConstants_1a96582c952ac5f85bde338385e23332a5" kind="variable"><name>ConstantCreator</name></member>
+    <member refid="classTunerConstants_1a262480aa6254ed5533674eb0408e7c2f" kind="variable"><name>kFrontLeftDriveMotorId</name></member>
+    <member refid="classTunerConstants_1aed7d1b37b00606494a3d91e89e82f925" kind="variable"><name>kFrontLeftSteerMotorId</name></member>
+    <member refid="classTunerConstants_1a923480878939206a6e1528079055c20a" kind="variable"><name>kFrontLeftEncoderId</name></member>
+    <member refid="classTunerConstants_1ae9e8ab0c4e6401268f034f0476ea3596" kind="variable"><name>kFrontLeftEncoderOffset</name></member>
+    <member refid="classTunerConstants_1a1b9dd7511f6e86629b17cac71d26ffbd" kind="variable"><name>kFrontLeftSteerMotorInverted</name></member>
+    <member refid="classTunerConstants_1afe271449b68137469fad7b9ed4cb26be" kind="variable"><name>kFrontLeftEncoderInverted</name></member>
+    <member refid="classTunerConstants_1a1eeba655ffeab1575fbf181afa4a5cf8" kind="variable"><name>kFrontLeftXPos</name></member>
+    <member refid="classTunerConstants_1abe986c273b7355c901be8c7681cd5a9e" kind="variable"><name>kFrontLeftYPos</name></member>
+    <member refid="classTunerConstants_1a77bfb2dad242c79913bbf4f2a1eada20" kind="variable"><name>kFrontRightDriveMotorId</name></member>
+    <member refid="classTunerConstants_1a0333741fec5442fd677d5ae5757980c5" kind="variable"><name>kFrontRightSteerMotorId</name></member>
+    <member refid="classTunerConstants_1a8069365b0c2f2944adf15fc3aa8b6424" kind="variable"><name>kFrontRightEncoderId</name></member>
+    <member refid="classTunerConstants_1ac93299a3931b4e33a38456ae9ce1ce35" kind="variable"><name>kFrontRightEncoderOffset</name></member>
+    <member refid="classTunerConstants_1a099ed218970cc4373f2e5471ac0f2b59" kind="variable"><name>kFrontRightSteerMotorInverted</name></member>
+    <member refid="classTunerConstants_1a6bc81610a33b02a1ab4a326a3025a93b" kind="variable"><name>kFrontRightEncoderInverted</name></member>
+    <member refid="classTunerConstants_1a6a0a0122b48b450db17d2d2185e05bdb" kind="variable"><name>kFrontRightXPos</name></member>
+    <member refid="classTunerConstants_1a0631cf09fdba517e8357acf90f9e870f" kind="variable"><name>kFrontRightYPos</name></member>
+    <member refid="classTunerConstants_1af88e7d5019397e335c6a4fcc82b11001" kind="variable"><name>kBackLeftDriveMotorId</name></member>
+    <member refid="classTunerConstants_1ab8f10e8da109edeb92ff5290f43a0ed9" kind="variable"><name>kBackLeftSteerMotorId</name></member>
+    <member refid="classTunerConstants_1ae3b3330bdb600b729a6eab3dc9221084" kind="variable"><name>kBackLeftEncoderId</name></member>
+    <member refid="classTunerConstants_1ac9e387a7d1882fc6f261256112aee09e" kind="variable"><name>kBackLeftEncoderOffset</name></member>
+    <member refid="classTunerConstants_1a029e47fd3daa86a987b0d3f542f98fd3" kind="variable"><name>kBackLeftSteerMotorInverted</name></member>
+    <member refid="classTunerConstants_1ac8f5d52015fef41173f1ffeb654fc90c" kind="variable"><name>kBackLeftEncoderInverted</name></member>
+    <member refid="classTunerConstants_1a7ce95fe61130d205e35022c4001448b5" kind="variable"><name>kBackLeftXPos</name></member>
+    <member refid="classTunerConstants_1aa7c8f3bdc23dc2d4e8641feac34e7bd9" kind="variable"><name>kBackLeftYPos</name></member>
+    <member refid="classTunerConstants_1a5d6e7ce5ee840285b2173d692f6ae787" kind="variable"><name>kBackRightDriveMotorId</name></member>
+    <member refid="classTunerConstants_1a273f44efb7e60e6af6bb9cda93fdc80d" kind="variable"><name>kBackRightSteerMotorId</name></member>
+    <member refid="classTunerConstants_1a386b7588ad0190a9b95d0aa073ff8f51" kind="variable"><name>kBackRightEncoderId</name></member>
+    <member refid="classTunerConstants_1a83faff9d05b681104a81d3893bac5cca" kind="variable"><name>kBackRightEncoderOffset</name></member>
+    <member refid="classTunerConstants_1ad521b427fd3ff28b899f9a69ef86fe95" kind="variable"><name>kBackRightSteerMotorInverted</name></member>
+    <member refid="classTunerConstants_1a0e8ce40fcc86a3d27fa80ea1c70c9c31" kind="variable"><name>kBackRightEncoderInverted</name></member>
+    <member refid="classTunerConstants_1ab48ef531bfdbfe9734b5ea6f7e55f8ac" kind="variable"><name>kBackRightXPos</name></member>
+    <member refid="classTunerConstants_1a072bb5739dec908156ab494a0a318ee2" kind="variable"><name>kBackRightYPos</name></member>
+    <member refid="classTunerConstants_1aa469efbceab3a31cdea6564b5f5cafa9" kind="variable"><name>kCANBus</name></member>
+    <member refid="classTunerConstants_1a725d38e45a1a9876bb245be614e81d80" kind="variable"><name>kSpeedAt12Volts</name></member>
+    <member refid="classTunerConstants_1af50eeb92162de4ccaacf753ade6504be" kind="variable"><name>DrivetrainConstants</name></member>
+    <member refid="classTunerConstants_1acd96fe234876ed90a639957576545953" kind="variable"><name>FrontLeft</name></member>
+    <member refid="classTunerConstants_1ad620af9372212a2fddcb56e1d0524dc7" kind="variable"><name>FrontRight</name></member>
+    <member refid="classTunerConstants_1a07fdf4f1fbafb187aaefdc181a64bd4f" kind="variable"><name>BackLeft</name></member>
+    <member refid="classTunerConstants_1a4652396dca1ee693f68a0ed8cec2a5fe" kind="variable"><name>BackRight</name></member>
+    <member refid="classTunerConstants_1abbe59b658724f13d56a2a9f903d151be" kind="function"><name>CreateDrivetrain</name></member>
+  </compound>
+  <compound refid="classTunerSwerveDrivetrain" kind="class"><name>TunerSwerveDrivetrain</name>
+    <member refid="classTunerSwerveDrivetrain_1a219750ad0532dc2228b8c9568136731a" kind="typedef"><name>SwerveModuleConstants</name></member>
+    <member refid="classTunerSwerveDrivetrain_1acb3919ca13bc9ce7c4ec8e283f60873a" kind="function"><name>TunerSwerveDrivetrain</name></member>
+    <member refid="classTunerSwerveDrivetrain_1aa351625c47db0d2095ac08c12d56639f" kind="function"><name>TunerSwerveDrivetrain</name></member>
+    <member refid="classTunerSwerveDrivetrain_1a708b8a8355195a6b563fe6eece167ec7" kind="function"><name>TunerSwerveDrivetrain</name></member>
+  </compound>
+  <compound refid="namespacectre_1_1phoenix6" kind="namespace"><name>ctre::phoenix6</name>
+  </compound>
+  <compound refid="namespacefrc" kind="namespace"><name>frc</name>
+  </compound>
+  <compound refid="namespacefrc2" kind="namespace"><name>frc2</name>
+  </compound>
+  <compound refid="namespacespeeds" kind="namespace"><name>speeds</name>
+  </compound>
+  <compound refid="namespacespeeds_1_1drive" kind="namespace"><name>speeds::drive</name>
+    <member refid="Constants_8h_1a278bd699625ac7086c3d4b609ae5244c" kind="variable"><name>driveSpeedMultiplier</name></member>
+    <member refid="Constants_8h_1ad2329a40f040142b5608cd31c900e0eb" kind="variable"><name>turnSpeedMultiplier</name></member>
+    <member refid="Constants_8h_1a31a06277839f46f31cffdb3a934a1035" kind="variable"><name>turboDriveSpeedMultiplier</name></member>
+    <member refid="Constants_8h_1adf4698a9283044ca662ea9a4d910dcdc" kind="variable"><name>turboTurnSpeedMultiplier</name></member>
+  </compound>
+  <compound refid="namespacesubsystems" kind="namespace"><name>subsystems</name>
+  </compound>
+  <compound refid="namespaceswerve" kind="namespace"><name>swerve</name>
+  </compound>
+  <compound refid="TunerConstants_8cpp" kind="file"><name>TunerConstants.cpp</name>
+  </compound>
+  <compound refid="Robot_8cpp" kind="file"><name>Robot.cpp</name>
+    <member refid="Robot_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="RobotContainer_8cpp" kind="file"><name>RobotContainer.cpp</name>
+  </compound>
+  <compound refid="CommandSwerveDrivetrain_8cpp" kind="file"><name>CommandSwerveDrivetrain.cpp</name>
+  </compound>
+  <compound refid="Telemetry_8cpp" kind="file"><name>Telemetry.cpp</name>
+  </compound>
+  <compound refid="Constants_8h" kind="file"><name>Constants.h</name>
+  </compound>
+  <compound refid="TunerConstants_8h" kind="file"><name>TunerConstants.h</name>
+  </compound>
+  <compound refid="Robot_8h" kind="file"><name>Robot.h</name>
+  </compound>
+  <compound refid="RobotContainer_8h" kind="file"><name>RobotContainer.h</name>
+  </compound>
+  <compound refid="CommandSwerveDrivetrain_8h" kind="file"><name>CommandSwerveDrivetrain.h</name>
+  </compound>
+  <compound refid="Telemetry_8h" kind="file"><name>Telemetry.h</name>
+  </compound>
+  <compound refid="dir_fdf2b31f12d3ebb2f617242d0514024b" kind="dir"><name>src/main/cpp</name>
+  </compound>
+  <compound refid="dir_548f091a957a3b24798cc181b1013b81" kind="dir"><name>src/main/cpp/generated</name>
+  </compound>
+  <compound refid="dir_0124c58e4f5bd23a187964ec70117c77" kind="dir"><name>src/main/include/generated</name>
+  </compound>
+  <compound refid="dir_df3bee86fdbfb464c3a94507855b0bdc" kind="dir"><name>src/main/include</name>
+  </compound>
+  <compound refid="dir_5eb159725f84c66aafd839904a4acdd0" kind="dir"><name>src/main</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_2a59f1b00facdb43e21fc1c516c8806d" kind="dir"><name>src/main/cpp/subsystems</name>
+  </compound>
+  <compound refid="dir_5b31952f813df36dabbaa31d5b8f92e5" kind="dir"><name>src/main/include/subsystems</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRobotContainer" kind="class" language="C++" prot="public">
+    <compoundname>RobotContainer</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRobotContainer_1a4c08f4474337ac22e159a0e6d3aa9c5f" prot="private" static="no" mutable="no">
+        <type>units::meters_per_second_t</type>
+        <definition>units::meters_per_second_t RobotContainer::MaxSpeed</definition>
+        <argsstring></argsstring>
+        <name>MaxSpeed</name>
+        <qualifiedname>RobotContainer::MaxSpeed</qualifiedname>
+        <initializer>= TunerConstants::kSpeedAt12Volts</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="15" column="32" bodyfile="src/main/include/RobotContainer.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRobotContainer_1a907a2c31ff4413f5e611efeebae49d15" prot="private" static="no" mutable="no">
+        <type>units::radians_per_second_t</type>
+        <definition>units::radians_per_second_t RobotContainer::MaxAngularRate</definition>
+        <argsstring></argsstring>
+        <name>MaxAngularRate</name>
+        <qualifiedname>RobotContainer::MaxAngularRate</qualifiedname>
+        <initializer>= 0.75_tps</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="16" column="33" bodyfile="src/main/include/RobotContainer.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRobotContainer_1aa12446ce9aebea50f5fef3f01f886a1e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RobotContainer::m_driveSpeedMultiplier</definition>
+        <argsstring></argsstring>
+        <name>m_driveSpeedMultiplier</name>
+        <qualifiedname>RobotContainer::m_driveSpeedMultiplier</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="18" column="12" bodyfile="src/main/include/RobotContainer.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRobotContainer_1a680f0697acf2b0d5bdc6d9804bee4e41" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RobotContainer::m_turnSpeedMultiplier</definition>
+        <argsstring></argsstring>
+        <name>m_turnSpeedMultiplier</name>
+        <qualifiedname>RobotContainer::m_turnSpeedMultiplier</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="19" column="12" bodyfile="src/main/include/RobotContainer.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRobotContainer_1a80a725e7344ff3232fb426cba6bd861c" prot="private" static="no" mutable="no">
+        <type>swerve::requests::FieldCentric</type>
+        <definition>swerve::requests::FieldCentric RobotContainer::drive</definition>
+        <argsstring></argsstring>
+        <name>drive</name>
+        <qualifiedname>RobotContainer::drive</qualifiedname>
+        <initializer>= swerve::requests::FieldCentric{}
+        .WithDeadband(MaxSpeed * 0.1).WithRotationalDeadband(MaxAngularRate * 0.1) 
+        .WithDriveRequestType(swerve::DriveRequestType::OpenLoopVoltage)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="22" column="36" bodyfile="src/main/include/RobotContainer.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRobotContainer_1a6a2ca7319c07454e23b1ad24c4059e8b" prot="private" static="no" mutable="no">
+        <type>swerve::requests::SwerveDriveBrake</type>
+        <definition>swerve::requests::SwerveDriveBrake RobotContainer::brake</definition>
+        <argsstring></argsstring>
+        <name>brake</name>
+        <qualifiedname>RobotContainer::brake</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="25" column="40" bodyfile="src/main/include/RobotContainer.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRobotContainer_1a53ccdc2ad9f6e0066e772ed8d3cd3c2e" prot="private" static="no" mutable="no">
+        <type>swerve::requests::PointWheelsAt</type>
+        <definition>swerve::requests::PointWheelsAt RobotContainer::point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <qualifiedname>RobotContainer::point</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="26" column="37" bodyfile="src/main/include/RobotContainer.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRobotContainer_1ae79ac0ea1157312b636c089f1cae8af7" prot="private" static="no" mutable="no">
+        <type><ref refid="classTelemetry" kindref="compound">Telemetry</ref></type>
+        <definition>Telemetry RobotContainer::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <qualifiedname>RobotContainer::logger</qualifiedname>
+        <initializer>{MaxSpeed}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="30" column="15" bodyfile="src/main/include/RobotContainer.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRobotContainer_1a8e99d92c84f681e7752be2f28b7cd4e6" prot="private" static="no" mutable="no">
+        <type>frc2::CommandXboxController</type>
+        <definition>frc2::CommandXboxController RobotContainer::joystick</definition>
+        <argsstring></argsstring>
+        <name>joystick</name>
+        <qualifiedname>RobotContainer::joystick</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="32" column="33" bodyfile="src/main/include/RobotContainer.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRobotContainer_1a28918417c1d54557f7b71caabcad48ad" prot="public" static="no" mutable="no">
+        <type><ref refid="classsubsystems_1_1CommandSwerveDrivetrain" kindref="compound">subsystems::CommandSwerveDrivetrain</ref></type>
+        <definition>subsystems::CommandSwerveDrivetrain RobotContainer::drivetrain</definition>
+        <argsstring></argsstring>
+        <name>drivetrain</name>
+        <qualifiedname>RobotContainer::drivetrain</qualifiedname>
+        <initializer>{<ref refid="classTunerConstants_1abbe59b658724f13d56a2a9f903d151be" kindref="member">TunerConstants::CreateDrivetrain</ref>()}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="35" column="41" bodyfile="src/main/include/RobotContainer.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRobotContainer_1ac508e6c51edfa97eb18e3412fe83ad8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RobotContainer::RobotContainer</definition>
+        <argsstring>()</argsstring>
+        <name>RobotContainer</name>
+        <qualifiedname>RobotContainer::RobotContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="37" column="5" bodyfile="src/main/cpp/RobotContainer.cpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRobotContainer_1ac4c0fbb295701307cc4ef82c2a9cafc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>frc2::CommandPtr</type>
+        <definition>frc2::CommandPtr RobotContainer::GetAutonomousCommand</definition>
+        <argsstring>()</argsstring>
+        <name>GetAutonomousCommand</name>
+        <qualifiedname>RobotContainer::GetAutonomousCommand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="39" column="22" bodyfile="src/main/cpp/RobotContainer.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRobotContainer_1a7ef289b1e2aab4def60d7b6c708c8a37" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RobotContainer::ConfigureBindings</definition>
+        <argsstring>()</argsstring>
+        <name>ConfigureBindings</name>
+        <qualifiedname>RobotContainer::ConfigureBindings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/RobotContainer.h" line="42" column="10" bodyfile="src/main/cpp/RobotContainer.cpp" bodystart="15" bodyend="64"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>RobotContainer</label>
+        <link refid="classRobotContainer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>drivetrain</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>TunerSwerveDrivetrain</label>
+        <link refid="classTunerSwerveDrivetrain"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>frc2::SubsystemBase</label>
+      </node>
+      <node id="2">
+        <label>subsystems::CommandSwerveDrivetrain</label>
+        <link refid="classsubsystems_1_1CommandSwerveDrivetrain"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>swerve::SwerveDrivetrain&lt; hardware::TalonFX, hardware::TalonFX, hardware::CANcoder &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/main/include/RobotContainer.h" line="13" column="1" bodyfile="src/main/include/RobotContainer.h" bodystart="13" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classRobotContainer_1a6a2ca7319c07454e23b1ad24c4059e8b" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>brake</name></member>
+      <member refid="classRobotContainer_1a7ef289b1e2aab4def60d7b6c708c8a37" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>ConfigureBindings</name></member>
+      <member refid="classRobotContainer_1a80a725e7344ff3232fb426cba6bd861c" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>drive</name></member>
+      <member refid="classRobotContainer_1a28918417c1d54557f7b71caabcad48ad" prot="public" virt="non-virtual"><scope>RobotContainer</scope><name>drivetrain</name></member>
+      <member refid="classRobotContainer_1ac4c0fbb295701307cc4ef82c2a9cafc0" prot="public" virt="non-virtual"><scope>RobotContainer</scope><name>GetAutonomousCommand</name></member>
+      <member refid="classRobotContainer_1a8e99d92c84f681e7752be2f28b7cd4e6" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>joystick</name></member>
+      <member refid="classRobotContainer_1ae79ac0ea1157312b636c089f1cae8af7" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>logger</name></member>
+      <member refid="classRobotContainer_1aa12446ce9aebea50f5fef3f01f886a1e" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>m_driveSpeedMultiplier</name></member>
+      <member refid="classRobotContainer_1a680f0697acf2b0d5bdc6d9804bee4e41" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>m_turnSpeedMultiplier</name></member>
+      <member refid="classRobotContainer_1a907a2c31ff4413f5e611efeebae49d15" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>MaxAngularRate</name></member>
+      <member refid="classRobotContainer_1a4c08f4474337ac22e159a0e6d3aa9c5f" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>MaxSpeed</name></member>
+      <member refid="classRobotContainer_1a53ccdc2ad9f6e0066e772ed8d3cd3c2e" prot="private" virt="non-virtual"><scope>RobotContainer</scope><name>point</name></member>
+      <member refid="classRobotContainer_1ac508e6c51edfa97eb18e3412fe83ad8f" prot="public" virt="non-virtual"><scope>RobotContainer</scope><name>RobotContainer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

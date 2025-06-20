@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_0124c58e4f5bd23a187964ec70117c77" kind="dir">
+    <compoundname>src/main/include/generated</compoundname>
+    <innerfile refid="TunerConstants_8h">TunerConstants.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/main/include/generated/"/>
+  </compounddef>
+</doxygen>
