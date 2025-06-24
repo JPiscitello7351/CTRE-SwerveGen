@@ -21,17 +21,21 @@ void RobotContainer::ConfigureBindings()
         // Drivetrain will execute this command periodically
         drivetrain.ApplyRequest([this]() -> auto&& {
 
-            m_driveSpeedMultiplier = speeds::drive::driveSpeedMultiplier; // Drive speed multiplier defined in constants.h
-            m_turnSpeedMultiplier = speeds::drive::turnSpeedMultiplier; // Turn speed multiplier defined in constants.h
+            m_driveSpeedMultiplier = speeds::drive::driveSpeedMultiplier;   // Drive speed multiplier defined in constants.h
+            m_turnSpeedMultiplier = speeds::drive::turnSpeedMultiplier;     // Turn speed multiplier defined in constants.h
 
-            if(joystick.RightBumper().Get()){ // Get the state of the right bumper and apply speed changes if bumper is pressed
-                m_driveSpeedMultiplier = speeds::drive::turboDriveSpeedMultiplier; // Turbo speed!!!
-                m_turnSpeedMultiplier = speeds::drive::turboTurnSpeedMultiplier; // Turbo turn rate!!!
+            if(joystick.RightTrigger().Get()){ // Get the state of the right trigger and apply speed changes if bumper is pressed
+                m_driveSpeedMultiplier = speeds::drive::turboDriveSpeedMultiplier;  // Turbo speed!!!
+                m_turnSpeedMultiplier = speeds::drive::turboTurnSpeedMultiplier;    // Turbo turn rate!!!
+            }
+            else if(joystick.RightBumper().Get()){ // Get the state of the right bumper and apply speed changes if trigger is pressed
+                m_driveSpeedMultiplier = speeds::drive::slowmoDriveSpeedMultiplier; // Slowmo speed...
+                m_turnSpeedMultiplier = speeds::drive::slowmoTurnSpeedMultiplier;   // Slowmo turn rate...
             }
 
-            return drive.WithVelocityX(-joystick.GetLeftY() * MaxSpeed * m_driveSpeedMultiplier) // Drive forward with negative Y (forward)
-                .WithVelocityY(-joystick.GetLeftX() * MaxSpeed * m_driveSpeedMultiplier) // Drive left with negative X (left)
-                .WithRotationalRate(-joystick.GetRightX() * MaxAngularRate * m_turnSpeedMultiplier); // Drive counterclockwise with negative X (left)
+            return drive.WithVelocityX(-joystick.GetLeftY() * MaxSpeed * m_driveSpeedMultiplier)        // Drive forward with negative Y (forward)
+                .WithVelocityY(-joystick.GetLeftX() * MaxSpeed * m_driveSpeedMultiplier)                // Drive left with negative X (left)
+                .WithRotationalRate(-joystick.GetRightX() * MaxAngularRate * m_turnSpeedMultiplier);    // Drive counterclockwise with negative X (left)
         })
     );
 
@@ -56,7 +60,7 @@ void RobotContainer::ConfigureBindings()
     (joystick.Start() && joystick.X()).WhileTrue(drivetrain.SysIdQuasistatic(frc2::sysid::Direction::kReverse));
 
     // reset the field-centric heading on left bumper press
-    joystick.LeftBumper().OnTrue(drivetrain.RunOnce([this] { drivetrain.SeedFieldCentric(); }));
+    joystick.LeftBumper().OnTrue(drivetrain.RunOnce([this] { drivetrain.TareEverything(); drivetrain.SeedFieldCentric();}));
 
 
 
