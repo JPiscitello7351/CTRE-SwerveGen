@@ -6,6 +6,7 @@
 
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/button/CommandXboxController.h>
+#include <drive_distance.h>
 #include "subsystems/CommandSwerveDrivetrain.h"
 #include "Telemetry.h"
 #include "Constants.h"

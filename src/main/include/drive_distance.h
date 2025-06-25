@@ -6,6 +6,7 @@
 
 #include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
+#include <frc/geometry/Pose2d.h>
 
 // Include our subsystems to use in this command
 #include "subsystems/CommandSwerveDrivetrain.h"
@@ -23,7 +24,7 @@ class DriveDistance
   /* You should consider using the more terse Command factories API instead
    * https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands
    */
-  DriveDistance(subsystems::CommandSwerveDrivetrain* drivetrain);
+  DriveDistance(frc::Pose2d requestedPose, subsystems::CommandSwerveDrivetrain* drivetrain);
 
   void Initialize() override;
 
@@ -34,4 +35,7 @@ class DriveDistance
   bool IsFinished() override;
 private:
   subsystems::CommandSwerveDrivetrain* m_pSwerveDrive;
+  frc::Pose2d m_lastPose;
+  frc::Pose2d m_requestedPose;
+  swerve::requests::FieldCentric m_fieldDrive = swerve::requests::FieldCentric();
 };
