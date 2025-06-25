@@ -2,6 +2,11 @@
 
 Documentation of all the little things we found while developing this repository
 
+## How to get current pose estimation from CTRE Phoenix 6 Swerve Drivetrain
+
+Go take a look at the [GetState()](https://api.ctr-electronics.com/phoenix6/release/cpp/classctre_1_1phoenix6_1_1swerve_1_1_swerve_drivetrain.html#abafbc1a3533845856c1dceba84561f02)
+function to see how to get various pose-related information about a drivetrain.
+
 ## How to get a raw button from a joystick
 
 In lots of cases, you will need to fetch if a button is on or off, and make the robot

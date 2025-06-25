@@ -62,8 +62,6 @@ void RobotContainer::ConfigureBindings()
     // reset the field-centric heading on left bumper press
     joystick.LeftBumper().OnTrue(drivetrain.RunOnce([this] { drivetrain.TareEverything(); drivetrain.SeedFieldCentric();}));
 
-
-
     drivetrain.RegisterTelemetry([this](auto const &state) { logger.Telemeterize(state); });
 }
 
