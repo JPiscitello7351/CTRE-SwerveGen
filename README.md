@@ -1,8 +1,6 @@
 # Viewing the Documentation
 
-The docs hosted from this repository are available at: [litemage.github.io/CTRE-SwerveGen-Test/](https://litemage.github.io/CTRE-SwerveGen-Test/)
-
-**Soon these docs will move back to the repo they were forked from**
+The docs hosted from this repository are available at: [jpiscitello7351.github.io/CTRE-SwerveGen/](https://jpiscitello7351.github.io/CTRE-SwerveGen/)
 
 # Adding Files to Docs
 
