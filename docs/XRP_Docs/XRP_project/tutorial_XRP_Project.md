@@ -39,4 +39,6 @@ This tutorial details how to create a blank C++ XRP project using the command-ba
 13. It should open a file structure that looks like this.
     1. ![Base project file structure](Base_Project_File_Stuck.png)<br> <br>
 
-14. **Congratulations!**  You have created an empty project.
+> **Note:** If you do not see the folder structure, click on the folder icon on the left-hand side to open the file explorer. ![Folder Icon](Folder_icon.png)
+
+**Congratulations!**  You have created a project.
