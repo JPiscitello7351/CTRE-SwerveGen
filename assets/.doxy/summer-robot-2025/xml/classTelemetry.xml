@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTelemetry" kind="class" language="C++" prot="public">
+    <compoundname>Telemetry</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTelemetry_1aa98e20abc16e48c31c029bb4e6c50722" prot="private" static="no" mutable="no">
+        <type>units::meters_per_second_t</type>
+        <definition>units::meters_per_second_t Telemetry::MaxSpeed</definition>
+        <argsstring></argsstring>
+        <name>MaxSpeed</name>
+        <qualifiedname>Telemetry::MaxSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="17" column="32" bodyfile="src/main/include/Telemetry.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1a678a88c73b74625b6b282cd9a547d124" prot="private" static="no" mutable="no">
+        <type>nt::NetworkTableInstance</type>
+        <definition>nt::NetworkTableInstance Telemetry::inst</definition>
+        <argsstring></argsstring>
+        <name>inst</name>
+        <qualifiedname>Telemetry::inst</qualifiedname>
+        <initializer>= nt::NetworkTableInstance::GetDefault()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="20" column="30" bodyfile="src/main/include/Telemetry.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1ada6ef824055c3633da4f10e3d01394ce" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; nt::NetworkTable &gt;</type>
+        <definition>std::shared_ptr&lt;nt::NetworkTable&gt; Telemetry::driveStateTable</definition>
+        <argsstring></argsstring>
+        <name>driveStateTable</name>
+        <qualifiedname>Telemetry::driveStateTable</qualifiedname>
+        <initializer>= inst.GetTable(&quot;DriveState&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="23" column="21" bodyfile="src/main/include/Telemetry.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1ad91d90336b8da4703444a68adbfe8024" prot="private" static="no" mutable="no">
+        <type>nt::StructPublisher&lt; frc::Pose2d &gt;</type>
+        <definition>nt::StructPublisher&lt;frc::Pose2d&gt; Telemetry::drivePose</definition>
+        <argsstring></argsstring>
+        <name>drivePose</name>
+        <qualifiedname>Telemetry::drivePose</qualifiedname>
+        <initializer>= driveStateTable-&gt;GetStructTopic&lt;frc::Pose2d&gt;(&quot;Pose&quot;).Publish()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="24" column="25" bodyfile="src/main/include/Telemetry.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1a8a49205c9b6e2833586a8930fbfc7aa6" prot="private" static="no" mutable="no">
+        <type>nt::StructPublisher&lt; frc::ChassisSpeeds &gt;</type>
+        <definition>nt::StructPublisher&lt;frc::ChassisSpeeds&gt; Telemetry::driveSpeeds</definition>
+        <argsstring></argsstring>
+        <name>driveSpeeds</name>
+        <qualifiedname>Telemetry::driveSpeeds</qualifiedname>
+        <initializer>= driveStateTable-&gt;GetStructTopic&lt;frc::ChassisSpeeds&gt;(&quot;Speeds&quot;).Publish()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="25" column="25" bodyfile="src/main/include/Telemetry.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1a20f2fee0bed662f5da5283c74992d6fe" prot="private" static="no" mutable="no">
+        <type>nt::StructArrayPublisher&lt; frc::SwerveModuleState &gt;</type>
+        <definition>nt::StructArrayPublisher&lt;frc::SwerveModuleState&gt; Telemetry::driveModuleStates</definition>
+        <argsstring></argsstring>
+        <name>driveModuleStates</name>
+        <qualifiedname>Telemetry::driveModuleStates</qualifiedname>
+        <initializer>= driveStateTable-&gt;GetStructArrayTopic&lt;frc::SwerveModuleState&gt;(&quot;ModuleStates&quot;).Publish()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="26" column="30" bodyfile="src/main/include/Telemetry.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1af63a3402bb2c91be46a96dac87466d93" prot="private" static="no" mutable="no">
+        <type>nt::StructArrayPublisher&lt; frc::SwerveModuleState &gt;</type>
+        <definition>nt::StructArrayPublisher&lt;frc::SwerveModuleState&gt; Telemetry::driveModuleTargets</definition>
+        <argsstring></argsstring>
+        <name>driveModuleTargets</name>
+        <qualifiedname>Telemetry::driveModuleTargets</qualifiedname>
+        <initializer>= driveStateTable-&gt;GetStructArrayTopic&lt;frc::SwerveModuleState&gt;(&quot;ModuleTargets&quot;).Publish()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="27" column="30" bodyfile="src/main/include/Telemetry.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1a565ae85dd90dd16ec80a6b7952c8083c" prot="private" static="no" mutable="no">
+        <type>nt::StructArrayPublisher&lt; frc::SwerveModulePosition &gt;</type>
+        <definition>nt::StructArrayPublisher&lt;frc::SwerveModulePosition&gt; Telemetry::driveModulePositions</definition>
+        <argsstring></argsstring>
+        <name>driveModulePositions</name>
+        <qualifiedname>Telemetry::driveModulePositions</qualifiedname>
+        <initializer>= driveStateTable-&gt;GetStructArrayTopic&lt;frc::SwerveModulePosition&gt;(&quot;ModulePositions&quot;).Publish()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="28" column="30" bodyfile="src/main/include/Telemetry.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1a247cf1d9217d9c2fdea3e72e57732f1b" prot="private" static="no" mutable="no">
+        <type>nt::DoublePublisher</type>
+        <definition>nt::DoublePublisher Telemetry::driveTimestamp</definition>
+        <argsstring></argsstring>
+        <name>driveTimestamp</name>
+        <qualifiedname>Telemetry::driveTimestamp</qualifiedname>
+        <initializer>= driveStateTable-&gt;GetDoubleTopic(&quot;Timestamp&quot;).Publish()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="29" column="25" bodyfile="src/main/include/Telemetry.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1adbf70a8bbce014bbd097e6f505e6f267" prot="private" static="no" mutable="no">
+        <type>nt::DoublePublisher</type>
+        <definition>nt::DoublePublisher Telemetry::driveOdometryFrequency</definition>
+        <argsstring></argsstring>
+        <name>driveOdometryFrequency</name>
+        <qualifiedname>Telemetry::driveOdometryFrequency</qualifiedname>
+        <initializer>= driveStateTable-&gt;GetDoubleTopic(&quot;OdometryFrequency&quot;).Publish()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="30" column="25" bodyfile="src/main/include/Telemetry.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1a5955c1129d0cbf477bb0694f0c20dcdb" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; nt::NetworkTable &gt;</type>
+        <definition>std::shared_ptr&lt;nt::NetworkTable&gt; Telemetry::table</definition>
+        <argsstring></argsstring>
+        <name>table</name>
+        <qualifiedname>Telemetry::table</qualifiedname>
+        <initializer>= inst.GetTable(&quot;Pose&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="33" column="21" bodyfile="src/main/include/Telemetry.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1af5391383c169963883a3c97348374340" prot="private" static="no" mutable="no">
+        <type>nt::DoubleArrayPublisher</type>
+        <definition>nt::DoubleArrayPublisher Telemetry::fieldPub</definition>
+        <argsstring></argsstring>
+        <name>fieldPub</name>
+        <qualifiedname>Telemetry::fieldPub</qualifiedname>
+        <initializer>= table-&gt;GetDoubleArrayTopic(&quot;robotPose&quot;).Publish()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="34" column="30" bodyfile="src/main/include/Telemetry.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1ab7096bfdc22ca431101b7d989aad0d7f" prot="private" static="no" mutable="no">
+        <type>nt::StringPublisher</type>
+        <definition>nt::StringPublisher Telemetry::fieldTypePub</definition>
+        <argsstring></argsstring>
+        <name>fieldTypePub</name>
+        <qualifiedname>Telemetry::fieldTypePub</qualifiedname>
+        <initializer>= table-&gt;GetStringTopic(&quot;.type&quot;).Publish()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="35" column="25" bodyfile="src/main/include/Telemetry.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1ac8b0b67aff255d9d67b8b7ea7d255ccc" prot="private" static="no" mutable="no">
+        <type>std::array&lt; frc::Mechanism2d, 4 &gt;</type>
+        <definition>std::array&lt;frc::Mechanism2d, 4&gt; Telemetry::m_moduleMechanisms</definition>
+        <argsstring></argsstring>
+        <name>m_moduleMechanisms</name>
+        <qualifiedname>Telemetry::m_moduleMechanisms</qualifiedname>
+        <initializer>{
+        frc::Mechanism2d{1, 1},
+        frc::Mechanism2d{1, 1},
+        frc::Mechanism2d{1, 1},
+        frc::Mechanism2d{1, 1},
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="38" column="16" bodyfile="src/main/include/Telemetry.h" bodystart="38" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1a64f0aff892e93fa21adf87831478f938" prot="private" static="no" mutable="no">
+        <type>std::array&lt; frc::MechanismLigament2d *, 4 &gt;</type>
+        <definition>std::array&lt;frc::MechanismLigament2d *, 4&gt; Telemetry::m_moduleSpeeds</definition>
+        <argsstring></argsstring>
+        <name>m_moduleSpeeds</name>
+        <qualifiedname>Telemetry::m_moduleSpeeds</qualifiedname>
+        <initializer>{
+        m_moduleMechanisms[0].GetRoot(&quot;RootSpeed&quot;, 0.5, 0.5)-&gt;Append&lt;frc::MechanismLigament2d&gt;(&quot;Speed&quot;, 0.5, 0_deg),
+        m_moduleMechanisms[1].GetRoot(&quot;RootSpeed&quot;, 0.5, 0.5)-&gt;Append&lt;frc::MechanismLigament2d&gt;(&quot;Speed&quot;, 0.5, 0_deg),
+        m_moduleMechanisms[2].GetRoot(&quot;RootSpeed&quot;, 0.5, 0.5)-&gt;Append&lt;frc::MechanismLigament2d&gt;(&quot;Speed&quot;, 0.5, 0_deg),
+        m_moduleMechanisms[3].GetRoot(&quot;RootSpeed&quot;, 0.5, 0.5)-&gt;Append&lt;frc::MechanismLigament2d&gt;(&quot;Speed&quot;, 0.5, 0_deg),
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="45" column="16" bodyfile="src/main/include/Telemetry.h" bodystart="45" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTelemetry_1a81090daa9ebf268c06f9dc2af7bb73f1" prot="private" static="no" mutable="no">
+        <type>std::array&lt; frc::MechanismLigament2d *, 4 &gt;</type>
+        <definition>std::array&lt;frc::MechanismLigament2d *, 4&gt; Telemetry::m_moduleDirections</definition>
+        <argsstring></argsstring>
+        <name>m_moduleDirections</name>
+        <qualifiedname>Telemetry::m_moduleDirections</qualifiedname>
+        <initializer>{
+        m_moduleMechanisms[0].GetRoot(&quot;RootDirection&quot;, 0.5, 0.5)
+            -&gt;Append&lt;frc::MechanismLigament2d&gt;(&quot;Direction&quot;, 0.1, 0_deg, 0, frc::Color8Bit{frc::Color::kWhite}),
+        m_moduleMechanisms[1].GetRoot(&quot;RootDirection&quot;, 0.5, 0.5)
+            -&gt;Append&lt;frc::MechanismLigament2d&gt;(&quot;Direction&quot;, 0.1, 0_deg, 0, frc::Color8Bit{frc::Color::kWhite}),
+        m_moduleMechanisms[2].GetRoot(&quot;RootDirection&quot;, 0.5, 0.5)
+            -&gt;Append&lt;frc::MechanismLigament2d&gt;(&quot;Direction&quot;, 0.1, 0_deg, 0, frc::Color8Bit{frc::Color::kWhite}),
+        m_moduleMechanisms[3].GetRoot(&quot;RootDirection&quot;, 0.5, 0.5)
+            -&gt;Append&lt;frc::MechanismLigament2d&gt;(&quot;Direction&quot;, 0.1, 0_deg, 0, frc::Color8Bit{frc::Color::kWhite}),
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="52" column="16" bodyfile="src/main/include/Telemetry.h" bodystart="52" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTelemetry_1a288dded9cb9535abcb597582307022a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Telemetry::Telemetry</definition>
+        <argsstring>(units::meters_per_second_t maxSpeed)</argsstring>
+        <name>Telemetry</name>
+        <qualifiedname>Telemetry::Telemetry</qualifiedname>
+        <param>
+          <type>units::meters_per_second_t</type>
+          <declname>maxSpeed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Construct a telemetry object with the specified max speed of the robot.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxSpeed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum speed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="69" column="5" bodyfile="src/main/cpp/Telemetry.cpp" bodystart="6" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classTelemetry_1a8725e4b0514dc7021d3e46db08d3371f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Telemetry::Telemeterize</definition>
+        <argsstring>(subsystems::CommandSwerveDrivetrain::SwerveDriveState const &amp;state)</argsstring>
+        <name>Telemeterize</name>
+        <qualifiedname>Telemetry::Telemeterize</qualifiedname>
+        <param>
+          <type>subsystems::CommandSwerveDrivetrain::SwerveDriveState const &amp;</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Accept the swerve drive state and telemeterize it to SmartDashboard and SignalLogger. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main/include/Telemetry.h" line="72" column="10" bodyfile="src/main/cpp/Telemetry.cpp" bodystart="16" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/main/include/Telemetry.h" line="15" column="1" bodyfile="src/main/include/Telemetry.h" bodystart="15" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classTelemetry_1a565ae85dd90dd16ec80a6b7952c8083c" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>driveModulePositions</name></member>
+      <member refid="classTelemetry_1a20f2fee0bed662f5da5283c74992d6fe" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>driveModuleStates</name></member>
+      <member refid="classTelemetry_1af63a3402bb2c91be46a96dac87466d93" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>driveModuleTargets</name></member>
+      <member refid="classTelemetry_1adbf70a8bbce014bbd097e6f505e6f267" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>driveOdometryFrequency</name></member>
+      <member refid="classTelemetry_1ad91d90336b8da4703444a68adbfe8024" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>drivePose</name></member>
+      <member refid="classTelemetry_1a8a49205c9b6e2833586a8930fbfc7aa6" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>driveSpeeds</name></member>
+      <member refid="classTelemetry_1ada6ef824055c3633da4f10e3d01394ce" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>driveStateTable</name></member>
+      <member refid="classTelemetry_1a247cf1d9217d9c2fdea3e72e57732f1b" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>driveTimestamp</name></member>
+      <member refid="classTelemetry_1af5391383c169963883a3c97348374340" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>fieldPub</name></member>
+      <member refid="classTelemetry_1ab7096bfdc22ca431101b7d989aad0d7f" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>fieldTypePub</name></member>
+      <member refid="classTelemetry_1a678a88c73b74625b6b282cd9a547d124" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>inst</name></member>
+      <member refid="classTelemetry_1a81090daa9ebf268c06f9dc2af7bb73f1" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>m_moduleDirections</name></member>
+      <member refid="classTelemetry_1ac8b0b67aff255d9d67b8b7ea7d255ccc" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>m_moduleMechanisms</name></member>
+      <member refid="classTelemetry_1a64f0aff892e93fa21adf87831478f938" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>m_moduleSpeeds</name></member>
+      <member refid="classTelemetry_1aa98e20abc16e48c31c029bb4e6c50722" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>MaxSpeed</name></member>
+      <member refid="classTelemetry_1a5955c1129d0cbf477bb0694f0c20dcdb" prot="private" virt="non-virtual"><scope>Telemetry</scope><name>table</name></member>
+      <member refid="classTelemetry_1a8725e4b0514dc7021d3e46db08d3371f" prot="public" virt="non-virtual"><scope>Telemetry</scope><name>Telemeterize</name></member>
+      <member refid="classTelemetry_1a288dded9cb9535abcb597582307022a9" prot="public" virt="non-virtual"><scope>Telemetry</scope><name>Telemetry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

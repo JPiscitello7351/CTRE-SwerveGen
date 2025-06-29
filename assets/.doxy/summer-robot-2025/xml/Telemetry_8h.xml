@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Telemetry_8h" kind="file" language="C++">
+    <compoundname>Telemetry.h</compoundname>
+    <includes local="yes">ctre/phoenix6/SignalLogger.hpp</includes>
+    <includes local="no">frc/smartdashboard/Mechanism2d.h</includes>
+    <includes local="no">frc/smartdashboard/MechanismLigament2d.h</includes>
+    <includes local="no">networktables/NetworkTableInstance.h</includes>
+    <includes local="no">networktables/DoubleArrayTopic.h</includes>
+    <includes local="no">networktables/DoubleTopic.h</includes>
+    <includes local="no">networktables/StringTopic.h</includes>
+    <includes local="no">networktables/StructArrayTopic.h</includes>
+    <includes local="no">networktables/StructTopic.h</includes>
+    <includes refid="CommandSwerveDrivetrain_8h" local="yes">subsystems/CommandSwerveDrivetrain.h</includes>
+    <includedby refid="Telemetry_8cpp" local="yes">src/main/cpp/Telemetry.cpp</includedby>
+    <includedby refid="RobotContainer_8h" local="yes">src/main/include/RobotContainer.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/main/include/Telemetry.h</label>
+        <link refid="Telemetry_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>generated/TunerConstants.h</label>
+        <link refid="TunerConstants_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>subsystems/CommandSwerveDrivetrain.h</label>
+        <link refid="CommandSwerveDrivetrain_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ctre/phoenix6/SignalLogger.hpp</label>
+      </node>
+      <node id="18">
+        <label>ctre/phoenix6/swerve/SwerveDrivetrain.hpp</label>
+      </node>
+      <node id="12">
+        <label>frc/DriverStation.h</label>
+      </node>
+      <node id="13">
+        <label>frc/Notifier.h</label>
+      </node>
+      <node id="3">
+        <label>frc/smartdashboard/Mechanism2d.h</label>
+      </node>
+      <node id="4">
+        <label>frc/smartdashboard/MechanismLigament2d.h</label>
+      </node>
+      <node id="14">
+        <label>frc2/command/CommandPtr.h</label>
+      </node>
+      <node id="15">
+        <label>frc2/command/SubsystemBase.h</label>
+      </node>
+      <node id="16">
+        <label>frc2/command/sysid/SysIdRoutine.h</label>
+      </node>
+      <node id="6">
+        <label>networktables/DoubleArrayTopic.h</label>
+      </node>
+      <node id="7">
+        <label>networktables/DoubleTopic.h</label>
+      </node>
+      <node id="5">
+        <label>networktables/NetworkTableInstance.h</label>
+      </node>
+      <node id="8">
+        <label>networktables/StringTopic.h</label>
+      </node>
+      <node id="9">
+        <label>networktables/StructArrayTopic.h</label>
+      </node>
+      <node id="10">
+        <label>networktables/StructTopic.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/main/include/Robot.h</label>
+        <link refid="Robot_8h_source"/>
+      </node>
+      <node id="2">
+        <label>src/main/include/RobotContainer.h</label>
+        <link refid="RobotContainer_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/main/include/Telemetry.h</label>
+        <link refid="Telemetry_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classTelemetry" prot="public">Telemetry</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ctre/phoenix6/SignalLogger.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc/smartdashboard/Mechanism2d.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc/smartdashboard/MechanismLigament2d.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;networktables/NetworkTableInstance.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;networktables/DoubleArrayTopic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;networktables/DoubleTopic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;networktables/StringTopic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;networktables/StructArrayTopic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;networktables/StructTopic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;subsystems/CommandSwerveDrivetrain.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="classTelemetry" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTelemetry" kindref="compound">Telemetry</ref><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>units::meters_per_second_t<sp/>MaxSpeed;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>What<sp/>to<sp/>publish<sp/>over<sp/>networktables<sp/>for<sp/>telemetry<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::NetworkTableInstance<sp/>inst<sp/>=<sp/>nt::NetworkTableInstance::GetDefault();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Robot<sp/>swerve<sp/>drive<sp/>state<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;nt::NetworkTable&gt;<sp/>driveStateTable<sp/>=<sp/>inst.GetTable(</highlight><highlight class="stringliteral">&quot;DriveState&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::StructPublisher&lt;frc::Pose2d&gt;<sp/>drivePose<sp/>=<sp/>driveStateTable-&gt;GetStructTopic&lt;frc::Pose2d&gt;(</highlight><highlight class="stringliteral">&quot;Pose&quot;</highlight><highlight class="normal">).Publish();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::StructPublisher&lt;frc::ChassisSpeeds&gt;<sp/>driveSpeeds<sp/>=<sp/>driveStateTable-&gt;GetStructTopic&lt;frc::ChassisSpeeds&gt;(</highlight><highlight class="stringliteral">&quot;Speeds&quot;</highlight><highlight class="normal">).Publish();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::StructArrayPublisher&lt;frc::SwerveModuleState&gt;<sp/>driveModuleStates<sp/>=<sp/>driveStateTable-&gt;GetStructArrayTopic&lt;frc::SwerveModuleState&gt;(</highlight><highlight class="stringliteral">&quot;ModuleStates&quot;</highlight><highlight class="normal">).Publish();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::StructArrayPublisher&lt;frc::SwerveModuleState&gt;<sp/>driveModuleTargets<sp/>=<sp/>driveStateTable-&gt;GetStructArrayTopic&lt;frc::SwerveModuleState&gt;(</highlight><highlight class="stringliteral">&quot;ModuleTargets&quot;</highlight><highlight class="normal">).Publish();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::StructArrayPublisher&lt;frc::SwerveModulePosition&gt;<sp/>driveModulePositions<sp/>=<sp/>driveStateTable-&gt;GetStructArrayTopic&lt;frc::SwerveModulePosition&gt;(</highlight><highlight class="stringliteral">&quot;ModulePositions&quot;</highlight><highlight class="normal">).Publish();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::DoublePublisher<sp/>driveTimestamp<sp/>=<sp/>driveStateTable-&gt;GetDoubleTopic(</highlight><highlight class="stringliteral">&quot;Timestamp&quot;</highlight><highlight class="normal">).Publish();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::DoublePublisher<sp/>driveOdometryFrequency<sp/>=<sp/>driveStateTable-&gt;GetDoubleTopic(</highlight><highlight class="stringliteral">&quot;OdometryFrequency&quot;</highlight><highlight class="normal">).Publish();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Robot<sp/>pose<sp/>for<sp/>field<sp/>positioning<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;nt::NetworkTable&gt;<sp/>table<sp/>=<sp/>inst.GetTable(</highlight><highlight class="stringliteral">&quot;Pose&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::DoubleArrayPublisher<sp/>fieldPub<sp/>=<sp/>table-&gt;GetDoubleArrayTopic(</highlight><highlight class="stringliteral">&quot;robotPose&quot;</highlight><highlight class="normal">).Publish();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>nt::StringPublisher<sp/>fieldTypePub<sp/>=<sp/>table-&gt;GetStringTopic(</highlight><highlight class="stringliteral">&quot;.type&quot;</highlight><highlight class="normal">).Publish();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Mechanisms<sp/>to<sp/>represent<sp/>the<sp/>swerve<sp/>module<sp/>states<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;frc::Mechanism2d,<sp/>4&gt;<sp/>m_moduleMechanisms{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc::Mechanism2d{1,<sp/>1},</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc::Mechanism2d{1,<sp/>1},</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc::Mechanism2d{1,<sp/>1},</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc::Mechanism2d{1,<sp/>1},</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>A<sp/>direction<sp/>and<sp/>length<sp/>changing<sp/>ligament<sp/>for<sp/>speed<sp/>representation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;frc::MechanismLigament2d<sp/>*,<sp/>4&gt;<sp/>m_moduleSpeeds{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_moduleMechanisms[0].GetRoot(</highlight><highlight class="stringliteral">&quot;RootSpeed&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0.5)-&gt;Append&lt;frc::MechanismLigament2d&gt;(</highlight><highlight class="stringliteral">&quot;Speed&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0_deg),</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_moduleMechanisms[1].GetRoot(</highlight><highlight class="stringliteral">&quot;RootSpeed&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0.5)-&gt;Append&lt;frc::MechanismLigament2d&gt;(</highlight><highlight class="stringliteral">&quot;Speed&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0_deg),</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_moduleMechanisms[2].GetRoot(</highlight><highlight class="stringliteral">&quot;RootSpeed&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0.5)-&gt;Append&lt;frc::MechanismLigament2d&gt;(</highlight><highlight class="stringliteral">&quot;Speed&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0_deg),</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_moduleMechanisms[3].GetRoot(</highlight><highlight class="stringliteral">&quot;RootSpeed&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0.5)-&gt;Append&lt;frc::MechanismLigament2d&gt;(</highlight><highlight class="stringliteral">&quot;Speed&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0_deg),</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>A<sp/>direction<sp/>changing<sp/>and<sp/>length<sp/>constant<sp/>ligament<sp/>for<sp/>module<sp/>direction<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;frc::MechanismLigament2d<sp/>*,<sp/>4&gt;<sp/>m_moduleDirections{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_moduleMechanisms[0].GetRoot(</highlight><highlight class="stringliteral">&quot;RootDirection&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0.5)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;Append&lt;frc::MechanismLigament2d&gt;(</highlight><highlight class="stringliteral">&quot;Direction&quot;</highlight><highlight class="normal">,<sp/>0.1,<sp/>0_deg,<sp/>0,<sp/>frc::Color8Bit{frc::Color::kWhite}),</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_moduleMechanisms[1].GetRoot(</highlight><highlight class="stringliteral">&quot;RootDirection&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0.5)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;Append&lt;frc::MechanismLigament2d&gt;(</highlight><highlight class="stringliteral">&quot;Direction&quot;</highlight><highlight class="normal">,<sp/>0.1,<sp/>0_deg,<sp/>0,<sp/>frc::Color8Bit{frc::Color::kWhite}),</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_moduleMechanisms[2].GetRoot(</highlight><highlight class="stringliteral">&quot;RootDirection&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0.5)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;Append&lt;frc::MechanismLigament2d&gt;(</highlight><highlight class="stringliteral">&quot;Direction&quot;</highlight><highlight class="normal">,<sp/>0.1,<sp/>0_deg,<sp/>0,<sp/>frc::Color8Bit{frc::Color::kWhite}),</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_moduleMechanisms[3].GetRoot(</highlight><highlight class="stringliteral">&quot;RootDirection&quot;</highlight><highlight class="normal">,<sp/>0.5,<sp/>0.5)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;Append&lt;frc::MechanismLigament2d&gt;(</highlight><highlight class="stringliteral">&quot;Direction&quot;</highlight><highlight class="normal">,<sp/>0.1,<sp/>0_deg,<sp/>0,<sp/>frc::Color8Bit{frc::Color::kWhite}),</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classTelemetry" kindref="compound">Telemetry</ref>(units::meters_per_second_t<sp/>maxSpeed);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTelemetry_1a8725e4b0514dc7021d3e46db08d3371f" kindref="member">Telemeterize</ref>(subsystems::CommandSwerveDrivetrain::SwerveDriveState<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;state);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="src/main/include/Telemetry.h"/>
+  </compounddef>
+</doxygen>

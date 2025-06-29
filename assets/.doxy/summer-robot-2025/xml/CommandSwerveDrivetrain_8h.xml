@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="CommandSwerveDrivetrain_8h" kind="file" language="C++">
+    <compoundname>CommandSwerveDrivetrain.h</compoundname>
+    <includes local="yes">ctre/phoenix6/SignalLogger.hpp</includes>
+    <includes local="no">frc/DriverStation.h</includes>
+    <includes local="no">frc/Notifier.h</includes>
+    <includes local="no">frc2/command/CommandPtr.h</includes>
+    <includes local="no">frc2/command/SubsystemBase.h</includes>
+    <includes local="no">frc2/command/sysid/SysIdRoutine.h</includes>
+    <includes refid="TunerConstants_8h" local="yes">generated/TunerConstants.h</includes>
+    <includedby refid="TunerConstants_8cpp" local="yes">src/main/cpp/generated/TunerConstants.cpp</includedby>
+    <includedby refid="CommandSwerveDrivetrain_8cpp" local="yes">src/main/cpp/subsystems/CommandSwerveDrivetrain.cpp</includedby>
+    <includedby refid="RobotContainer_8h" local="yes">src/main/include/RobotContainer.h</includedby>
+    <includedby refid="Telemetry_8h" local="yes">src/main/include/Telemetry.h</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>generated/TunerConstants.h</label>
+        <link refid="TunerConstants_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/main/include/subsystems/CommandSwerveDrivetrain.h</label>
+        <link refid="CommandSwerveDrivetrain_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ctre/phoenix6/SignalLogger.hpp</label>
+      </node>
+      <node id="9">
+        <label>ctre/phoenix6/swerve/SwerveDrivetrain.hpp</label>
+      </node>
+      <node id="3">
+        <label>frc/DriverStation.h</label>
+      </node>
+      <node id="4">
+        <label>frc/Notifier.h</label>
+      </node>
+      <node id="5">
+        <label>frc2/command/CommandPtr.h</label>
+      </node>
+      <node id="6">
+        <label>frc2/command/SubsystemBase.h</label>
+      </node>
+      <node id="7">
+        <label>frc2/command/sysid/SysIdRoutine.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/main/include/Robot.h</label>
+        <link refid="Robot_8h_source"/>
+      </node>
+      <node id="2">
+        <label>src/main/include/RobotContainer.h</label>
+        <link refid="RobotContainer_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/main/include/Telemetry.h</label>
+        <link refid="Telemetry_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/main/include/subsystems/CommandSwerveDrivetrain.h</label>
+        <link refid="CommandSwerveDrivetrain_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classsubsystems_1_1CommandSwerveDrivetrain" prot="public">subsystems::CommandSwerveDrivetrain</innerclass>
+    <innernamespace refid="namespacesubsystems">subsystems</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ctre/phoenix6/SignalLogger.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc/DriverStation.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc/Notifier.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc2/command/CommandPtr.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc2/command/SubsystemBase.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc2/command/sysid/SysIdRoutine.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;generated/TunerConstants.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">ctre::phoenix6;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">subsystems<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classsubsystems_1_1CommandSwerveDrivetrain" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsubsystems_1_1CommandSwerveDrivetrain" kindref="compound">CommandSwerveDrivetrain</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>frc2::SubsystemBase,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classTunerSwerveDrivetrain" kindref="compound">TunerSwerveDrivetrain</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>units::second_t<sp/>kSimLoopPeriod<sp/>=<sp/>5_ms;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_ptr&lt;frc::Notifier&gt;<sp/>m_simNotifier;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>units::second_t<sp/>m_lastSimTime;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Blue<sp/>alliance<sp/>sees<sp/>forward<sp/>as<sp/>0<sp/>degrees<sp/>(toward<sp/>red<sp/>alliance<sp/>wall)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>frc::Rotation2d<sp/>kBlueAlliancePerspectiveRotation{0_deg};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Red<sp/>alliance<sp/>sees<sp/>forward<sp/>as<sp/>180<sp/>degrees<sp/>(toward<sp/>blue<sp/>alliance<sp/>wall)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>frc::Rotation2d<sp/>kRedAlliancePerspectiveRotation{180_deg};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Keep<sp/>track<sp/>if<sp/>we&apos;ve<sp/>ever<sp/>applied<sp/>the<sp/>operator<sp/>perspective<sp/>before<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>m_hasAppliedOperatorPerspective<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Swerve<sp/>requests<sp/>to<sp/>apply<sp/>during<sp/>SysId<sp/>characterization<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>swerve::requests::SysIdSwerveTranslation<sp/>m_translationCharacterization;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>swerve::requests::SysIdSwerveSteerGains<sp/>m_steerCharacterization;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>swerve::requests::SysIdSwerveRotation<sp/>m_rotationCharacterization;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>SysId<sp/>routine<sp/>for<sp/>characterizing<sp/>translation.<sp/>This<sp/>is<sp/>used<sp/>to<sp/>find<sp/>PID<sp/>gains<sp/>for<sp/>the<sp/>drive<sp/>motors.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>frc2::sysid::SysIdRoutine<sp/>m_sysIdRoutineTranslation{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc2::sysid::Config{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::nullopt,<sp/></highlight><highlight class="comment">//<sp/>Use<sp/>default<sp/>ramp<sp/>rate<sp/>(1<sp/>V/s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4_V,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reduce<sp/>dynamic<sp/>step<sp/>voltage<sp/>to<sp/>4<sp/>V<sp/>to<sp/>prevent<sp/>brownout</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::nullopt,<sp/></highlight><highlight class="comment">//<sp/>Use<sp/>default<sp/>timeout<sp/>(10<sp/>s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Log<sp/>state<sp/>with<sp/>SignalLogger<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](frc::sysid::State<sp/>state)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SignalLogger::WriteString(</highlight><highlight class="stringliteral">&quot;SysIdTranslation_State&quot;</highlight><highlight class="normal">,<sp/>frc::sysid::SysIdRoutineLog::StateEnumToString(state));</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc2::sysid::Mechanism{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](units::volt_t<sp/>output)<sp/>{<sp/>SetControl(m_translationCharacterization.WithVolts(output));<sp/>},</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{},</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>SysId<sp/>routine<sp/>for<sp/>characterizing<sp/>steer.<sp/>This<sp/>is<sp/>used<sp/>to<sp/>find<sp/>PID<sp/>gains<sp/>for<sp/>the<sp/>steer<sp/>motors.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>frc2::sysid::SysIdRoutine<sp/>m_sysIdRoutineSteer{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc2::sysid::Config{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::nullopt,<sp/></highlight><highlight class="comment">//<sp/>Use<sp/>default<sp/>ramp<sp/>rate<sp/>(1<sp/>V/s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>7_V,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Use<sp/>dynamic<sp/>voltage<sp/>of<sp/>7<sp/>V</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::nullopt,<sp/></highlight><highlight class="comment">//<sp/>Use<sp/>default<sp/>timeout<sp/>(10<sp/>s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Log<sp/>state<sp/>with<sp/>SignalLogger<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](frc::sysid::State<sp/>state)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SignalLogger::WriteString(</highlight><highlight class="stringliteral">&quot;SysIdSteer_State&quot;</highlight><highlight class="normal">,<sp/>frc::sysid::SysIdRoutineLog::StateEnumToString(state));</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc2::sysid::Mechanism{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](units::volt_t<sp/>output)<sp/>{<sp/>SetControl(m_steerCharacterization.WithVolts(output));<sp/>},</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{},</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>SysId<sp/>routine<sp/>for<sp/>characterizing<sp/>rotation.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>This<sp/>is<sp/>used<sp/>to<sp/>find<sp/>PID<sp/>gains<sp/>for<sp/>the<sp/>FieldCentricFacingAngle<sp/>HeadingController.</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>See<sp/>the<sp/>documentation<sp/>of<sp/>swerve::requests::SysIdSwerveRotation<sp/>for<sp/>info<sp/>on<sp/>importing<sp/>the<sp/>log<sp/>to<sp/>SysId.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>frc2::sysid::SysIdRoutine<sp/>m_sysIdRoutineRotation{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc2::sysid::Config{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>This<sp/>is<sp/>in<sp/>radians<sp/>per<sp/>second²,<sp/>but<sp/>SysId<sp/>only<sp/>supports<sp/>&quot;volts<sp/>per<sp/>second&quot;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>units::constants::detail::PI_VAL<sp/>/<sp/>6<sp/>*<sp/>(1_V<sp/>/<sp/>1_s),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>This<sp/>is<sp/>in<sp/>radians<sp/>per<sp/>second,<sp/>but<sp/>SysId<sp/>only<sp/>supports<sp/>&quot;volts&quot;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>units::constants::detail::PI_VAL<sp/>*<sp/>1_V,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::nullopt,<sp/></highlight><highlight class="comment">//<sp/>Use<sp/>default<sp/>timeout<sp/>(10<sp/>s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Log<sp/>state<sp/>with<sp/>SignalLogger<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](frc::sysid::State<sp/>state)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SignalLogger::WriteString(</highlight><highlight class="stringliteral">&quot;SysIdRotation_State&quot;</highlight><highlight class="normal">,<sp/>frc::sysid::SysIdRoutineLog::StateEnumToString(state));</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc2::sysid::Mechanism{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](units::volt_t<sp/>output)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>output<sp/>is<sp/>actually<sp/>radians<sp/>per<sp/>second,<sp/>but<sp/>SysId<sp/>only<sp/>supports<sp/>&quot;volts&quot;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetControl(m_rotationCharacterization.WithRotationalRate(output<sp/>*<sp/>(1_rad_per_s<sp/>/<sp/>1_V)));</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>also<sp/>log<sp/>the<sp/>requested<sp/>output<sp/>for<sp/>SysId<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SignalLogger::WriteValue(</highlight><highlight class="stringliteral">&quot;Rotational_Rate&quot;</highlight><highlight class="normal">,<sp/>output<sp/>*<sp/>(1_rad_per_s<sp/>/<sp/>1_V));</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{},</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>SysId<sp/>routine<sp/>to<sp/>test<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>frc2::sysid::SysIdRoutine<sp/>*m_sysIdRoutineToApply<sp/>=<sp/>&amp;m_sysIdRoutineTranslation;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;std::same_as&lt;SwerveModuleConstants&gt;...<sp/>ModuleConstants&gt;</highlight></codeline>
+<codeline lineno="122" refid="classsubsystems_1_1CommandSwerveDrivetrain_1a7c7e962a40c66081e53b451aa3e46c51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1a7c7e962a40c66081e53b451aa3e46c51" kindref="member">CommandSwerveDrivetrain</ref>(swerve::SwerveDrivetrainConstants<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;driveTrainConstants,<sp/>ModuleConstants<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;...<sp/>modules)<sp/>:</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTunerSwerveDrivetrain" kindref="compound">TunerSwerveDrivetrain</ref>{driveTrainConstants,<sp/>modules...}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(utils::IsSimulation())<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StartSimThread();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;std::same_as&lt;SwerveModuleConstants&gt;...<sp/>ModuleConstants&gt;</highlight></codeline>
+<codeline lineno="144" refid="classsubsystems_1_1CommandSwerveDrivetrain_1a2e64964c211ba0bed80da64501758658" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1a2e64964c211ba0bed80da64501758658" kindref="member">CommandSwerveDrivetrain</ref>(</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>swerve::SwerveDrivetrainConstants<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;driveTrainConstants,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>units::hertz_t<sp/>odometryUpdateFrequency,</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ModuleConstants<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;...<sp/>modules</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>:</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTunerSwerveDrivetrain" kindref="compound">TunerSwerveDrivetrain</ref>{driveTrainConstants,<sp/>odometryUpdateFrequency,<sp/>modules...}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(utils::IsSimulation())<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StartSimThread();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;std::same_as&lt;SwerveModuleConstants&gt;...<sp/>ModuleConstants&gt;</highlight></codeline>
+<codeline lineno="172" refid="classsubsystems_1_1CommandSwerveDrivetrain_1a3892ff275298d3388f94b5acc0efde76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1a3892ff275298d3388f94b5acc0efde76" kindref="member">CommandSwerveDrivetrain</ref>(</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>swerve::SwerveDrivetrainConstants<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;driveTrainConstants,</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>units::hertz_t<sp/>odometryUpdateFrequency,</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;double,<sp/>3&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;odometryStandardDeviation,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;double,<sp/>3&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;visionStandardDeviation,</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ModuleConstants<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;...<sp/>modules</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/>:</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTunerSwerveDrivetrain" kindref="compound">TunerSwerveDrivetrain</ref>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>driveTrainConstants,<sp/>odometryUpdateFrequency,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>odometryStandardDeviation,<sp/>visionStandardDeviation,<sp/>modules...</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(utils::IsSimulation())<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StartSimThread();</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RequestSupplier&gt;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal"><sp/>std::is_lvalue_reference_v&lt;std::invoke_result_t&lt;RequestSupplier&gt;&gt;<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal">(RequestSupplier<sp/>req,<sp/><ref refid="classTunerSwerveDrivetrain" kindref="compound">TunerSwerveDrivetrain</ref><sp/>&amp;drive)<sp/>{<sp/>drive.SetControl(req());<sp/>}</highlight></codeline>
+<codeline lineno="202" refid="classsubsystems_1_1CommandSwerveDrivetrain_1ac3c4ee883fbb80dfd9673014e18cee63" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>frc2::CommandPtr<sp/><ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1ac3c4ee883fbb80dfd9673014e18cee63" kindref="member">ApplyRequest</ref>(RequestSupplier<sp/>request)</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Run([</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>request=std::move(request)]<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SetControl(request());</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RequestSupplier&gt;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal"><sp/>std::negation_v&lt;std::is_lvalue_reference&lt;std::invoke_result_t&lt;RequestSupplier&gt;&gt;&gt;<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal">(RequestSupplier<sp/>req,<sp/><ref refid="classTunerSwerveDrivetrain" kindref="compound">TunerSwerveDrivetrain</ref><sp/>&amp;drive)<sp/>{<sp/>drive.SetControl(req());<sp/>}</highlight></codeline>
+<codeline lineno="218" refid="classsubsystems_1_1CommandSwerveDrivetrain_1ad17a01c40e4fc5aacda371c660b656ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>frc2::CommandPtr<sp/><ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1ad17a01c40e4fc5aacda371c660b656ea" kindref="member">ApplyRequest</ref>(RequestSupplier<sp/>request)</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Run([</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>request=std::move(request)]<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SetControl(request());</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Periodic()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234" refid="classsubsystems_1_1CommandSwerveDrivetrain_1af403818c21ec3ebe0a3e65839e8e7e8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>frc2::CommandPtr<sp/><ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1af403818c21ec3ebe0a3e65839e8e7e8d" kindref="member">SysIdQuasistatic</ref>(frc2::sysid::Direction<sp/>direction)</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_sysIdRoutineToApply-&gt;Quasistatic(direction);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246" refid="classsubsystems_1_1CommandSwerveDrivetrain_1a4421bfdeb6697f18512d8b0250f1ff70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>frc2::CommandPtr<sp/><ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1a4421bfdeb6697f18512d8b0250f1ff70" kindref="member">SysIdDynamic</ref>(frc2::sysid::Direction<sp/>direction)</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_sysIdRoutineToApply-&gt;Dynamic(direction);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258" refid="classsubsystems_1_1CommandSwerveDrivetrain_1aae2282f06e966a8777eb9612681721db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1aae2282f06e966a8777eb9612681721db" kindref="member">AddVisionMeasurement</ref>(frc::Pose2d<sp/>visionRobotPose,<sp/>units::second_t<sp/>timestamp)</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
+<codeline lineno="259"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TunerSwerveDrivetrain::AddVisionMeasurement(std::move(visionRobotPose),<sp/>utils::FPGAToCurrentTime(timestamp));</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275" refid="classsubsystems_1_1CommandSwerveDrivetrain_1a4fc3f74712ea5142af04ecaddf5546b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classsubsystems_1_1CommandSwerveDrivetrain_1a4fc3f74712ea5142af04ecaddf5546b4" kindref="member">AddVisionMeasurement</ref>(</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frc::Pose2d<sp/>visionRobotPose,</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>units::second_t<sp/>timestamp,</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;double,<sp/>3&gt;<sp/>visionMeasurementStdDevs)</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
+<codeline lineno="279"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TunerSwerveDrivetrain::AddVisionMeasurement(std::move(visionRobotPose),<sp/>utils::FPGAToCurrentTime(timestamp),<sp/>visionMeasurementStdDevs);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>StartSimThread();</highlight></codeline>
+<codeline lineno="285"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/main/include/subsystems/CommandSwerveDrivetrain.h"/>
+  </compounddef>
+</doxygen>

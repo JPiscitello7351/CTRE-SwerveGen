@@ -1,0 +1,2260 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://jpiscitello7351.github.io/CTRE-SwerveGen/tutorials/arcade-drive.html">
+      
+      
+        <link rel="prev" href="Hello_World/hello_world.html">
+      
+      
+        <link rel="next" href="XRP_Tank_Drive/tutorial_XRP_tank_drive.html">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Arcade Drive (Intro Programming) - Argos CTRE Summer Swerve Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="yellow" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#from-zero-to-hello-world" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Argos CTRE Summer Swerve Docs" class="md-header__button md-logo" aria-label="Argos CTRE Summer Swerve Docs" data-md-component="logo">
+      
+  <img src="../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Argos CTRE Summer Swerve Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arcade Drive (Intro Programming)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="yellow" data-md-color-accent="orange"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="yellow" data-md-color-accent="orange"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/JPiscitello7351/CTRE-SwerveGen/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="Overview/tutorials_overview.html" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../summer-robot-2025/annotated.html" class="md-tabs__link">
+          
+  
+  
+  Robot-API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../FRC_Software_Tools/Driver%20Station/frc_driver_station.html" class="md-tabs__link">
+          
+  
+  
+  FRC Software Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../XRP_Docs/Overview/XRP_Overview.html" class="md-tabs__link">
+          
+  
+  
+  XRP Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../WPILib_VS%20CodeDocs/WPILib%20Software%20Quick%20Reference/WPILib_software_quick_reference.html" class="md-tabs__link">
+          
+  
+  
+  WPILib / VS Code Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../VS_Code_Docs/Overview/overview.md" class="md-tabs__link">
+          
+  
+  
+  VS Code Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="XRP_Docs/placeholder.md" class="md-tabs__link">
+          
+  
+  
+  CTRE / Phoenix Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="XRP_Docs/placeholder.md" class="md-tabs__link">
+          
+  
+  
+  C++ Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Argos CTRE Summer Swerve Docs" class="md-nav__button md-logo" aria-label="Argos CTRE Summer Swerve Docs" data-md-component="logo">
+      
+  <img src="../assets/favicon.png" alt="logo">
+
+    </a>
+    Argos CTRE Summer Swerve Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/JPiscitello7351/CTRE-SwerveGen/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CTRE Swerve Example Repo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Overview/tutorials_overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Hello_World/hello_world.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hello World
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Arcade Drive (Intro Programming)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="arcade-drive.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arcade Drive (Intro Programming)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#from-zero-to-hello-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Zero to "Hello World!" ✋
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicksave-here-for-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quicksave Here for Later 💾
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-robotic-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your Robotic Task 📎
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pre-code-workout" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Pre-Code Workout 📊
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-creation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Creation &amp; Setup 🏗️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Creation &amp; Setup 🏗️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#but-where-is-main-i-thought-thats-where-code-went" class="md-nav__link">
+    <span class="md-ellipsis">
+      But... Where is main? I thought that's where code went?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finally-lets-write-some-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finally - Let's Write Some Code ✍️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finally - Let&#39;s Write Some Code ✍️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#header-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Header Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trimming-the-fat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trimming the Fat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-subsystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Subsystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Commands?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-our-drive-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing our Drive Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finish-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finish Line 🏃
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XRP_Tank_Drive/tutorial_XRP_tank_drive.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XRP Tank Drive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Robot-API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Robot-API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summer-robot-2025/annotated.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Structure List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summer-robot-2025/files.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File List Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summer-robot-2025/links.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Links
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    FRC Software Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            FRC Software Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FRC_Software_Tools/Driver%20Station/frc_driver_station.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Driver Station
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    XRP Docs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            XRP Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../XRP_Docs/Overview/XRP_Overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../XRP_Docs/XRP_project/tutorial_XRP_Project.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating an XRP Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../XRP_Docs/XRP_Run_Code/tutorial_XRP_run_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XRP Run Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../XRP_Docs/XRP%20Software%20Quick%20Reference/XRP_software_quick_reference.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XRP Software Quick Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    WPILib / VS Code Docs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            WPILib / VS Code Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WPILib_VS%20CodeDocs/WPILib%20Software%20Quick%20Reference/WPILib_software_quick_reference.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WPILib Software Quick Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WPILib_VS%20CodeDocs/Create_Subsystem/creating_subsystem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Subsystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WPILib_VS%20CodeDocs/Simulate%20Robot%20Code/simulate_robot_code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simulate Robot Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    VS Code Docs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            VS Code Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VS_Code_Docs/Overview/overview.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CTRE / Phoenix Docs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            CTRE / Phoenix Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XRP_Docs/placeholder.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Placeholder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    C++ Docs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            C++ Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XRP_Docs/placeholder.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Placeholder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/JPiscitello7351/CTRE-SwerveGen/edit/main/docs/tutorials/arcade-drive.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Arcade Drive (Intro Programming)</h1>
+
+<p>Welcome to learning <strong>Arcade Drive!</strong>. This tutorial is meant to prepare you for
+both programming and learning how to design systems for command-based robots in FRC.
+This tutorial assumes you have little to no experience in C++, and will walk you through
+every step from project creation to driving a robot.If a section seems to boring/trivial,
+skip to the next. In order to accomadate all skill levels, we'll start from almost zero.</p>
+<h2 id="from-zero-to-hello-world">From Zero to "Hello World!" ✋</h2>
+<p>Go ahead and open another browser tab away from this one and go to 
+<a href="https://www.onlinegdb.com/online_c++_compiler">onlinegdb.com/online_c++_compiler</a> 
+so you can write some code in your browser without downloading any of the complicated tooling.
+(which you <strong>will</strong> need later to program the robot).</p>
+<p>Commonly, programmers start a new language by writing a very simple program that
+tells the user <code>Hello World!</code> it will print this message to the terminal. While
+normal people don't typically interract with terminals, it offers a <em>very</em> simple 
+way to get output from your code, to the user. </p>
+<div class="admonition tip">
+<p class="admonition-title">Why no pretty windows?</p>
+<p>Why would we use this "terminal" if we always have pretty buttons and text to click on?
+Well, put short: it's a lot more code to make things pretty. The terminal uses a 
+built-in feature to most operating systems called stdout (standard-out). This a much
+easier way to talk to a user.</p>
+</div>
+<p>For this exercise, just copy-paste the code below into the text editor on the website:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Click "Run" on the top, and see what happens! You should see the following output in the
+terminal at the bottom:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Hello, World!
+</span></code></pre></div>
+<p><strong>Congradulations!!</strong></p>
+<p>You just wrote your first C++ program. Take a minute to take in what each
+of these lines sort of mean:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> // Includes code that lives &quot;elsewhere&quot; </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">                    </span><span class="c1">//   (don&#39;t worry about what that means for now).</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">                    </span><span class="c1">// This &quot;iostream&quot; gives me the ability to use the code</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">                    </span><span class="c1">//   I&#39;ve written below to print to the terminal.</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">{</span><span class="w"> </span><span class="c1">// Everything between this open bracket and the following closing bracket is part of &quot;main&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="c1">// This is where your code will start running. We call &quot;main&quot; the &quot;entry-point&quot;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">//   because it is where your code will start running. main is special because</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="c1">//   the computer &quot;looks for&quot; this function to execute first.</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="c1">// The line below is what actually prints to the terminal</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="c1">// returning the number zero means &quot;the program worked OK!&quot;</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span><span class="w"> </span><span class="c1">// The end of &quot;main&quot;</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Comments</p>
+<p>Comments are those bits of text I wrote starting with <code>//</code>. Everything after <code>//</code> in a
+line the computer will ignore. These are called "comments" and programmers use them to
+communicate the intenet of code to other programmers.</p>
+</div>
+<p>Now you've written your first bit of magi- I mean code. While simple, this highlights a few
+important concepts that you will need throughout the entirety of your hopefully long and 
+prosperous software journey:</p>
+<p><strong>Code executes from "top to bottom"</strong></p>
+<p>First, we included, then we wrote the console, then we "returned" zero.</p>
+<p><strong>Returning Values</strong></p>
+<p>When you run a "function" (what "main" is) you can give values back to other parts
+of code: which is what we are doing with the "0". We give it back to whatever called
+(ran) our "main" function.</p>
+<p><strong>Including Libraries</strong></p>
+<p>We call collections of other people's (or our own) code "libraries", we can include these by...
+well, the <code>#include</code> of course! For this case, in order to write the line
+<code>std::cout &lt;&lt; "Hello, World!\n";</code>, we need to include <code>iostream</code> which we do by writing: 
+<code>#include &lt;iostream&gt;</code>. <code>iostream</code> contains some code that comes with C++ that helps us
+write to the terminal.</p>
+<h2 id="quicksave-here-for-later">Quicksave Here for Later 💾</h2>
+<p>The last section was pretty much the most bare-bones basic example you can do with
+any programming language. You can imagine that there is some complexities that lie
+between printing "Hello World!" to a user and programming a robot with tons of 
+motors, sensors, and moving parts. </p>
+<p>This is true, but don't let it overwhelm you. The most important thing to remember
+is that every system can be broken up into little pieces. </p>
+<p>This tutorial is skipping a lot about C++ and programming in general to focus
+specifically on writing code for robots. If you want, finish this tutorial then
+come back here and follow a couple of these links to learn more general programming
+and C++:</p>
+<ul>
+<li><a href="https://www.codecademy.com/learn/learn-c-plus-plus">Codecademy Free C++ Course</a></li>
+<li><a href="https://www.youtube.com/watch?v=8jLOx1hD3_o">FreeCodeCamp Youtube Video</a></li>
+</ul>
+<p>For reference (looking up standard functions &amp; libraries) I personally prefer:</p>
+<ul>
+<li><a href="https://cppreference.com/">Cpp Reference</a> - Fair warning: it's very wordy and technical</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">CPP Reference Example</p>
+<p>For example, if you wanted to know what all is inside <code>iostream</code> you can go
+<a href="https://cppreference.com/w/cpp/header/iostream.html">here</a> and then from
+there read about <a href="https://cppreference.com/w/cpp/io/cout.html">cout</a></p>
+</div>
+<h2 id="your-robotic-task">Your Robotic Task 📎</h2>
+<p>Your task for the rest of this tutorial is to <strong>get a robot to move</strong>. 
+Specifically, it needs to move in a way that we call <strong>Arcade Drive</strong>. </p>
+<p><strong>Arcade Drive</strong> is just a way we use to describe what we expect the robot to do
+when you move the two sticks on a classic x-box controller. The idea here is that
+the left stick moves the robot forward/back and the right stick turns. For those
+of you that play video games: yea it's that.</p>
+<div class="admonition warning">
+<p class="admonition-title">Assumptions About Software</p>
+<p>This tutorial is making the assumption you are working on a machine that 
+has <strong>all the tools you need installed for you</strong> by your resident tech guru.
+If you're missing these tools, go summon your guru to bestow upon you the 
+tools needed to write code for robots.</p>
+</div>
+<p>First off, let's get a quick picture of what we want the robot to do:</p>
+<p><img alt="diagram of arcade drive" src="../assets/images/arcade-drive/arcade-drive-diagram.png" /></p>
+<p>Like we described before, the left stick controls the "power" either forward or
+back from the robot, and the right stick controls the left and right "power".</p>
+<h2 id="the-pre-code-workout">The Pre-Code Workout 📊</h2>
+<p>Before we write any code, it's important to make a <strong>flow chart</strong> of what we need
+to do, in human readable tasks. When you are solving any problem in software,
+it's important to do a step like this either in your head, or on paper.</p>
+<p>Let's start with listing out the tasks we need to perform:</p>
+<ul>
+<li>Turn robot left and right</li>
+<li>Drive forward and back</li>
+<li>Read left stick from controller</li>
+<li>Read right stick from controller</li>
+</ul>
+<p>Now that we have that, let's make a chart of what our code needs to do.
+Programmers use flow charts a lot to visualize a plan for implementing code:</p>
+<pre class="mermaid"><code>flowchart TD
+    a[Read right stick from controller]
+    b[Read left stick from controller]
+    c[Set forward speed]
+    d[Set turn speed]
+
+    s(start) --&gt; a
+    a --&gt; b
+    b --&gt; c
+    c --&gt; d</code></pre>
+<p>While simple, it's important to keep the tasks at hand striat. I will walk you 
+through how to do each of these things in code in the next section.</p>
+<h2 id="project-creation-setup">Project Creation &amp; Setup 🏗️</h2>
+<div class="admonition info">
+<p class="admonition-title">XRP Only</p>
+<p>These instructions are designed for the <strong>XRP robot ONLY</strong>. Similar concepts
+apply for full-scale robots, but this is by no means an arcade tutorial
+for swerve drive. This code assumes that some things are present from 
+specifically the XRP example generated by WPILib</p>
+</div>
+<p>To start things off, you'll need to open <strong>2025 VsCode</strong> from the start menu / 
+desktop. Wherever it is located.</p>
+<p>From here, I will defer to WPILib for how to create the XRP project. Follow the instructions on
+<a href="https://docs.wpilib.org/en/stable/docs/xrp-robot/programming-xrp.html">this</a> 
+page (including running the program) and then come back here when you are done.</p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Congrats!!! If you went to WPILib, followed the docs, and came back here:
+you just followed your first technical documentation tutorial!</p>
+</div>
+<h3 id="but-where-is-main-i-thought-thats-where-code-went">But... Where is <code>main</code>? I thought that's where code went?</h3>
+<p>Ok yes, you caught me. This is one of those "complexities" I mentioned earlier.
+The <code>main</code> function here is burried deep, deeper than we will ever go into
+the toolbox that is WPILib. We won't ever interract with it at all. </p>
+<p>You'll notice there are lots of files in this project, so it can be hard to 
+tell where we start. For now: just accept that we will be primarily working
+in the file <code>RobotContainer.cpp</code>. This file "contains" different <strong>commands</strong>
+that will be run on the robot. (Imagine that, robot container <em>containing</em> the robot?)</p>
+<div class="admonition tip">
+<p class="admonition-title">VSCode Shortcut</p>
+<p>Use the shortcut <code>ctrl+p</code> to get a search bar where you can type in any file
+name, and VSCode will take you there. You can also use <code>ctrl+shift+p</code> to get
+the command pallate, where you can type pretty much any command you can click.</p>
+</div>
+<p>Go ahead and open that <code>RobotContainer.cpp</code> file. It should be under: <code>/src/main/cpp</code>
+inside of your project. Navigate to it using the shortcut from the tip above,
+or with the explorer on the left.</p>
+<p>This is where we will do most of our writing.</p>
+<h2 id="finally-lets-write-some-code">Finally - Let's Write Some Code ✍️</h2>
+<p>Your file (<code>RobotContainer.cpp</code>) should look like this to start:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Copyright (c) FIRST and other WPILib contributors.</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">// Open Source Software; you can modify and/or share it under the terms of</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// the WPILib BSD license file in the root directory of this project.</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;RobotContainer.h&quot;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc/smartdashboard/SmartDashboard.h&gt;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/Commands.h&gt;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/button/JoystickButton.h&gt;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;commands/TeleopArcadeDrive.h&quot;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">RobotContainer</span><span class="o">::</span><span class="n">RobotContainer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="c1">// Configure the button bindings</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span><span class="n">ConfigureButtonBindings</span><span class="p">();</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="kt">void</span><span class="w"> </span><span class="n">RobotContainer</span><span class="o">::</span><span class="n">ConfigureButtonBindings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">  </span><span class="c1">// Also set default commands here</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="n">m_drive</span><span class="p">.</span><span class="n">SetDefaultCommand</span><span class="p">(</span><span class="n">TeleopArcadeDrive</span><span class="p">(</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">      </span><span class="o">&amp;</span><span class="n">m_drive</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">m_controller</span><span class="p">.</span><span class="n">GetRawAxis</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">      </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">m_controller</span><span class="p">.</span><span class="n">GetRawAxis</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="p">}));</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">  </span><span class="c1">// Example of how to use the onboard IO</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">  </span><span class="n">m_userButton</span><span class="p">.</span><span class="n">OnTrue</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">cmd</span><span class="o">::</span><span class="n">Print</span><span class="p">(</span><span class="s">&quot;USER Button Pressed&quot;</span><span class="p">))</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">      </span><span class="p">.</span><span class="n">OnFalse</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">cmd</span><span class="o">::</span><span class="n">Print</span><span class="p">(</span><span class="s">&quot;USER Button Released&quot;</span><span class="p">));</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">  </span><span class="n">frc2</span><span class="o">::</span><span class="n">JoystickButton</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_controller</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">      </span><span class="p">.</span><span class="n">OnTrue</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">cmd</span><span class="o">::</span><span class="n">RunOnce</span><span class="p">([</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_arm</span><span class="p">.</span><span class="n">SetAngle</span><span class="p">(</span><span class="mi">45</span><span class="n">_deg</span><span class="p">);</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{}))</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">      </span><span class="p">.</span><span class="n">OnFalse</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">cmd</span><span class="o">::</span><span class="n">RunOnce</span><span class="p">([</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_arm</span><span class="p">.</span><span class="n">SetAngle</span><span class="p">(</span><span class="mi">0</span><span class="n">_deg</span><span class="p">);</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{}));</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">  </span><span class="n">frc2</span><span class="o">::</span><span class="n">JoystickButton</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_controller</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">      </span><span class="p">.</span><span class="n">OnTrue</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">cmd</span><span class="o">::</span><span class="n">RunOnce</span><span class="p">([</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_arm</span><span class="p">.</span><span class="n">SetAngle</span><span class="p">(</span><span class="mi">90</span><span class="n">_deg</span><span class="p">);</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{}))</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">      </span><span class="p">.</span><span class="n">OnFalse</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">cmd</span><span class="o">::</span><span class="n">RunOnce</span><span class="p">([</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_arm</span><span class="p">.</span><span class="n">SetAngle</span><span class="p">(</span><span class="mi">0</span><span class="n">_deg</span><span class="p">);</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{}));</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">  </span><span class="c1">// Setup SmartDashboard options.</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">  </span><span class="n">m_chooser</span><span class="p">.</span><span class="n">SetDefaultOption</span><span class="p">(</span><span class="s">&quot;Auto Routine Distance&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m_autoDistance</span><span class="p">);</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">  </span><span class="n">m_chooser</span><span class="p">.</span><span class="n">AddOption</span><span class="p">(</span><span class="s">&quot;Auto Routine Time&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m_autoTime</span><span class="p">);</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">  </span><span class="n">frc</span><span class="o">::</span><span class="n">SmartDashboard</span><span class="o">::</span><span class="n">PutData</span><span class="p">(</span><span class="s">&quot;Auto Selector&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m_chooser</span><span class="p">);</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="p">}</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="n">frc2</span><span class="o">::</span><span class="n">Command</span><span class="o">*</span><span class="w"> </span><span class="n">RobotContainer</span><span class="o">::</span><span class="n">GetAutonomousCommand</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">m_chooser</span><span class="p">.</span><span class="n">GetSelected</span><span class="p">();</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="header-files">Header Files</h3>
+<p>The <em>very</em> first thing I want to draw your attention to is the <code>#include</code> towards
+the top:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;RobotContainer.h&quot;</span>
+</span></code></pre></div>
+<p>You'll notice that this is including (or rather, taking the code of and using it here) 
+a file called <code>RobotContainer.h</code>. This is actually a file located within our project at:
+<code>src/main/include/RobotContainer.h</code>.</p>
+<p>This is called a "Header" file. Most "parts" of software in any C++ projects
+come in pairs of files. A "source" file (<code>RobotContainer.cpp</code>) and a "header" 
+file: (<code>RobotContainer.h</code>). Each one has it's own job:</p>
+<ul>
+<li>The source file contains the "actual" code that is used on the robot.</li>
+<li>The header file tells other source files what to expect from your code.</li>
+</ul>
+<p>I know that was probably a little confusing, but let's look at a concrete example:</p>
+<p>Looking at the <code>RobotContainer.cpp</code> file, you'll see a couple functions with funny synatx:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">RobotContainer</span><span class="o">::</span><span class="n">RobotContainer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="c1">// Stuff in here ...</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kt">void</span><span class="w"> </span><span class="n">RobotContainer</span><span class="o">::</span><span class="n">ConfigureButtonBindings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="c1">// Stuff in here ...</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">frc2</span><span class="o">::</span><span class="n">Command</span><span class="o">*</span><span class="w"> </span><span class="n">RobotContainer</span><span class="o">::</span><span class="n">GetAutonomousCommand</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="c1">// Stuff in here ...</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Now, use the explorer or <code>ctrl+p</code> shourtcut to look at the file <code>RobotContainer.h</code>:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Copyright (c) FIRST and other WPILib contributors.</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">// Open Source Software; you can modify and/or share it under the terms of</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">// the WPILib BSD license file in the root directory of this project.</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="cp">#pragma once</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc/Joystick.h&gt;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc/smartdashboard/SendableChooser.h&gt;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc/xrp/XRPOnBoardIO.h&gt;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/Command.h&gt;</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/CommandPtr.h&gt;</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/button/Trigger.h&gt;</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Constants.h&quot;</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;commands/AutonomousDistance.h&quot;</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;commands/AutonomousTime.h&quot;</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;subsystems/Arm.h&quot;</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;subsystems/Drivetrain.h&quot;</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="cm">/**</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="cm"> * This class is where the bulk of the robot should be declared.  Since</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="cm"> * Command-based is a &quot;declarative&quot; paradigm, very little robot logic should</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="cm"> * actually be handled in the {@link Robot} periodic methods (other than the</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="cm"> * scheduler calls).  Instead, the structure of the robot (including subsystems,</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="cm"> * commands, and button mappings) should be declared here.</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="cm"> */</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="k">class</span><span class="w"> </span><span class="nc">RobotContainer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">  </span><span class="c1">// NOTE: The I/O pin functionality of the 5 exposed I/O pins depends on the</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="w">  </span><span class="c1">// hardware &quot;overlay&quot;</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">  </span><span class="c1">// that is specified when launching the wpilib-ws server on the Romi raspberry</span>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="w">  </span><span class="c1">// pi. By default, the following are available (listed in order from inside of</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="w">  </span><span class="c1">// the board to outside):</span>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="w">  </span><span class="c1">// - DIO 8 (mapped to Arduino pin 11, closest to the inside of the board)</span>
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="w">  </span><span class="c1">// - Analog In 0 (mapped to Analog Channel 6 / Arduino Pin 4)</span>
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="w">  </span><span class="c1">// - Analog In 1 (mapped to Analog Channel 2 / Arduino Pin 20)</span>
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="w">  </span><span class="c1">// - PWM 2 (mapped to Arduino Pin 21)</span>
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="w">  </span><span class="c1">// - PWM 3 (mapped to Arduino Pin 22)</span>
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="w">  </span><span class="c1">// Your subsystem configuration should take the overlays into account</span>
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="w">  </span><span class="n">RobotContainer</span><span class="p">();</span>
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a><span class="w">  </span><span class="n">frc2</span><span class="o">::</span><span class="n">Command</span><span class="o">*</span><span class="w"> </span><span class="nf">GetAutonomousCommand</span><span class="p">();</span>
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>
+</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a><span class="w">  </span><span class="c1">// Assumes a gamepad plugged into channel 0</span>
+</span><span id="__span-6-46"><a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a><span class="w">  </span><span class="n">frc</span><span class="o">::</span><span class="n">Joystick</span><span class="w"> </span><span class="n">m_controller</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span><span id="__span-6-47"><a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a><span class="w">  </span><span class="n">frc</span><span class="o">::</span><span class="n">SendableChooser</span><span class="o">&lt;</span><span class="n">frc2</span><span class="o">::</span><span class="n">Command</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">m_chooser</span><span class="p">;</span>
+</span><span id="__span-6-48"><a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>
+</span><span id="__span-6-49"><a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a><span class="w">  </span><span class="c1">// The robot&#39;s subsystems</span>
+</span><span id="__span-6-50"><a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a><span class="w">  </span><span class="n">Drivetrain</span><span class="w"> </span><span class="n">m_drive</span><span class="p">;</span>
+</span><span id="__span-6-51"><a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a><span class="w">  </span><span class="n">Arm</span><span class="w"> </span><span class="n">m_arm</span><span class="p">;</span>
+</span><span id="__span-6-52"><a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a><span class="w">  </span><span class="n">frc</span><span class="o">::</span><span class="n">XRPOnBoardIO</span><span class="w"> </span><span class="n">m_onboardIO</span><span class="p">;</span>
+</span><span id="__span-6-53"><a id="__codelineno-6-53" name="__codelineno-6-53" href="#__codelineno-6-53"></a>
+</span><span id="__span-6-54"><a id="__codelineno-6-54" name="__codelineno-6-54" href="#__codelineno-6-54"></a><span class="w">  </span><span class="c1">// Example button</span>
+</span><span id="__span-6-55"><a id="__codelineno-6-55" name="__codelineno-6-55" href="#__codelineno-6-55"></a><span class="w">  </span><span class="n">frc2</span><span class="o">::</span><span class="n">Trigger</span><span class="w"> </span><span class="n">m_userButton</span><span class="p">{</span>
+</span><span id="__span-6-56"><a id="__codelineno-6-56" name="__codelineno-6-56" href="#__codelineno-6-56"></a><span class="w">      </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_onboardIO</span><span class="p">.</span><span class="n">GetUserButtonPressed</span><span class="p">();</span><span class="w"> </span><span class="p">}};</span>
+</span><span id="__span-6-57"><a id="__codelineno-6-57" name="__codelineno-6-57" href="#__codelineno-6-57"></a>
+</span><span id="__span-6-58"><a id="__codelineno-6-58" name="__codelineno-6-58" href="#__codelineno-6-58"></a><span class="w">  </span><span class="c1">// Autonomous commands.</span>
+</span><span id="__span-6-59"><a id="__codelineno-6-59" name="__codelineno-6-59" href="#__codelineno-6-59"></a><span class="w">  </span><span class="n">AutonomousDistance</span><span class="w"> </span><span class="n">m_autoDistance</span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_drive</span><span class="p">};</span>
+</span><span id="__span-6-60"><a id="__codelineno-6-60" name="__codelineno-6-60" href="#__codelineno-6-60"></a><span class="w">  </span><span class="n">AutonomousTime</span><span class="w"> </span><span class="n">m_autoTime</span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_drive</span><span class="p">};</span>
+</span><span id="__span-6-61"><a id="__codelineno-6-61" name="__codelineno-6-61" href="#__codelineno-6-61"></a>
+</span><span id="__span-6-62"><a id="__codelineno-6-62" name="__codelineno-6-62" href="#__codelineno-6-62"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ConfigureButtonBindings</span><span class="p">();</span>
+</span><span id="__span-6-63"><a id="__codelineno-6-63" name="__codelineno-6-63" href="#__codelineno-6-63"></a><span class="p">};</span>
+</span></code></pre></div>
+<p>There's a lot to unpack here, but if you read carefully... you'll find each
+of those functions we have in <code>RobotContainer.cpp</code>:</p>
+<ul>
+<li><code>GetAutonomousCommand</code></li>
+<li><code>RobotContainer</code></li>
+<li><code>ConfigureButtonBindings</code></li>
+</ul>
+<p>All of these are inside a "class" which is another programming concept. Classes
+are a little out of scope for this tutorial, but essentially: they are ways to 
+organize code into objects. "Objects" in programming are models of real world
+things. For instance, we could have a class that represents a toaster. 
+Toasters have functions: <code>toastBread()</code>, <code>turnOff()</code> and "properties"
+(something like color, or it's manufactured date).</p>
+<p>I know that was a <strong>BIG</strong> tangent, but this is one of the few concepts that
+is very easy to miss, but also <em>very</em> important to being able to read code.
+If you are only reading the <code>.cpp</code> file, you're only getting half the story.</p>
+<div class="admonition tip">
+<p class="admonition-title">Header Shortcut</p>
+<p>If you have already built your project, you can usually use <code>alt+o</code>
+(the lowercase letter 'o') to navigate between a cpp/h file. Try it
+on <code>RobotContainer.cpp</code>!</p>
+</div>
+<h3 id="trimming-the-fat">Trimming the Fat</h3>
+<p>Okay so <em>technically</em> this project already implements arcade drive for you 
+out of the box, but we want to do it ourselves. Go ahead and delete all of
+the content in <code>ConfigureButtonBindings</code> in the <code>RobotContainer.cpp</code> file. 
+Your file should now look like this:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Copyright (c) FIRST and other WPILib contributors.</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">// Open Source Software; you can modify and/or share it under the terms of</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1">// the WPILib BSD license file in the root directory of this project.</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;RobotContainer.h&quot;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc/smartdashboard/SmartDashboard.h&gt;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/Commands.h&gt;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/button/JoystickButton.h&gt;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;commands/TeleopArcadeDrive.h&quot;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="n">RobotContainer</span><span class="o">::</span><span class="n">RobotContainer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="c1">// Configure the button bindings</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span><span class="n">ConfigureButtonBindings</span><span class="p">();</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="p">}</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="kt">void</span><span class="w"> </span><span class="n">RobotContainer</span><span class="o">::</span><span class="n">ConfigureButtonBindings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="p">}</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="n">frc2</span><span class="o">::</span><span class="n">Command</span><span class="o">*</span><span class="w"> </span><span class="n">RobotContainer</span><span class="o">::</span><span class="n">GetAutonomousCommand</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">m_chooser</span><span class="p">.</span><span class="n">GetSelected</span><span class="p">();</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Don't worry about the <code>RobotContainer</code> and the <code>GetAutonomousCommand</code> functions
+for now, they aren't needed for what we are doing. We'll be focusing exclusively
+on <code>ConfigureButtonBindings</code>, which is where commands are supposed to be
+created. Don't worry: we'll show you how to create a command.</p>
+<h3 id="understanding-subsystems">Understanding Subsystems</h3>
+<p>So, we now know that most of our code will go in <code>ConfigureButtonBindings</code>, but, what do we write?
+Before I can answer that, you'll need to very briefly understand <a href="https://docs.wpilib.org/en/stable/docs/software/commandbased/subsystems.html">subsystems</a>
+and how they organize code in WPILib.</p>
+<p><strong>Subsystems</strong> are a tool for organizing code on your robot in a way that mirrors
+the systems present on the robot in the real world. You can think of them
+like containers for code that all operates one part of the robot, like an arm,
+or the drivetrain.</p>
+<p>For instance, you could have a robot that you can break down into its systems:</p>
+<pre class="mermaid"><code>flowchart TD
+
+r[Robot]
+d[Drivetrain]
+a[Arm]
+m1[Motor 1]
+m2[Motor 2]
+m3[Motor 3]
+m4[Motor 4]
+m5[Motor 5]
+
+r --&gt; d
+r --&gt; a
+
+d --&gt; m1
+d --&gt; m2
+d --&gt; m3
+d --&gt; m4
+
+a --&gt; m5</code></pre>
+<p>In code, we would neet to support setting the speed of each motor individually
+accross all subsystems (inside of <code>RobotContainer.cpp</code>):</p>
+<pre class="mermaid"><code>flowchart TD
+
+rc[Robot Container.cpp]
+
+m1[Set Motor 1]
+m2[Set Motor 2]
+m3[Set Motor 3]
+m4[Set Motor 4]
+m5[Set Motor 5]
+
+rc --&gt; m1
+rc --&gt; m2
+rc --&gt; m3
+rc --&gt; m4
+rc --&gt; m5</code></pre>
+<p>You can see how this would get messy quick in code...</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// RobotContainer.cpp</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1">// Would have to define 5 functions in order to support each motor</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_motor_1</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">speed</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="c1">// TODO</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_motor_2</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">speed</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">{</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">  </span><span class="c1">// TODO</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="p">}</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_motor_3</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">speed</span><span class="p">)</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="p">{</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span><span class="c1">// TODO</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="p">}</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_motor_4</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">speed</span><span class="p">)</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">{</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">  </span><span class="c1">// TODO</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="p">}</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_motor_5</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">speed</span><span class="p">)</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="p">{</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">  </span><span class="c1">// TODO</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>To avoid this, we organize our code so that each physical subystem on our robot 
+(like the drivetrain or arm in the example above) gets its own little box to live in. 
+In code, these end up being other files. This allows clear seperation between
+systems: it's easy to tell which motor belongs to which system. Plus, if we 
+hide the motors away in their own subsystems, we can create functions that are
+much more readable. Instead of <code>set_motor_5(0.5)</code> we could write: <code>set_arm_speed(0.5)</code>
+which is much more clear.</p>
+<p>In our XRP project: we don't have to write any subsystems as one is provided
+for us. I would encourage you to go take a look at both <code>src/main/cpp/subsystems/Drivetrain.cpp</code>
+and <code>src/main/cpp/subsystems/Arm.cpp</code>. Both of these subsystems do exactly what I
+mentioned before, containing all the components for each system in it's own file.</p>
+<p>Particularly in the header (<code>.h</code>) file: you'll see a function called <code>ArcadeDrive</code>!
+This function is <em>very</em> similar to what we'll be implementing below.</p>
+<h3 id="default-commands">Default Commands?</h3>
+<p>Part of the WPILib command-based robot toolkit is the idea that each subsystem
+has some default action that it will perform over and over again, as fast as
+the robot will run. For instance, the drivetrain needs to take data from a controller
+over and over again and then apply those speeds to the drivetrain, many times a second.</p>
+<p>This "default command" is where we will put our code to actually run the robot.</p>
+<p>So: how do we start this? Well, firstly we need to access our drivetrain subsystem that
+lives in <code>Drivetrain.cpp</code> inside of <code>RototContainer.cpp</code>. </p>
+<p>First: It's important to understand that the <code>Drivetrain</code> subystem is just a C++ class.
+A consequence of this is that just becuause that <code>Drivetrain.cpp</code> file exists, doesn't
+mean we have access to it yet in <code>RobotContainer.cpp</code>. <code>Drivetrain.cpp</code> <em>defines</em> what 
+a drivetrain is and whats inside of it, but we need to go into <code>RobbotContainer.c/h</code> and
+actually <em>create</em> a drivetrain. You can think of it like this: when you write down a 
+recipe for a cake, the act of writing down the instructions doesn't create the cake. 
+You yourself have to follow the instructions to bake the cake to actually make it. 
+This is analagous to what's going on here between <code>Drivetrain</code> and <code>RobotContainer</code>.</p>
+<p>You could say that:</p>
+<pre class="mermaid"><code>flowchart TD
+
+r[Robot Container] --&gt;|Depends on| d[Drivetrain]</code></pre>
+<p>Anyway: default commands. I said just a moment ago that RobotContainer has to 
+create a drivetrain. Well, if you take a look in <code>RobotContainer.h</code> you can 
+find out that the <code>Drivetrain</code> <em>object</em> is named <code>m_drive</code>.</p>
+<p><code>m_drive</code> contains a function called <code>SetDefaultCommand</code> which just tells
+the subsystem what command to run over and over again as the robot runs. Let's
+go inside of <code>RobotContainer.cpp</code> and add that:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// RobotContainer.cpp (omitting parts of file for simplicity)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">RobotContainer::ConfigureButtonBindings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="n">m_drive</span><span class="p">.</span><span class="n">SetDefaultCommand</span><span class="p">(</span><span class="cm">/* TODO */</span><span class="p">);</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Just one more step before we can start actually writing our arcade drive code:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// RobotContainer.cpp (omitting parts of file for simplicity)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">RobotContainer::ConfigureButtonBindings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="n">m_drive</span><span class="p">.</span><span class="n">SetDefaultCommand</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">InstantCommand</span><span class="p">(</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="cm">/* our code goes here */</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_drive</span><span class="p">}</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="p">));</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Woah: a lot just happened. Addmitidly, this is a LOT of syntax to swim through
+at the moment. For now, the technicals behind what is going on here is a little
+out of scope for this tutorial so just note that:</p>
+<ul>
+<li><code>[this] () {}</code> is a C++ <a href="https://www.geeksforgeeks.org/lambda-expression-in-c/">lambda</a>, which is just a function we can write in-place where our code will go</li>
+<li>{&amp;m_drive} is an argument we have to provide to let the command know we are using the <code>m_drive</code> subsystem inside of the function we are about to write.</li>
+</ul>
+<p>You can view the function protoytpe for the <code>frc2::InstantCommand</code> <a href="https://github.wpilib.org/allwpilib/docs/release/cpp/classfrc2_1_1_instant_command.html#a61725582dec0e3229cc5fe70e26d2f4d">here</a></p>
+<h3 id="writing-our-drive-code">Writing our Drive Code</h3>
+<p>Finally: time to write our drive code. First, let's write in psuedo-code using comments
+what we wnat our drivetrain to do.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// RobotContainer.cpp (omitting parts of file for simplicity)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">RobotContainer::ConfigureButtonBindings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="n">m_drive</span><span class="p">.</span><span class="n">SetDefaultCommand</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">InstantCommand</span><span class="p">(</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">      </span><span class="c1">// Read joystick left stick up/down</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">      </span><span class="c1">// Read joystick right stick left/right</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">      </span><span class="c1">// Send values to Drivetrain to be used for ArcadeDrive</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_drive</span><span class="p">}</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">  </span><span class="p">));</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Let's start by reading the joystick. To read a joystick, we'll need to get another
+object, this time for the x-box controller. For this project, the x-box controller
+is called <code>m_controller</code> and the function we can use from inside of the controller 
+to get the joystick axis is: <code>GetRawAxis</code>. This will output a value from <strong>-1.0 to 1.0.</strong>
+We'll put these values into a couple variables which we'll use later in the next step.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// RobotContainer.cpp (omitting parts of file for simplicity)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">RobotContainer::ConfigureButtonBindings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="n">m_drive</span><span class="p">.</span><span class="n">SetDefaultCommand</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">InstantCommand</span><span class="p">(</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">      </span><span class="c1">// TODO: Verify axis indexes</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">xSpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_controller</span><span class="p">.</span><span class="n">GetRawAxis</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">zRotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_controller</span><span class="p">.</span><span class="n">GetRawAxis</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">      </span><span class="c1">// Send values to Drivetrain to be used for ArcadeDrive</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_drive</span><span class="p">}</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">  </span><span class="p">));</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Variables</p>
+<p>You'll notice we are assigning the two <code>m_controller.GetRawAxis()</code> calls
+to variables called <code>xSpeed</code> and <code>zRotation</code> respectively. Variables are
+just named values in code that we can easily reference. They consist of a 
+datatype (<code>double</code> in this case, which means a number with a decimal like 0.53)
+and a name (<code>xSpeed</code> and <code>zRotation</code> in this case). There are other types
+of variables as well: <code>bool</code>, which holds true/false, <code>int</code> which holds
+integers, and others. Objects are just special variables with a dataype 
+that is a <strong>class</strong>.</p>
+</div>
+<p>Now we need to put these values into the drivetrain so it will drive... arcade style.
+The <code>m_drive</code> object (<code>Drivetrain</code> subsystem) has a function in it called <code>ArcadeDrive</code>.
+You can see it in the <code>Drivetrain.h</code> file:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// Drivetrain.h</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="cm">/**</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="cm">   * Drives the robot using arcade controls.</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="cm">   *</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="cm">   * @param xaxisSpeed the commanded forward movement</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="cm">   * @param zaxisRotate the commanded rotation</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="cm">   */</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ArcadeDrive</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">xaxisSpeed</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">zaxisRotate</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Finding out What Functions Do</p>
+<p>If you ever want to find out what a function does in a codebase
+you are working on, you can check the .h file for comments like
+what we have above that other developers have left to show
+what the function does.</p>
+</div>
+<p>So, we call this function and just have to give the x speed (forward) and 
+z axis rotation. If you're wondering: <a href="https://docs.wpilib.org/en/stable/docs/software/basic-programming/coordinate-system.html">WPILib defines the coordinate frame</a>.
+When working with grid systems, or which way is "forward" make sure to always 
+use WPILib's conventions:</p>
+<p><img alt="wpilib coordinate frame" src="../assets/images/arcade-drive/wpilib-coordinates.png" /></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// RobotContainer.cpp (omitting parts of file for simplicity)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">RobotContainer::ConfigureButtonBindings</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="n">m_drive</span><span class="p">.</span><span class="n">SetDefaultCommand</span><span class="p">(</span><span class="n">frc2</span><span class="o">::</span><span class="n">InstantCommand</span><span class="p">(</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">      </span><span class="c1">// TODO: Verify axis indexes</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">xSpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_controller</span><span class="p">.</span><span class="n">GetRawAxis</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">zRotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m_controller</span><span class="p">.</span><span class="n">GetRawAxis</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">      </span><span class="c1">// Send values to Drivetrain to be used for ArcadeDrive</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">      </span><span class="n">m_drive</span><span class="p">.</span><span class="n">ArcadeDrive</span><span class="p">(</span><span class="n">xSpeed</span><span class="p">,</span><span class="w"> </span><span class="n">zRotation</span><span class="p">);</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_drive</span><span class="p">}</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">  </span><span class="p">));</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="finish-line">Finish Line 🏃</h2>
+<p>Well, that's it! We have just made our arcade drive implementation! </p>
+<p>To get your robot running, you will first have to open your WiFi, and 
+connect to your XRP robot's WiFi network.</p>
+<p>After that, go ahead and use the <code>ctrl+shift+p</code> shortcut and type in <code>simulate robot code</code> and
+select <code>WPILib: Simulate Robot Code</code>, or click on the wpilib icon and select
+the same command:</p>
+<p><img alt="running robot program" src="../assets/images/arcade-drive/how-to-run.png" /></p>
+<p>If you're connected to your robot, you should be able to drive it around after
+your code builds!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="Hello_World/hello_world.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hello World">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Hello World
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="XRP_Tank_Drive/tutorial_XRP_tank_drive.html" class="md-footer__link md-footer__link--next" aria-label="Next: XRP Tank Drive">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                XRP Tank Drive
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.sections", "navigation.tabs", "navigation.top", "toc.follow", "toc.integrate", "content.action.edit"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

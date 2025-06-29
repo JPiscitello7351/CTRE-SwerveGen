@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Robot_8h" kind="file" language="C++">
+    <compoundname>Robot.h</compoundname>
+    <includes local="no">optional</includes>
+    <includes local="no">frc/TimedRobot.h</includes>
+    <includes local="no">frc2/command/CommandPtr.h</includes>
+    <includes refid="RobotContainer_8h" local="yes">RobotContainer.h</includes>
+    <includedby refid="Robot_8cpp" local="yes">src/main/cpp/Robot.cpp</includedby>
+    <incdepgraph>
+      <node id="24">
+        <label>Constants.h</label>
+        <link refid="Constants_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/main/include/Robot.h</label>
+        <link refid="Robot_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>RobotContainer.h</label>
+        <link refid="RobotContainer_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Telemetry.h</label>
+        <link refid="Telemetry_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>generated/TunerConstants.h</label>
+        <link refid="TunerConstants_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>subsystems/CommandSwerveDrivetrain.h</label>
+        <link refid="CommandSwerveDrivetrain_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>ctre/phoenix6/SignalLogger.hpp</label>
+      </node>
+      <node id="14">
+        <label>ctre/phoenix6/swerve/SwerveDrivetrain.hpp</label>
+      </node>
+      <node id="9">
+        <label>frc/DriverStation.h</label>
+      </node>
+      <node id="10">
+        <label>frc/Notifier.h</label>
+      </node>
+      <node id="3">
+        <label>frc/TimedRobot.h</label>
+      </node>
+      <node id="16">
+        <label>frc/smartdashboard/Mechanism2d.h</label>
+      </node>
+      <node id="17">
+        <label>frc/smartdashboard/MechanismLigament2d.h</label>
+      </node>
+      <node id="4">
+        <label>frc2/command/CommandPtr.h</label>
+      </node>
+      <node id="11">
+        <label>frc2/command/SubsystemBase.h</label>
+      </node>
+      <node id="6">
+        <label>frc2/command/button/CommandXboxController.h</label>
+      </node>
+      <node id="12">
+        <label>frc2/command/sysid/SysIdRoutine.h</label>
+      </node>
+      <node id="19">
+        <label>networktables/DoubleArrayTopic.h</label>
+      </node>
+      <node id="20">
+        <label>networktables/DoubleTopic.h</label>
+      </node>
+      <node id="18">
+        <label>networktables/NetworkTableInstance.h</label>
+      </node>
+      <node id="21">
+        <label>networktables/StringTopic.h</label>
+      </node>
+      <node id="22">
+        <label>networktables/StructArrayTopic.h</label>
+      </node>
+      <node id="23">
+        <label>networktables/StructTopic.h</label>
+      </node>
+      <node id="2">
+        <label>optional</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classRobot" prot="public">Robot</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>(c)<sp/>FIRST<sp/>and<sp/>other<sp/>WPILib<sp/>contributors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Open<sp/>Source<sp/>Software;<sp/>you<sp/>can<sp/>modify<sp/>and/or<sp/>share<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>WPILib<sp/>BSD<sp/>license<sp/>file<sp/>in<sp/>the<sp/>root<sp/>directory<sp/>of<sp/>this<sp/>project.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc/TimedRobot.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;frc2/command/CommandPtr.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;RobotContainer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="classRobot" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRobot" kindref="compound">Robot</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>frc::TimedRobot<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="classRobot" kindref="compound">Robot</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RobotPeriodic()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DisabledInit()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DisabledPeriodic()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DisabledExit()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AutonomousInit()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AutonomousPeriodic()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AutonomousExit()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TeleopInit()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TeleopPeriodic()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TeleopExit()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TestInit()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TestPeriodic()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TestExit()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>std::optional&lt;frc2::CommandPtr&gt;<sp/>m_autonomousCommand;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="classRobotContainer" kindref="compound">RobotContainer</ref><sp/>m_container;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="src/main/include/Robot.h"/>
+  </compounddef>
+</doxygen>
