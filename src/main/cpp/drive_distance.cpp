@@ -23,8 +23,9 @@ void DriveDistance::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveDistance::Execute() {
   static size_t alive = 0;
+  units::meter_t latTol = 0.08_m;
   // Speeds to drive at
-  units::meters_per_second_t xSpeed = 0.5_mps;
+  units::meters_per_second_t xSpeed = 0.35_mps;
   units::meters_per_second_t ySpeed = xSpeed;
   // TODO: Should use a PID-like controller to do this
 
@@ -35,19 +36,27 @@ void DriveDistance::Execute() {
   frc::Transform2d difference = m_requestedPose - m_lastPose;
 
   // Negate speed if direction is opposite
-  if (difference.X() < 0_m)
+  if (difference.X() > -latTol && difference.X() < latTol)
+  {
+    xSpeed = 0_mps;
+  }
+  else if (difference.X() < 0_m)
   {
     xSpeed *= -1;
   }
 
-  if (difference.Y() < 0_m)
+  if (difference.Y() > -latTol && difference.Y() < latTol)
+  {
+    ySpeed = 0_mps;
+  }
+  else if (difference.Y() < 0_m)
   {
     ySpeed *= -1;
   }
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
-  m_pSwerveDrive->ApplyRequest([this, xSpeed, ySpeed]() -> auto&& { return m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate(0_rad_per_s); });
+  m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate(0_rad_per_s));
 
   // DEBUGGING: START
   // Last position
@@ -63,6 +72,7 @@ void DriveDistance::Execute() {
   // Difference vector
   frc::SmartDashboard::PutNumber("DrivDisCmd:diffVec:x", difference.X().value());
   frc::SmartDashboard::PutNumber("DrivDisCmd:diffVec:y", difference.X().value());
+  frc::SmartDashboard::PutNumber("DrivDisCmd:diffVec:angle", difference.Translation().Angle().Degrees().value());
   // END
 }
 
@@ -72,17 +82,15 @@ void DriveDistance::End(bool interrupted) {}
 // Returns true when the command should end.
 bool DriveDistance::IsFinished()
 {
+  // Find the differece between us and our requested position (as a Transform2D)
+  frc::Transform2d difference = m_requestedPose - m_lastPose;
+  units::meter_t finTol = 0.1_m;
   // Calculate distance from current pose to requested pose
-  units::meter_t distance = m_requestedPose.Translation().Distance(m_lastPose.Translation());
 
-  if (distance < 0.1_m)
+  if ((difference.X() > -finTol && difference.X() < finTol) && (difference.Y() > -finTol && difference.Y() < finTol))
   {
     return true;
   }
-
-  // DEBUGGING: START
-  frc::SmartDashboard::PutNumber("DrivDisCmd:distance", distance.value());
-  // END
 
   return false;
 }

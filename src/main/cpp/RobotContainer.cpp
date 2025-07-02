@@ -55,7 +55,32 @@ void RobotContainer::ConfigureBindings()
     }));
 
     joystick.X().OnTrue(
-        DriveDistance(frc::Pose2d(frc::Translation2d(1_m, 1_m), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(3_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(3_ft, -3_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, -3_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
+    );
+
+    joystick.Y().OnTrue(
+        DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(4_ft, -2_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, -4_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
     );
 
     // Run SysId routines when holding back/start and X/Y.
