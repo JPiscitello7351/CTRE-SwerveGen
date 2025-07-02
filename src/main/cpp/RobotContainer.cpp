@@ -4,6 +4,7 @@
 
 #include "RobotContainer.h"
 
+#include <frc/geometry/Pose2d.h>
 #include <frc2/command/Commands.h>
 #include <drive_distance.h>
 #include <frc2/command/button/RobotModeTriggers.h>
@@ -53,7 +54,9 @@ void RobotContainer::ConfigureBindings()
         return point.WithModuleDirection(frc::Rotation2d{-joystick.GetLeftY(), -joystick.GetLeftX()});
     }));
 
-    joystick.X().OnTrue(DriveDistance(frc::Pose2d(frc::Translation2d(0_m, 0_m), frc::Rotation2d(0_deg)), &drivetrain).ToPtr())
+    joystick.X().OnTrue(
+        DriveDistance(frc::Pose2d(frc::Translation2d(1_m, 1_m), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+    );
 
     // Run SysId routines when holding back/start and X/Y.
     // Note that each routine should be run exactly once in a single log.

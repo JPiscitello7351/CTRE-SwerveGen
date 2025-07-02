@@ -62,7 +62,7 @@ class TunerConstants {
     // Configs for the Pigeon 2; leave this nullopt to skip applying Pigeon 2 configs
     static constexpr std::optional<configs::Pigeon2Configuration> pigeonConfigs = std::nullopt;
 
-    static constexpr std::string_view kCANBusName = "";
+    static constexpr std::string_view kCANBusName = "SwerveBot_Canivore";
 
 public:
     // CAN bus that the devices are located on;
