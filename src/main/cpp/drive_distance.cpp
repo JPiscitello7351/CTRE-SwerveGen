@@ -26,6 +26,7 @@ void DriveDistance::Execute() {
   units::meter_t latTol = 0.08_m;
   // Speeds to drive at
   units::meters_per_second_t setSpeed = 0.35_mps;
+  units::angular_velocity::radians_per_second_t rotationSetSpeed = 0.02_rad_per_s;
   // TODO: Should use a PID-like controller to do this
 
   // Get where the robot currently IS realative to Odomentry
@@ -35,12 +36,16 @@ void DriveDistance::Execute() {
   frc::Transform2d difference = m_requestedPose - m_lastPose;
 
   // Get heading vector and distance
-  Eigen::Vector2d directionVector = difference.Translation().ToVector();
+  Eigen::Vector3d pathMatrix = difference.ToMatrix();
   units::length::meter_t vectorLength = difference.Translation().Norm();
 
   // Get x and y speeds, calculating unit vector components and multiply by set speed
-  units::meters_per_second_t xSpeed = directionVector[0] / vectorLength.value() * setSpeed;
-  units::meters_per_second_t ySpeed = directionVector[1] / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t xSpeed = pathMatrix[0] / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t ySpeed = pathMatrix[1] / vectorLength.value() * setSpeed;
+
+  units::angular_velocity::radians_per_second_t rotSpeed = pathMatrix[2]*rotationSetSpeed;
+
+  
 
 
 /*
@@ -67,7 +72,7 @@ void DriveDistance::Execute() {
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
-  m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate(0_rad_per_s));
+  m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate(rotSpeed));
 
   // DEBUGGING: START
   // Last position
