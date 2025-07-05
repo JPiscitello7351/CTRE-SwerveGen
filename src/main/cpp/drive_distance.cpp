@@ -25,8 +25,7 @@ void DriveDistance::Execute() {
   static size_t alive = 0;
   units::meter_t latTol = 0.08_m;
   // Speeds to drive at
-  units::meters_per_second_t xSpeed = 0.35_mps;
-  units::meters_per_second_t ySpeed = xSpeed;
+  units::meters_per_second_t setSpeed = 0.35_mps;
   // TODO: Should use a PID-like controller to do this
 
   // Get where the robot currently IS realative to Odomentry
@@ -35,6 +34,16 @@ void DriveDistance::Execute() {
   // Find the differece between us and our requested position (as a Transform2D)
   frc::Transform2d difference = m_requestedPose - m_lastPose;
 
+  // Get heading vector and distance
+  Eigen::Vector2d directionVector = difference.Translation().ToVector();
+  units::length::meter_t vectorLength = difference.Translation().Norm();
+
+  // Get x and y speeds, calculating unit vector components and multiply by set speed
+  units::meters_per_second_t xSpeed = directionVector[0] / vectorLength.value() * setSpeed;
+  units::meters_per_second_t ySpeed = directionVector[1] / vectorLength.value() * setSpeed;
+
+
+/*
   // Negate speed if direction is opposite
   if (difference.X() > -latTol && difference.X() < latTol)
   {
@@ -53,6 +62,8 @@ void DriveDistance::Execute() {
   {
     ySpeed *= -1;
   }
+
+*/
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
