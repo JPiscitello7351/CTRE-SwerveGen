@@ -6,6 +6,7 @@
 
 #include <frc/geometry/Pose2d.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <Eigen/Core>
 
 #include "subsystems/CommandSwerveDrivetrain.h"
 
@@ -23,7 +24,6 @@ void DriveDistance::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveDistance::Execute() {
   static size_t alive = 0;
-  units::meter_t latTol = 0.08_m;
   // Speeds to drive at
   units::meters_per_second_t setSpeed = 0.35_mps;
   units::angular_velocity::radians_per_second_t rotationSetSpeed = 0.02_rad_per_s;
@@ -36,7 +36,7 @@ void DriveDistance::Execute() {
   frc::Transform2d difference = m_requestedPose - m_lastPose;
 
   // Get heading vector and distance
-  Eigen::Vector3d pathMatrix = difference.ToMatrix();
+  Eigen::Matrix3d pathMatrix = difference.ToMatrix();
   units::length::meter_t vectorLength = difference.Translation().Norm();
 
   // Get x and y speeds, calculating unit vector components and multiply by set speed
