@@ -2,11 +2,14 @@
 
 #include "ctre/phoenix6/SignalLogger.hpp"
 
+#include "choreo/Choreo.h"
+
 #include <frc/DriverStation.h>
 #include <frc/Notifier.h>
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/SubsystemBase.h>
 #include <frc2/command/sysid/SysIdRoutine.h>
+#include <frc/controller/PIDController.h>
 
 #include "generated/TunerConstants.h"
 
@@ -34,6 +37,7 @@ class CommandSwerveDrivetrain : public frc2::SubsystemBase, public TunerSwerveDr
     swerve::requests::SysIdSwerveTranslation m_translationCharacterization;
     swerve::requests::SysIdSwerveSteerGains m_steerCharacterization;
     swerve::requests::SysIdSwerveRotation m_rotationCharacterization;
+    swerve::requests::FieldCentric m_fieldCentricDrive = swerve::requests::FieldCentric{}.WithDriveRequestType(swerve::DriveRequestType::OpenLoopVoltage);
 
     /* SysId routine for characterizing translation. This is used to find PID gains for the drive motors. */
     frc2::sysid::SysIdRoutine m_sysIdRoutineTranslation{
@@ -280,8 +284,36 @@ public:
         TunerSwerveDrivetrain::AddVisionMeasurement(std::move(visionRobotPose), utils::FPGAToCurrentTime(timestamp), visionMeasurementStdDevs);
     }
 
+    /**
+     * @brief Get the drivetrain pose estimate from CTRE's swerve drivetrain pose kalman filter calculation
+     * 
+     * @return frc::Pose2d Currnt pose of the robot in field frame
+     */
+    frc::Pose2d GetDrivetrainPoseEstimate();
+
+    /**
+     * @brief Drive the robot relative to the playing field's coordinate frame. See WPILib coordinate frame docs for details
+     * 
+     * @param xVel Velocity in x direction (+ toward red alliance)
+     * @param yVel Velocity in y direction (+ toward top of field with red alliance on right)
+     * @param zRot Velocity in the z-axis' counter-clockwise direction
+     */
+    void DriveFieldCentric(units::meters_per_second_t xVel, units::meters_per_second_t yVel, units::radians_per_second_t zRot);
+
+    /**
+     * @brief Provided a sample trajectory, make the drivetrain attempt to follow it. Uses x,y,heading Controller defined
+     * in this class. Use those parameters to tune the effort of this behavior
+     * 
+     * @param sample The swerve sample from Choreo trajectory to apply
+     */
+    void FollowTrajectory(const choreo::SwerveSample& sample);
+
 private:
     void StartSimThread();
+
+    frc::PIDController xController{10.0, 0.0, 0.0};
+    frc::PIDController yController{10.0, 0.0, 0.0};
+    frc::PIDController headingController{7.5, 0.0, 0.0};
 };
 
 }

@@ -37,5 +37,4 @@ private:
   subsystems::CommandSwerveDrivetrain* m_pSwerveDrive;
   frc::Pose2d m_lastPose;
   frc::Pose2d m_requestedPose;
-  swerve::requests::FieldCentric m_fieldDrive = swerve::requests::FieldCentric{}.WithDriveRequestType(swerve::DriveRequestType::OpenLoopVoltage);
 };

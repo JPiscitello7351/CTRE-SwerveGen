@@ -1,33 +1,17 @@
-name: ci
+# Copied from https://github.com/marketplace/actions/doxygen-github-pages-deploy-action
+name: Doxygen GitHub Pages Deploy Action
+
 on:
   push:
     branches:
-      - master
       - main
-permissions:
-  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
         with:
-          ref: 'main'
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v4
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: sudo apt install doxygen
-      - run: pip install mkdocs-material mkdoxy
-      - name: Deploy MkDocs
-        run: mkdocs gh-deploy --force
+          github_token: ${{ secrets.GITHUB_TOKEN }}

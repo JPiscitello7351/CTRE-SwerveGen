@@ -30,7 +30,7 @@ void DriveDistance::Execute() {
   // TODO: Should use a PID-like controller to do this
 
   // Get where the robot currently IS realative to Odomentry
-  m_lastPose = m_pSwerveDrive->GetState().Pose;
+  m_lastPose = m_pSwerveDrive->GetDrivetrainPoseEstimate();
 
   // Find the differece between us and our requested position (as a Transform2D)
   frc::Transform2d difference = m_requestedPose - m_lastPose;
@@ -45,34 +45,9 @@ void DriveDistance::Execute() {
 
   units::angular_velocity::radians_per_second_t rotSpeed = pathMatrix[2]*rotationSetSpeed;
 
-  
-
-
-/*
-  // Negate speed if direction is opposite
-  if (difference.X() > -latTol && difference.X() < latTol)
-  {
-    xSpeed = 0_mps;
-  }
-  else if (difference.X() < 0_m)
-  {
-    xSpeed *= -1;
-  }
-
-  if (difference.Y() > -latTol && difference.Y() < latTol)
-  {
-    ySpeed = 0_mps;
-  }
-  else if (difference.Y() < 0_m)
-  {
-    ySpeed *= -1;
-  }
-
-*/
-
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
-  m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate(rotSpeed));
+  m_pSwerveDrive->DriveFieldCentric(xSpeed, ySpeed, rotSpeed);
 
   // DEBUGGING: START
   // Last position
@@ -98,12 +73,11 @@ void DriveDistance::End(bool interrupted) {}
 // Returns true when the command should end.
 bool DriveDistance::IsFinished()
 {
-  // Find the differece between us and our requested position (as a Transform2D)
-  frc::Transform2d difference = m_requestedPose - m_lastPose;
+  // Find distance between where we are and where we want to be
+  units::meter_t distance = m_requestedPose.Translation().Distance(m_lastPose.Translation());
   units::meter_t finTol = 0.1_m;
-  // Calculate distance from current pose to requested pose
 
-  if ((difference.X() > -finTol && difference.X() < finTol) && (difference.Y() > -finTol && difference.Y() < finTol))
+  if (distance < finTol)
   {
     return true;
   }
