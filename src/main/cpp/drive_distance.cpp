@@ -6,6 +6,7 @@
 
 #include <frc/geometry/Pose2d.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <Eigen/Core>
 
 #include "subsystems/CommandSwerveDrivetrain.h"
 
@@ -23,9 +24,9 @@ void DriveDistance::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveDistance::Execute() {
   static size_t alive = 0;
-  units::meter_t latTol = 0.08_m;
   // Speeds to drive at
   units::meters_per_second_t setSpeed = 0.35_mps;
+  units::angular_velocity::radians_per_second_t rotationSetSpeed = 0.02_rad_per_s;
   // TODO: Should use a PID-like controller to do this
 
   // Get where the robot currently IS realative to Odomentry
@@ -35,12 +36,16 @@ void DriveDistance::Execute() {
   frc::Transform2d difference = m_requestedPose - m_lastPose;
 
   // Get heading vector and distance
-  Eigen::Vector2d directionVector = difference.Translation().ToVector();
+  Eigen::Matrix3d pathMatrix = difference.ToMatrix();
   units::length::meter_t vectorLength = difference.Translation().Norm();
 
   // Get x and y speeds, calculating unit vector components and multiply by set speed
-  units::meters_per_second_t xSpeed = directionVector[0] / vectorLength.value() * setSpeed;
-  units::meters_per_second_t ySpeed = directionVector[1] / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t xSpeed = pathMatrix[0] / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t ySpeed = pathMatrix[1] / vectorLength.value() * setSpeed;
+
+  units::angular_velocity::radians_per_second_t rotSpeed = pathMatrix[2]*rotationSetSpeed;
+
+  
 
 /*
 frc trapezoid profile
@@ -49,10 +54,7 @@ frc pid controller
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
-  
-  //m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate(rotSpeed));
-
-  m_pSwerveDrive->SetControl(m_fieldDriveOriented.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithTargetDirection(m_requestedPose.Rotation()));
+  m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate(rotSpeed));
 
   // DEBUGGING: START
   // Last position
