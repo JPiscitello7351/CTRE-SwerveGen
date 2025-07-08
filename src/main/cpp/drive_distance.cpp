@@ -42,32 +42,17 @@ void DriveDistance::Execute() {
   units::meters_per_second_t xSpeed = directionVector[0] / vectorLength.value() * setSpeed;
   units::meters_per_second_t ySpeed = directionVector[1] / vectorLength.value() * setSpeed;
 
-
 /*
-  // Negate speed if direction is opposite
-  if (difference.X() > -latTol && difference.X() < latTol)
-  {
-    xSpeed = 0_mps;
-  }
-  else if (difference.X() < 0_m)
-  {
-    xSpeed *= -1;
-  }
-
-  if (difference.Y() > -latTol && difference.Y() < latTol)
-  {
-    ySpeed = 0_mps;
-  }
-  else if (difference.Y() < 0_m)
-  {
-    ySpeed *= -1;
-  }
-
+frc trapezoid profile
+frc pid controller
 */
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
-  m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate(0_rad_per_s));
+  
+  //m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate(rotSpeed));
+
+  m_pSwerveDrive->SetControl(m_fieldDriveOriented.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithTargetDirection(m_requestedPose.Rotation()));
 
   // DEBUGGING: START
   // Last position
@@ -96,6 +81,7 @@ bool DriveDistance::IsFinished()
   // Find the differece between us and our requested position (as a Transform2D)
   frc::Transform2d difference = m_requestedPose - m_lastPose;
   units::meter_t finTol = 0.1_m;
+  units::angle::degree_t finAngTol = 5_deg;
   // Calculate distance from current pose to requested pose
 
   if ((difference.X() > -finTol && difference.X() < finTol) && (difference.Y() > -finTol && difference.Y() < finTol))

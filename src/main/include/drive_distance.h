@@ -7,6 +7,7 @@
 #include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
 #include <frc/geometry/Pose2d.h>
+#include "Constants.h"
 
 // Include our subsystems to use in this command
 #include "subsystems/CommandSwerveDrivetrain.h"
@@ -38,4 +39,8 @@ private:
   frc::Pose2d m_lastPose;
   frc::Pose2d m_requestedPose;
   swerve::requests::FieldCentric m_fieldDrive = swerve::requests::FieldCentric{}.WithDriveRequestType(swerve::DriveRequestType::OpenLoopVoltage);
+  swerve::requests::FieldCentricFacingAngle m_fieldDriveOriented 
+  = swerve::requests::FieldCentricFacingAngle{}
+  .WithDriveRequestType(swerve::DriveRequestType::OpenLoopVoltage)
+  .WithMaxAbsRotationalRate(speeds::drive::pathMaxTurnSpeed);
 };
