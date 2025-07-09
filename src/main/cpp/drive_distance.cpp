@@ -41,8 +41,8 @@ void DriveDistance::Execute() {
   units::length::meter_t vectorLength = difference.Translation().Norm();
 
   // Get x and y speeds, calculating unit vector components and multiply by set speed
-  units::velocity::meters_per_second_t xSpeed = distX / vectorLength.value() * setSpeed;
-  units::velocity::meters_per_second_t ySpeed = distY / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t xSpeed = distX.value() / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t ySpeed = distY.value() / vectorLength.value() * setSpeed;
 
 /*
 frc trapezoid profile
