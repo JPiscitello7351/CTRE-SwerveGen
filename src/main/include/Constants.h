@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <units/angular_velocity.h>
+
 /**
  * The Constants header provides a convenient place for teams to hold robot-wide
  * numerical or boolean constants.  This should not be used for any other
@@ -28,5 +30,6 @@ namespace speeds {
         constexpr double turboTurnSpeedMultiplier = 1.25;
         constexpr double slowmoDriveSpeedMultiplier = 0.2;
         constexpr double slowmoTurnSpeedMultiplier = 0.6;
+        constexpr units::angular_velocity::degrees_per_second_t pathMaxTurnSpeed = 20_deg_per_s;
     }
 }

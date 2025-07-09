@@ -36,20 +36,21 @@ void DriveDistance::Execute() {
   frc::Transform2d difference = m_requestedPose - m_lastPose;
 
   // Get heading vector and distance
-  Eigen::Matrix3d pathMatrix = difference.ToMatrix();
   units::length::meter_t vectorLength = difference.Translation().Norm();
 
   // Get x and y speeds, calculating unit vector components and multiply by set speed
-  // units::velocity::meters_per_second_t xSpeed = pathMatrix[0] / vectorLength.value() * setSpeed;
-  // units::velocity::meters_per_second_t ySpeed = pathMatrix[1] / vectorLength.value() * setSpeed;
-  units::velocity::meters_per_second_t xSpeed = setSpeed;
-  units::velocity::meters_per_second_t ySpeed = setSpeed;
+  units::velocity::meters_per_second_t xSpeed = pathMatrix[0] / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t ySpeed = pathMatrix[1] / vectorLength.value() * setSpeed;
+  
 
-  units::angular_velocity::radians_per_second_t rotSpeed = rotationSetSpeed;
+/*
+frc trapezoid profile
+frc pid controller
+*/
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
-  m_pSwerveDrive->DriveFieldCentric(xSpeed, ySpeed, rotSpeed);
+  // m_pSwerveDrive->DriveFieldCentric(xSpeed, ySpeed, rotSpeed);
 
   // DEBUGGING: START
   // Last position
@@ -78,6 +79,8 @@ bool DriveDistance::IsFinished()
   // Find distance between where we are and where we want to be
   units::meter_t distance = m_requestedPose.Translation().Distance(m_lastPose.Translation());
   units::meter_t finTol = 0.1_m;
+  units::angle::degree_t finAngTol = 5_deg;
+  // Calculate distance from current pose to requested pose
 
   if (distance < finTol)
   {
