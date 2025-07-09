@@ -5,18 +5,24 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
+#include <ctre/phoenix/motorcontrol/can/WPI_TalonSRX.h>
 
-class SpinBoi : public frc2::SubsystemBase {
- public:
-  SpinBoi();
+namespace subsystems {
+  class SpinBoi : public frc2::SubsystemBase {
+  public:
+    SpinBoi();
 
-  /**
-   * Will be called periodically whenever the CommandScheduler runs.
-   */
-  void Periodic() override;
+    /**
+     * Will be called periodically whenever the CommandScheduler runs.
+     */
+    void Periodic() override;
 
- private:
+    void SetSpeed(double speed);
 
-  // Components (e.g. motor controllers and sensors) should generally be
-  // declared private and exposed only through public methods.
-};
+  private:
+
+    ctre::phoenix::motorcontrol::can::WPI_TalonSRX m_spinBoiMotor;
+    // Components (e.g. motor controllers and sensors) should generally be
+    // declared private and exposed only through public methods.
+  };
+}

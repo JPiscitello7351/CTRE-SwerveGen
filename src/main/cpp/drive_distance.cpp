@@ -10,7 +10,7 @@
 
 #include "subsystems/CommandSwerveDrivetrain.h"
 
-DriveDistance::DriveDistance(frc::Pose2d requestedPose, subsystems::CommandSwerveDrivetrain *drivetrain) : m_pSwerveDrive{drivetrain}, m_requestedPose{requestedPose}
+DriveDistance::DriveDistance(frc::Pose2d requestedPose, subsystems::CommandSwerveDrivetrain *drivetrain) : m_pSwerveDrive{drivetrain}, m_requestedPose(requestedPose)
 {
   // Use addRequirements() here to declare subsystem dependencies.
   AddRequirements(m_pSwerveDrive);
@@ -40,10 +40,12 @@ void DriveDistance::Execute() {
   units::length::meter_t vectorLength = difference.Translation().Norm();
 
   // Get x and y speeds, calculating unit vector components and multiply by set speed
-  units::velocity::meters_per_second_t xSpeed = pathMatrix[0] / vectorLength.value() * setSpeed;
-  units::velocity::meters_per_second_t ySpeed = pathMatrix[1] / vectorLength.value() * setSpeed;
+  // units::velocity::meters_per_second_t xSpeed = pathMatrix[0] / vectorLength.value() * setSpeed;
+  // units::velocity::meters_per_second_t ySpeed = pathMatrix[1] / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t xSpeed = setSpeed;
+  units::velocity::meters_per_second_t ySpeed = setSpeed;
 
-  units::angular_velocity::radians_per_second_t rotSpeed = pathMatrix[2]*rotationSetSpeed;
+  units::angular_velocity::radians_per_second_t rotSpeed = rotationSetSpeed;
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
