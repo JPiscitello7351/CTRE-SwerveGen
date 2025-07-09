@@ -36,12 +36,13 @@ void DriveDistance::Execute() {
   frc::Transform2d difference = m_requestedPose - m_lastPose;
 
   // Get heading vector and distance
+  units::length::meter_t distX = difference.X();
+  units::length::meter_t distY = difference.Y();
   units::length::meter_t vectorLength = difference.Translation().Norm();
 
   // Get x and y speeds, calculating unit vector components and multiply by set speed
-  units::velocity::meters_per_second_t xSpeed = pathMatrix[0] / vectorLength.value() * setSpeed;
-  units::velocity::meters_per_second_t ySpeed = pathMatrix[1] / vectorLength.value() * setSpeed;
-  
+  units::velocity::meters_per_second_t xSpeed = distX.value() / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t ySpeed = distY.value() / vectorLength.value() * setSpeed;
 
 /*
 frc trapezoid profile
@@ -50,7 +51,10 @@ frc pid controller
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
-  // m_pSwerveDrive->DriveFieldCentric(xSpeed, ySpeed, rotSpeed);
+  
+  //m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate());
+
+  m_pSwerveDrive->SetControl(m_fieldDriveOriented.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithTargetDirection(m_requestedPose.Rotation()));
 
   // DEBUGGING: START
   // Last position
