@@ -38,4 +38,9 @@ private:
   subsystems::CommandSwerveDrivetrain* m_pSwerveDrive;
   frc::Pose2d m_lastPose;
   frc::Pose2d m_requestedPose;
+  swerve::requests::FieldCentric m_fieldDrive = swerve::requests::FieldCentric{}.WithDriveRequestType(swerve::DriveRequestType::OpenLoopVoltage);
+  swerve::requests::FieldCentricFacingAngle m_fieldDriveOriented 
+  = swerve::requests::FieldCentricFacingAngle{}
+  .WithDriveRequestType(swerve::DriveRequestType::OpenLoopVoltage)
+  .WithMaxAbsRotationalRate(speeds::drive::pathMaxTurnSpeed);
 };

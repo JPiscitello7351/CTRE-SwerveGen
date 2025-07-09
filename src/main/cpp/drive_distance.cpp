@@ -44,15 +44,8 @@ void DriveDistance::Execute() {
   units::velocity::meters_per_second_t xSpeed = distX.value() / vectorLength.value() * setSpeed;
   units::velocity::meters_per_second_t ySpeed = distY.value() / vectorLength.value() * setSpeed;
 
-/*
-frc trapezoid profile
-frc pid controller
-*/
-
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
-  
-  //m_pSwerveDrive->SetControl(m_fieldDrive.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithRotationalRate());
 
   m_pSwerveDrive->SetControl(m_fieldDriveOriented.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithTargetDirection(m_requestedPose.Rotation()));
 
