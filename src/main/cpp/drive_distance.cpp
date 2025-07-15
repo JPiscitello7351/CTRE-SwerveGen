@@ -47,7 +47,8 @@ void DriveDistance::Execute() {
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
 
-  m_pSwerveDrive->SetControl(m_fieldDriveOriented.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithTargetDirection(m_requestedPose.Rotation()));
+  m_pSwerveDrive->SetControl(m_fieldDriveOriented.WithVelocityX(0.35_mps).WithVelocityY(0_mps).WithTargetDirection(90_deg));
+
 
   // DEBUGGING: START
   // Last position
