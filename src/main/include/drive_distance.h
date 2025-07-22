@@ -7,6 +7,8 @@
 #include <frc2/command/Command.h>
 #include <frc2/command/CommandHelper.h>
 #include <frc/geometry/Pose2d.h>
+#include <frc/trajectory/TrapezoidProfile.h>
+#include <frc/Timer.h>
 #include "Constants.h"
 
 // Include our subsystems to use in this command
@@ -38,9 +40,10 @@ private:
   subsystems::CommandSwerveDrivetrain* m_pSwerveDrive;
   frc::Pose2d m_lastPose;
   frc::Pose2d m_requestedPose;
-  swerve::requests::FieldCentric m_fieldDrive = swerve::requests::FieldCentric{};
   swerve::requests::FieldCentricFacingAngle m_fieldDriveOriented 
   = swerve::requests::FieldCentricFacingAngle{}
   .WithMaxAbsRotationalRate(speeds::drive::pathMaxTurnSpeed)
   .WithHeadingPID(20, 0, 0.1);
+  frc::PIDController m_xPidController{0.25, 0.2, 0.0};
+  frc::PIDController m_yPidController{0.1, 0.0, 0.0};
 };

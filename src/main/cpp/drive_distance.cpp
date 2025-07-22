@@ -27,28 +27,21 @@ void DriveDistance::Execute() {
   // Speeds to drive at
   units::meters_per_second_t setSpeed = 0.35_mps;
   units::angular_velocity::radians_per_second_t rotationSetSpeed = 0.02_rad_per_s;
-  // TODO: Should use a PID-like controller to do this
 
-  // Get where the robot currently IS realative to Odomentry
-  m_lastPose = m_pSwerveDrive->GetDrivetrainPoseEstimate();
+  // Calculate the individual x and y distance
+  m_lastPose = m_pSwerveDrive->GetState().Pose;
 
-  // Find the differece between us and our requested position (as a Transform2D)
-  frc::Transform2d difference = m_requestedPose - m_lastPose;
-
-  // Get heading vector and distance
-  units::length::meter_t distX = difference.X();
-  units::length::meter_t distY = difference.Y();
-  units::length::meter_t vectorLength = difference.Translation().Norm();
+  units::meter_t xOffset = m_requestedPose.X() - m_lastPose.X();
+  units::meter_t yOffset = m_requestedPose.Y() - m_lastPose.Y();
 
   // Get x and y speeds, calculating unit vector components and multiply by set speed
-  units::velocity::meters_per_second_t xSpeed = distX.value() / vectorLength.value() * setSpeed;
-  units::velocity::meters_per_second_t ySpeed = distY.value() / vectorLength.value() * setSpeed;
+  units::velocity::meters_per_second_t xSpeed = -units::make_unit<units::meters_per_second_t>(m_xPidController.Calculate(xOffset.value())) + 0.25_mps;
+  units::velocity::meters_per_second_t ySpeed = -units::make_unit<units::meters_per_second_t>(m_yPidController.Calculate(yOffset.value())) + 0.25_mps;
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
 
-  m_pSwerveDrive->SetControl(m_fieldDriveOriented.WithVelocityX(0.35_mps).WithVelocityY(0_mps).WithTargetDirection(90_deg));
-
+  m_pSwerveDrive->SetControl(m_fieldDriveOriented.WithVelocityX(xSpeed).WithVelocityY(ySpeed).WithTargetDirection(90_deg));
 
   // DEBUGGING: START
   // Last position
@@ -62,9 +55,8 @@ void DriveDistance::Execute() {
   frc::SmartDashboard::PutNumber("DrivDisCmd:reqPose:x", m_requestedPose.X().value());
   frc::SmartDashboard::PutNumber("DrivDisCmd:reqPose:y", m_requestedPose.Y().value());
   // Difference vector
-  frc::SmartDashboard::PutNumber("DrivDisCmd:diffVec:x", difference.X().value());
-  frc::SmartDashboard::PutNumber("DrivDisCmd:diffVec:y", difference.X().value());
-  frc::SmartDashboard::PutNumber("DrivDisCmd:diffVec:angle", difference.Translation().Angle().Degrees().value());
+  frc::SmartDashboard::PutNumber("DrivDisCmd:offset:x", xOffset.value());
+  frc::SmartDashboard::PutNumber("DrivDisCmd:offset:y", yOffset.value());
   // END
 }
 
