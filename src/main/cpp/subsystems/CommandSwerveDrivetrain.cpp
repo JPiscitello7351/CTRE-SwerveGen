@@ -38,3 +38,28 @@ void CommandSwerveDrivetrain::StartSimThread()
     });
     m_simNotifier->StartPeriodic(kSimLoopPeriod);
 }
+
+frc::Pose2d CommandSwerveDrivetrain::GetDrivetrainPoseEstimate()
+{
+    return GetState().Pose;
+}
+
+void CommandSwerveDrivetrain::DriveFieldCentric(units::meters_per_second_t xVel, units::meters_per_second_t yVel, units::radians_per_second_t zRot)
+{
+    SetControl(m_fieldCentricDrive.WithVelocityX(xVel).WithVelocityY(yVel).WithRotationalRate(zRot));
+}
+
+void CommandSwerveDrivetrain::FollowTrajectory(const choreo::SwerveSample& sample)
+{
+    // For now, fetch the estimation of where we are from just the drivetrain
+    // TODO: In the future, fetch the position based off a fused odometry solution
+    frc::Pose2d pose = GetDrivetrainPoseEstimate();
+
+    // Calculate feedback velocities
+    units::meters_per_second_t xFeedback{xController.Calculate(pose.X().value(), sample.x.value())};
+    units::meters_per_second_t yFeedback{yController.Calculate(pose.Y().value(), sample.y.value())};
+    units::radians_per_second_t headingFeedback{headingController.Calculate(pose.Rotation().Radians().value(), sample.heading.value())};
+
+    // Apply feedback to robot
+    DriveFieldCentric(xFeedback, yFeedback, headingFeedback);
+}

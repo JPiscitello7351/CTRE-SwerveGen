@@ -4,7 +4,9 @@
 
 #include "RobotContainer.h"
 
+#include <frc/geometry/Pose2d.h>
 #include <frc2/command/Commands.h>
+#include <drive_distance.h>
 #include <frc2/command/button/RobotModeTriggers.h>
 
 RobotContainer::RobotContainer()
@@ -52,6 +54,52 @@ void RobotContainer::ConfigureBindings()
         return point.WithModuleDirection(frc::Rotation2d{-joystick.GetLeftY(), -joystick.GetLeftX()});
     }));
 
+    joystick.X().OnTrue(
+        DriveDistance(frc::Pose2d(frc::Translation2d(5_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        // .AndThen(
+        //     DriveDistance(frc::Pose2d(frc::Translation2d(4_ft, -2_ft), frc::Rotation2d(330_deg)), &drivetrain).ToPtr()
+        // )
+        // .AndThen(
+        //     DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, -4_ft), frc::Rotation2d(210_deg)), &drivetrain).ToPtr()
+        // )
+        // .AndThen(
+        //     DriveDistance(frc::Pose2d(frc::Translation2d(2_ft, 0_ft), frc::Rotation2d(270_deg)), &drivetrain).ToPtr()
+        // )
+        // .AndThen(
+        //     DriveDistance(frc::Pose2d(frc::Translation2d(2_ft, -4_ft), frc::Rotation2d(90_deg)), &drivetrain).ToPtr()
+        // )
+        // .AndThen(
+        //     DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(210_deg)), &drivetrain).ToPtr()
+        // )
+    );
+
+    joystick.Y().OnTrue(
+        DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(4_ft, -2_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, -4_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
+        .AndThen(
+            DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
+        )
+    );
+
+    // Make spin boi spin (positive)
+    joystick.POVRight().OnTrue(
+        frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(1);}, {&m_spinBoi}).ToPtr()
+    ).OnFalse(
+        frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(0);}, {&m_spinBoi}).ToPtr()
+    );
+
+    // Make spin boi spin (negative)
+    joystick.POVLeft().OnTrue(
+        frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(-1);}, {&m_spinBoi}).ToPtr()
+    ).OnFalse(
+        frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(0);}, {&m_spinBoi}).ToPtr()
+    );
+
     // Run SysId routines when holding back/start and X/Y.
     // Note that each routine should be run exactly once in a single log.
     (joystick.Back() && joystick.Y()).WhileTrue(drivetrain.SysIdDynamic(frc2::sysid::Direction::kForward));
@@ -61,8 +109,6 @@ void RobotContainer::ConfigureBindings()
 
     // reset the field-centric heading on left bumper press
     joystick.LeftBumper().OnTrue(drivetrain.RunOnce([this] { drivetrain.TareEverything(); drivetrain.SeedFieldCentric();}));
-
-
 
     drivetrain.RegisterTelemetry([this](auto const &state) { logger.Telemeterize(state); });
 }

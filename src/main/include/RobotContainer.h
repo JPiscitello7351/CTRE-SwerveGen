@@ -6,7 +6,9 @@
 
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/button/CommandXboxController.h>
+#include <drive_distance.h>
 #include "subsystems/CommandSwerveDrivetrain.h"
+#include "subsystems/SpinBoi.h"
 #include "Telemetry.h"
 #include "Constants.h"
 
@@ -33,6 +35,7 @@ private:
 
 public:
     subsystems::CommandSwerveDrivetrain drivetrain{TunerConstants::CreateDrivetrain()};
+    subsystems::SpinBoi m_spinBoi{};
 
     RobotContainer();
 

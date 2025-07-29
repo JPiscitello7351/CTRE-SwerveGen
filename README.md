@@ -1,5 +1,6 @@
-# Viewing the Documentation
+# Argos 1756 Documentation
 
+<<<<<<< HEAD
 The docs hosted from this repository are available at: [jpiscitello7351.github.io/CTRE-SwerveGen/](https://jpiscitello7351.github.io/CTRE-SwerveGen/)
 
 # Adding Files to Docs
@@ -44,3 +45,10 @@ This may occur while trying to run `./.venv/Scripts/activate`. You can enable ru
 **Documentation fails to build**
 
 Check to make sure that `python`, `mkdoxy`, and `doxygen` were installed properly and added to the PATH environment variable you can test this by typing `doxygen -v` or `python --version` into a terminal, and if a version is printed, it is installed correctly.
+=======
+To see Argos team 1756 documentation, navigate to [litemage.github.io/argos1756-docs](https://litemage.github.io/argos1756-docs)
+
+# Building Project Documentation
+
+This project uses doxygen to generate a nice webpage which you can use to view this repository's functions and what they do.
+>>>>>>> jacob-fix-drive-spinning
