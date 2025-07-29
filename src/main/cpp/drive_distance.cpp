@@ -35,8 +35,8 @@ void DriveDistance::Execute() {
   units::meter_t yOffset = m_requestedPose.Y() - m_lastPose.Y();
 
   // Get x and y speeds, calculating unit vector components and multiply by set speed
-  units::velocity::meters_per_second_t xSpeed = -units::make_unit<units::meters_per_second_t>(m_xPidController.Calculate(xOffset.value())) + 0.25_mps;
-  units::velocity::meters_per_second_t ySpeed = -units::make_unit<units::meters_per_second_t>(m_yPidController.Calculate(yOffset.value())) + 0.25_mps;
+  units::velocity::meters_per_second_t xSpeed = units::make_unit<units::meters_per_second_t>(m_xPidController.Calculate(xOffset.value()));
+  units::velocity::meters_per_second_t ySpeed = units::make_unit<units::meters_per_second_t>(m_yPidController.Calculate(yOffset.value()));
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem

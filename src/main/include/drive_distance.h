@@ -45,5 +45,5 @@ private:
   .WithMaxAbsRotationalRate(speeds::drive::pathMaxTurnSpeed)
   .WithHeadingPID(20, 0, 0.1);
   frc::PIDController m_xPidController{0.25, 0.2, 0.0};
-  frc::PIDController m_yPidController{0.1, 0.0, 0.0};
+  frc::PIDController m_yPidController{0.1, 0.2, 0.0};
 };
