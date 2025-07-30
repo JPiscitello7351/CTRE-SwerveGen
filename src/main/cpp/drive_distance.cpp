@@ -31,12 +31,9 @@ void DriveDistance::Execute() {
   // Calculate the individual x and y distance
   m_lastPose = m_pSwerveDrive->GetState().Pose;
 
-  units::meter_t xOffset = m_requestedPose.X() - m_lastPose.X();
-  units::meter_t yOffset = m_requestedPose.Y() - m_lastPose.Y();
-
   // Get x and y speeds, calculating unit vector components and multiply by set speed
-  units::velocity::meters_per_second_t xSpeed = units::make_unit<units::meters_per_second_t>(m_xPidController.Calculate(xOffset.value()));
-  units::velocity::meters_per_second_t ySpeed = units::make_unit<units::meters_per_second_t>(m_yPidController.Calculate(yOffset.value()));
+  units::velocity::meters_per_second_t xSpeed = units::make_unit<units::meters_per_second_t>(m_xPidController.Calculate(m_lastPose.X().value(), m_requestedPose.X().value()));
+  units::velocity::meters_per_second_t ySpeed = units::make_unit<units::meters_per_second_t>(m_yPidController.Calculate(m_lastPose.Y().value(), m_requestedPose.Y().value()));
 
   // Move *very slow* in the direction of the place we wanna go
   // In the future, there should be a function along the lines of m_pSwerveDrive.DriveWithVelocity(x, y, theta) inside of swerve subsystem
@@ -54,9 +51,6 @@ void DriveDistance::Execute() {
   // Requested position
   frc::SmartDashboard::PutNumber("DrivDisCmd:reqPose:x", m_requestedPose.X().value());
   frc::SmartDashboard::PutNumber("DrivDisCmd:reqPose:y", m_requestedPose.Y().value());
-  // Difference vector
-  frc::SmartDashboard::PutNumber("DrivDisCmd:offset:x", xOffset.value());
-  frc::SmartDashboard::PutNumber("DrivDisCmd:offset:y", yOffset.value());
   // END
 }
 
@@ -71,6 +65,8 @@ bool DriveDistance::IsFinished()
   units::meter_t finTol = 0.1_m;
   units::angle::degree_t finAngTol = 5_deg;
   // Calculate distance from current pose to requested pose
+
+  frc::SmartDashboard::PutNumber("DriveDisCmd:distance", distance.value());
 
   if (distance < finTol)
   {
