@@ -12,7 +12,11 @@
 #include "Telemetry.h"
 #include "Constants.h"
 
-class RobotContainer {
+#include "utils/auto_selector.h"
+#include "commands/autonomous/autonomous_nothing.h"
+
+class RobotContainer 
+{
 private:
     units::meters_per_second_t MaxSpeed = TunerConstants::kSpeedAt12Volts; // kSpeedAt12Volts desired top speed
     units::radians_per_second_t MaxAngularRate = 0.75_tps; // 3/4 of a rotation per second max angular velocity
@@ -43,4 +47,9 @@ public:
 
 private:
     void ConfigureBindings();
+
+    //Autonomous Commands
+    AutonomousNothing m_autoNothing;
+    
+    AutoSelector m_autoSelector;
 };

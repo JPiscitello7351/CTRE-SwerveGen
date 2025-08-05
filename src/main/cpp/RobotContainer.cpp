@@ -10,6 +10,8 @@
 #include <frc2/command/button/RobotModeTriggers.h>
 
 RobotContainer::RobotContainer()
+: m_autoNothing(drivetrain)
+, m_autoSelector({&m_autoNothing}, &m_autoNothing) // Add more commands here as they are implemented
 {
     ConfigureBindings();
 }
@@ -54,24 +56,6 @@ void RobotContainer::ConfigureBindings()
         return point.WithModuleDirection(frc::Rotation2d{-joystick.GetLeftY(), -joystick.GetLeftX()});
     }));
 
-    joystick.X().OnTrue(
-        DriveDistance(frc::Pose2d(frc::Translation2d(5_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
-        // .AndThen(
-        //     DriveDistance(frc::Pose2d(frc::Translation2d(4_ft, -2_ft), frc::Rotation2d(330_deg)), &drivetrain).ToPtr()
-        // )
-        // .AndThen(
-        //     DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, -4_ft), frc::Rotation2d(210_deg)), &drivetrain).ToPtr()
-        // )
-        // .AndThen(
-        //     DriveDistance(frc::Pose2d(frc::Translation2d(2_ft, 0_ft), frc::Rotation2d(270_deg)), &drivetrain).ToPtr()
-        // )
-        // .AndThen(
-        //     DriveDistance(frc::Pose2d(frc::Translation2d(2_ft, -4_ft), frc::Rotation2d(90_deg)), &drivetrain).ToPtr()
-        // )
-        // .AndThen(
-        //     DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(210_deg)), &drivetrain).ToPtr()
-        // )
-    );
 
     joystick.Y().OnTrue(
         DriveDistance(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &drivetrain).ToPtr()
