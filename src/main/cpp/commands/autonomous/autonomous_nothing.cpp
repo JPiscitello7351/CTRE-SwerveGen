@@ -14,8 +14,6 @@ AutonomousNothing::AutonomousNothing(subsystems::CommandSwerveDrivetrain& swerve
 
 // Called when the command is initially scheduled.
 void AutonomousNothing::Initialize() {
-  // Log that we are doing nothing
-  frc2::cmd::Print("AutonomousNothing: Doing nothing in autonomous mode.");
   // Set the swerve drivetrain to idle
   m_swerve.SetControl(swerve::requests::Idle{});
   

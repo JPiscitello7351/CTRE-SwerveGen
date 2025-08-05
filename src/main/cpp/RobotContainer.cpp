@@ -97,7 +97,7 @@ void RobotContainer::ConfigureBindings()
     drivetrain.RegisterTelemetry([this](auto const &state) { logger.Telemeterize(state); });
 }
 
-frc2::CommandPtr RobotContainer::GetAutonomousCommand()
+frc2::Command* RobotContainer::GetAutonomousCommand()
 {
-    return frc2::cmd::Print("No autonomous command configured");
+    return m_autoSelector.GetSelectedCommand();
 }
