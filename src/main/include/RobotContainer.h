@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "choreo/Choreo.h"
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/button/CommandXboxController.h>
 #include <drive_distance.h>
@@ -31,14 +32,20 @@ private:
     swerve::requests::SwerveDriveBrake brake{};
     swerve::requests::PointWheelsAt point{};
 
-    /* Note: This must be constructed before the drivetrain, otherwise we need to
-     *       define a destructor to un-register the telemetry from the drivetrain */
+    /* Note: This must be constructed before the m_drivetrain, otherwise we need to
+     *       define a destructor to un-register the telemetry from the m_drivetrain */
     Telemetry logger{MaxSpeed};
 
     frc2::CommandXboxController joystick{0};
 
+    // Choreo timers
+    frc::Timer m_timer;
+    // Choreo trajectories
+    std::optional<choreo::Trajectory<choreo::SwerveSample>> m_trajectory =
+            choreo::Choreo::LoadTrajectory<choreo::SwerveSample>("myTrajectory");
+
 public:
-    subsystems::CommandSwerveDrivetrain drivetrain{TunerConstants::CreateDrivetrain()};
+    subsystems::CommandSwerveDrivetrain m_drivetrain{TunerConstants::CreateDrivetrain()};
     subsystems::SpinBoi m_spinBoi{};
 
     RobotContainer();

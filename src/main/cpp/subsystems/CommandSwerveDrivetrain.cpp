@@ -1,5 +1,6 @@
 #include "subsystems/CommandSwerveDrivetrain.h"
 #include <frc/RobotController.h>
+#include "frc/smartdashboard/SmartDashboard.h"
 
 using namespace subsystems;
 
@@ -56,10 +57,19 @@ void CommandSwerveDrivetrain::FollowTrajectory(const choreo::SwerveSample& sampl
     frc::Pose2d pose = GetDrivetrainPoseEstimate();
 
     // Calculate feedback velocities
-    units::meters_per_second_t xFeedback{xController.Calculate(pose.X().value(), sample.x.value())};
-    units::meters_per_second_t yFeedback{yController.Calculate(pose.Y().value(), sample.y.value())};
-    units::radians_per_second_t headingFeedback{headingController.Calculate(pose.Rotation().Radians().value(), sample.heading.value())};
+    units::meters_per_second_t xFeedback{m_xController.Calculate(pose.X().value(), sample.x.value())};
+    units::meters_per_second_t yFeedback{m_yController.Calculate(pose.Y().value(), sample.y.value())};
+    units::radians_per_second_t headingFeedback{m_headingController.Calculate(pose.Rotation().Radians().value(), sample.heading.value())};
+
+    frc::SmartDashboard::PutNumber("Trajectory:xFeedback", xFeedback.value());
+    frc::SmartDashboard::PutNumber("Trajectory:yFeedback", yFeedback.value());
+    frc::SmartDashboard::PutNumber("Trajectory:headingFeedback", headingFeedback.value());
+
+    frc::SmartDashboard::PutNumber("Trajectory:vx", sample.vx.value());
+    frc::SmartDashboard::PutNumber("Trajectory:vy", sample.vy.value());
+    frc::SmartDashboard::PutNumber("Trajectory:omega", sample.omega.value());
+    
 
     // Apply feedback to robot
-    DriveFieldCentric(xFeedback, yFeedback, headingFeedback);
+    DriveFieldCentric(sample.vx + xFeedback, sample.vy + yFeedback, sample.omega + headingFeedback);
 }
