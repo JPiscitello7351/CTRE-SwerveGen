@@ -10,24 +10,29 @@ AutonomousNothing::AutonomousNothing(subsystems::CommandSwerveDrivetrain& swerve
     : m_swerve{swerve}
  {
   // Use addRequirements() here to declare subsystem dependencies.
+  AddRequirements({&m_swerve}); // Declare that this command requires the swerve drivetrain subsystem
 }
 
 // Called when the command is initially scheduled.
 void AutonomousNothing::Initialize() {
-  // Set the swerve drivetrain to idle
-  m_swerve.SetControl(swerve::requests::Idle{});
   
 }
 
 // Called repeatedly when this Command is scheduled to run
-void AutonomousNothing::Execute() {}
+void AutonomousNothing::Execute() {
+  m_swerve.SetControl(drive.WithVelocityX(0.5_mps) // Some forward movement
+                     .WithVelocityY(0_mps) // No sideways movement
+                     .WithRotationalRate(0_rad_per_s)); // No rotation
+
+
+}
 
 // Called once the command ends or is interrupted.
 void AutonomousNothing::End(bool interrupted) {}
 
 // Returns true when the command should end.
 bool AutonomousNothing::IsFinished() {
-  return true;
+  return false;
 }
 
 std::string AutonomousNothing::GetName() const {
