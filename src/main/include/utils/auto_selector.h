@@ -53,9 +53,9 @@ class AutoSelector {
    * @brief Get the command selected by the user on the dashboard.  Will return default command if
    *        no match is found.
    *
-   * @return frc2::Command* Selected command
+   * @return frc2::CommandPtr Selected command
    */
-  frc2::Command* GetSelectedCommand() const;
+  std::optional<frc2::CommandPtr> GetSelectedCommand() const;
 
  private:
   std::vector<AutonomousCommand*> m_commands;  ///< All autonomous commands that can be selected

@@ -27,5 +27,5 @@ class AutonomousCommand {
    *
    * @return frc2::Command* Command to run
    */
-  virtual frc2::Command* GetCommand() = 0;
+  virtual frc2::CommandPtr GetCommand() = 0;
 };

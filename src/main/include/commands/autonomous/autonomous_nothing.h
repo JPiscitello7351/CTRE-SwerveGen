@@ -33,7 +33,7 @@ class AutonomousNothing
   /**
    * @copydoc AutonomousCommand::GetCommand()
    */
-  frc2::Command* GetCommand() final;
+  frc2::CommandPtr GetCommand() final;
 
  private:
   subsystems::CommandSwerveDrivetrain& m_swerve;

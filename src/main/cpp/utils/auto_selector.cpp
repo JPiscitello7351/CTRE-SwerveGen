@@ -3,7 +3,7 @@
 ///            the license file in the root directory of this project.
 
 #include "utils/auto_selector.h"
-
+#include <frc2/command/CommandPtr.h>
 #include <networktables/NetworkTableInstance.h>
 
 AutoSelector::AutoSelector() {
@@ -29,7 +29,7 @@ void AutoSelector::SetDefaultCommand(AutonomousCommand* defaultCommand) {
   m_default = defaultCommand;
 }
 
-frc2::Command* AutoSelector::GetSelectedCommand() const {
+std::optional<frc2::CommandPtr> AutoSelector::GetSelectedCommand() const {
   std::string selectedRoutineName =
       nt::NetworkTableInstance::GetDefault().GetTable("SmartDashboard")->GetString("Auto Selector", "");
 
@@ -47,7 +47,7 @@ frc2::Command* AutoSelector::GetSelectedCommand() const {
   }
 
   // No valid default either... :(
-  return nullptr;
+  return std::nullopt;
 }
 
 void AutoSelector::UpdateSelectorEntries() const {

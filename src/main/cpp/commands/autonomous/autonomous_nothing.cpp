@@ -34,6 +34,6 @@ std::string AutonomousNothing::GetName() const {
   return "00. Do Nothing";
 }
 
-frc2::Command* AutonomousNothing::GetCommand() {
-  return dynamic_cast<frc2::Command*>(this);
+frc2::CommandPtr AutonomousNothing::GetCommand() {
+  return frc2::CommandPtr(std::move(*this));
 }

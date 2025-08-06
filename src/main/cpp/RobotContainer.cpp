@@ -99,5 +99,5 @@ void RobotContainer::ConfigureBindings()
 
 frc2::CommandPtr RobotContainer::GetAutonomousCommand()
 {
-    return m_autoSelector.GetSelectedCommand();
+    return m_autoSelector.GetSelectedCommand().value();
 }
