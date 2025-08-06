@@ -11,12 +11,13 @@
 
 #include "commands/autonomous/autonomous_command.h"
 #include "subsystems/CommandSwerveDrivetrain.h"
+#include "generated/TunerConstants.h"
 
-class AutonomousNothing
-    : public frc2::CommandHelper<frc2::Command, AutonomousNothing>
+class AutonomousDriveForward
+    : public frc2::CommandHelper<frc2::Command, AutonomousDriveForward>
     , public AutonomousCommand {
  public:
-  explicit AutonomousNothing(subsystems::CommandSwerveDrivetrain& swerve);
+  explicit AutonomousDriveForward(subsystems::CommandSwerveDrivetrain& swerve);
 
   void Initialize() override;
 
@@ -37,4 +38,7 @@ class AutonomousNothing
 
  private:
   subsystems::CommandSwerveDrivetrain& m_swerve;
+  swerve::requests::FieldCentric drive = swerve::requests::FieldCentric{}
+        .WithDeadband(TunerConstants::kSpeedAt12Volts * 0.05).WithRotationalDeadband(0.75_tps * 0.05) // Add a 10% deadband
+        .WithDriveRequestType(swerve::DriveRequestType::OpenLoopVoltage); // Use open-loop control for drive motors
 };

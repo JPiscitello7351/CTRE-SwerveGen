@@ -11,7 +11,11 @@
 
 RobotContainer::RobotContainer()
 : m_autoNothing(drivetrain)
-, m_autoSelector({&m_autoNothing}, &m_autoNothing) // Add more commands here as they are implemented
+, m_autoDriveForward(drivetrain)
+, m_autoSpinBoi(drivetrain, m_spinBoi)
+, m_autoSelector({  &m_autoNothing,
+                    &m_autoDriveForward,
+                    &m_autoSpinBoi}, &m_autoNothing) // Add more commands here as they are implemented
 {
     ConfigureBindings();
 }

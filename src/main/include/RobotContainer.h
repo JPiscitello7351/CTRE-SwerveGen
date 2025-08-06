@@ -14,6 +14,8 @@
 
 #include "utils/auto_selector.h"
 #include "commands/autonomous/autonomous_nothing.h"
+#include "commands/autonomous/autonomous_driveForward.h"
+#include "commands/autonomous/autonomous_spinBoi.h"
 
 class RobotContainer 
 {
@@ -50,6 +52,8 @@ private:
 
     //Autonomous Commands
     AutonomousNothing m_autoNothing;
+    AutonomousDriveForward m_autoDriveForward;
+    AutonomousSpinBoi m_autoSpinBoi;
     
     AutoSelector m_autoSelector;
 };

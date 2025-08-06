@@ -11,12 +11,13 @@
 
 #include "commands/autonomous/autonomous_command.h"
 #include "subsystems/CommandSwerveDrivetrain.h"
+#include "subsystems/SpinBoi.h"
 
-class AutonomousNothing
-    : public frc2::CommandHelper<frc2::Command, AutonomousNothing>
+class AutonomousSpinBoi
+    : public frc2::CommandHelper<frc2::Command, AutonomousSpinBoi>
     , public AutonomousCommand {
  public:
-  explicit AutonomousNothing(subsystems::CommandSwerveDrivetrain& swerve);
+  explicit AutonomousSpinBoi(subsystems::CommandSwerveDrivetrain& swerve, subsystems::SpinBoi& spinBoi);
 
   void Initialize() override;
 
@@ -37,4 +38,5 @@ class AutonomousNothing
 
  private:
   subsystems::CommandSwerveDrivetrain& m_swerve;
+  subsystems::SpinBoi& m_spinBoi;
 };
