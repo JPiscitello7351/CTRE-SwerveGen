@@ -311,9 +311,9 @@ public:
 private:
     void StartSimThread();
 
-    frc::PIDController xController{10.0, 0.0, 0.0};
-    frc::PIDController yController{10.0, 0.0, 0.0};
-    frc::PIDController headingController{7.5, 0.0, 0.0};
+    frc::PIDController m_xController{2.5, 0.05, 0.0};
+    frc::PIDController m_yController{2.5, 0.05, 0.0};
+    frc::PIDController m_headingController{20, 0.0, 0.1};
 };
 
 }

@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "choreo/Choreo.h"
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/button/CommandXboxController.h>
 #include <drive_distance.h>
@@ -12,7 +13,13 @@
 #include "Telemetry.h"
 #include "Constants.h"
 
-class RobotContainer {
+#include "utils/auto_selector.h"
+#include "commands/autonomous/autonomous_nothing.h"
+#include "commands/autonomous/autonomous_driveForward.h"
+#include "commands/autonomous/autonomous_spinBoi.h"
+
+class RobotContainer 
+{
 private:
     units::meters_per_second_t MaxSpeed = TunerConstants::kSpeedAt12Volts; // kSpeedAt12Volts desired top speed
     units::radians_per_second_t MaxAngularRate = 0.75_tps; // 3/4 of a rotation per second max angular velocity
@@ -27,14 +34,20 @@ private:
     swerve::requests::SwerveDriveBrake brake{};
     swerve::requests::PointWheelsAt point{};
 
-    /* Note: This must be constructed before the drivetrain, otherwise we need to
-     *       define a destructor to un-register the telemetry from the drivetrain */
+    /* Note: This must be constructed before the m_drivetrain, otherwise we need to
+     *       define a destructor to un-register the telemetry from the m_drivetrain */
     Telemetry logger{MaxSpeed};
 
     frc2::CommandXboxController joystick{0};
 
+    // Choreo timers
+    frc::Timer m_timer;
+    // Choreo trajectories
+    std::optional<choreo::Trajectory<choreo::SwerveSample>> m_trajectory =
+            choreo::Choreo::LoadTrajectory<choreo::SwerveSample>("myTrajectory");
+
 public:
-    subsystems::CommandSwerveDrivetrain drivetrain{TunerConstants::CreateDrivetrain()};
+    subsystems::CommandSwerveDrivetrain m_drivetrain{TunerConstants::CreateDrivetrain()};
     subsystems::SpinBoi m_spinBoi{};
 
     RobotContainer();
@@ -43,4 +56,11 @@ public:
 
 private:
     void ConfigureBindings();
+
+    //Autonomous Commands
+    AutonomousNothing m_autoNothing;
+    AutonomousDriveForward m_autoDriveForward;
+    AutonomousSpinBoi m_autoSpinBoi;
+    
+    AutoSelector m_autoSelector;
 };
