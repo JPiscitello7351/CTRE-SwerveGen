@@ -69,6 +69,7 @@ void RobotContainer::ConfigureBindings()
 
     joystick.X().OnTrue(
         DriveDistance(frc::Pose2d(frc::Translation2d(3_ft, 0_ft), frc::Rotation2d(0_deg)), &m_drivetrain).ToPtr()
+
         // .AndThen(
         //     DriveDistance(frc::Pose2d(frc::Translation2d(4_ft, -2_ft), frc::Rotation2d(330_deg)), &m_drivetrain).ToPtr()
         // )
