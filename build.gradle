@@ -58,10 +58,12 @@ model {
 
             sources.cpp {
                 source {
+                    srcDir 'src/summer_lib/cpp'
                     srcDir 'src/main/cpp'
                     include '**/*.cpp', '**/*.cc'
                 }
                 exportedHeaders {
+                    srcDir 'src/summer_lib/include'
                     srcDir 'src/main/include'
                 }
             }
