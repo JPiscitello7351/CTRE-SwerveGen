@@ -39,7 +39,7 @@ class TrajectoryTest
 
   std::string GetName() const;
 
-  frc2::CommandPtr GetCommand();;
+  frc2::CommandPtr GetCommand();
 
 private:
   subsystems::CommandSwerveDrivetrain& m_swerveDrivetrain;

@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include "drive_distance.h"
+#include "commands/DriveToPose.h"
 
 #include <frc/geometry/Pose2d.h>
 #include <frc/smartdashboard/SmartDashboard.h>
@@ -10,19 +10,19 @@
 
 #include "subsystems/CommandSwerveDrivetrain.h"
 
-DriveDistance::DriveDistance(frc::Pose2d requestedPose, subsystems::CommandSwerveDrivetrain *drivetrain) : m_pSwerveDrive{drivetrain}, m_requestedPose(requestedPose)
+DriveToPose::DriveToPose(frc::Pose2d requestedPose, subsystems::CommandSwerveDrivetrain *drivetrain) : m_pSwerveDrive{drivetrain}, m_requestedPose(requestedPose)
 {
   // Use addRequirements() here to declare subsystem dependencies.
   AddRequirements(m_pSwerveDrive);
 }
 
 // Called when the command is initially scheduled.
-void DriveDistance::Initialize()
+void DriveToPose::Initialize()
 {
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveDistance::Execute() {
+void DriveToPose::Execute() {
   static size_t alive = 0;
   // Speeds to drive at
   units::meters_per_second_t setSpeed = 0.35_mps;
@@ -55,10 +55,10 @@ void DriveDistance::Execute() {
 }
 
 // Called once the command ends or is interrupted.
-void DriveDistance::End(bool interrupted) {}
+void DriveToPose::End(bool interrupted) {}
 
 // Returns true when the command should end.
-bool DriveDistance::IsFinished()
+bool DriveToPose::IsFinished()
 {
   // Find distance between where we are and where we want to be
   units::meter_t distance = m_requestedPose.Translation().Distance(m_lastPose.Translation());
