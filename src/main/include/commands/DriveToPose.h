@@ -21,13 +21,13 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class DriveDistance
-    : public frc2::CommandHelper<frc2::Command, DriveDistance> {
+class DriveToPose
+    : public frc2::CommandHelper<frc2::Command, DriveToPose> {
  public:
   /* You should consider using the more terse Command factories API instead
    * https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands
    */
-  DriveDistance(frc::Pose2d requestedPose, subsystems::CommandSwerveDrivetrain* drivetrain);
+  DriveToPose(frc::Pose2d requestedPose, subsystems::CommandSwerveDrivetrain* drivetrain);
 
   void Initialize() override;
 
