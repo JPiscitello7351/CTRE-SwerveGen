@@ -7,12 +7,14 @@
 
 class ChoreoEventRunner {
  public:
-  ChoreoEventRunner(const ChoreoEventManager &eventManager);
+  ChoreoEventRunner(ChoreoEventManager &eventManager);
 
   void ScheduleActiveCommands(const std::vector<choreo::EventMarker>& events,
                               units::second_t timestamp,
                               units::millisecond_t offsetThreshold);
+
+  void ClearTriggeredEvents();
  private:
-    std::vector<choreo::EventMarker> m_ranEvents;
-    const ChoreoEventManager &m_eventmanager;
+    std::vector<choreo::EventMarker> m_triggeredEvents;
+    ChoreoEventManager &m_eventmanager;
 };

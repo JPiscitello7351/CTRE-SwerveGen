@@ -18,6 +18,16 @@ void ChoreoEventManager::DeleteKey(std::string key){
 
 const std::map<std::string, frc2::Command*> &ChoreoEventManager::GetMap(){return m_stringToCommandPtrMap;}
 
+frc2::Command* ChoreoEventManager::GetCommand(const std::string key){
+    auto command = m_stringToCommandPtrMap.find(key);
+    if (command != m_stringToCommandPtrMap.end())
+    {
+        return command->second;
+    }
+    return nullptr;
+}
+
+/*
 std::vector<frc2::Command*> ChoreoEventManager::GetActiveEvents(const std::vector<choreo::EventMarker> &events, units::second_t timestamp, units::millisecond_t offsetThreshold)
 {
     std::vector<frc2::Command*> activeCommands;
@@ -36,8 +46,4 @@ std::vector<frc2::Command*> ChoreoEventManager::GetActiveEvents(const std::vecto
     }
     return activeCommands;
 }
-
-
-/*
-
 */
