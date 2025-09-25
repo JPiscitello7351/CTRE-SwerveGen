@@ -14,9 +14,11 @@
 #include "Constants.h"
 
 #include "utils/auto_selector.h"
+#include "summer_lib/choreo_event_manager.h"
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_driveForward.h"
 #include "commands/autonomous/autonomous_spinBoi.h"
+#include "commands/PrintStuff.h"
 
 class RobotContainer 
 {
@@ -63,4 +65,5 @@ private:
     AutonomousSpinBoi m_autoSpinBoi;
     
     AutoSelector m_autoSelector;
+    ChoreoEventManager m_choreoEventManager;
 };

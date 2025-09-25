@@ -23,12 +23,18 @@ RobotContainer::RobotContainer()
 , m_autoSelector({  &m_autoNothing,
                     &m_autoDriveForward,
                     &m_autoSpinBoi}, &m_autoNothing) // Add more commands here as they are implemented
+, m_choreoEventManager()
 {
     ConfigureBindings();
 }
 
 void RobotContainer::ConfigureBindings()
 {
+    //Configure event manager command mapping
+    m_choreoEventManager.AddKey("runIntake", PrintStuff("Running intake!").ToPtr());
+    m_choreoEventManager.AddKey("intakeDown", PrintStuff("Intake down!").ToPtr());
+    m_choreoEventManager.AddKey("intakeUp", PrintStuff("Intake up!").ToPtr());
+    
     // Note that X is defined as forward according to WPILib convention,
     // and Y is defined as to the left according to WPILib convention.
     m_drivetrain.SetDefaultCommand(
