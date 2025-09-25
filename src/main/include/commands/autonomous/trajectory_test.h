@@ -13,6 +13,7 @@
 
 #include "subsystems/CommandSwerveDrivetrain.h"
 #include "summer_lib/choreo_event_manager.h"
+#include "summer_lib/choreo_event_runner.h"
 
 /**
  * An example command.
@@ -46,7 +47,8 @@ class TrajectoryTest
 
 private:
   subsystems::CommandSwerveDrivetrain& m_swerveDrivetrain;
-  ChoreoEventManager &m_choreoEventManager;
-  frc::Timer m_timer;
   std::optional<choreo::Trajectory<choreo::SwerveSample>> m_trajectory;
+  ChoreoEventRunner m_choreoEventRunner;
+  frc::Timer m_timer;
+
 };

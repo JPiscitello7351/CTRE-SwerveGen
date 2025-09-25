@@ -13,7 +13,7 @@ TrajectoryTest::TrajectoryTest(subsystems::CommandSwerveDrivetrain& drivetrain,
                                 ChoreoEventManager &choreoEventManager)
   : m_swerveDrivetrain{drivetrain},
     m_trajectory{trajectory},
-    m_choreoEventManager{choreoEventManager} {
+    m_choreoEventRunner{choreoEventManager} {
   // Use addRequirements() here to declare subsystem dependencies.
   AddRequirements({&m_swerveDrivetrain});
 }
@@ -29,7 +29,7 @@ void TrajectoryTest::Execute() {
 
   if (m_trajectory.has_value())
   {
-    std::vector<frc2::Command*> eventList = m_choreoEventManager.GetActiveEvents(m_trajectory.value().events, m_timer.Get(), units::millisecond_t(100));
+    m_choreoEventRunner.ScheduleActiveCommands(m_trajectory.value().events, m_timer.Get(), units::millisecond_t(100));
     
     if (auto sample = m_trajectory.value().SampleAt(m_timer.Get(), false))
     {
