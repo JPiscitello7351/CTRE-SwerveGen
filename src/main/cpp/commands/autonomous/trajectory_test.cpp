@@ -8,9 +8,12 @@
 
 #include "subsystems/CommandSwerveDrivetrain.h"
 
-TrajectoryTest::TrajectoryTest(subsystems::CommandSwerveDrivetrain& drivetrain, std::optional<choreo::Trajectory<choreo::SwerveSample>> trajectory)
+TrajectoryTest::TrajectoryTest(subsystems::CommandSwerveDrivetrain& drivetrain,
+                                std::optional<choreo::Trajectory<choreo::SwerveSample>> trajectory,
+                                ChoreoEventManager &choreoEventManager)
   : m_swerveDrivetrain{drivetrain},
-    m_trajectory{trajectory} {
+    m_trajectory{trajectory},
+    m_choreoEventRunner{choreoEventManager} {
   // Use addRequirements() here to declare subsystem dependencies.
   AddRequirements({&m_swerveDrivetrain});
 }
@@ -26,6 +29,8 @@ void TrajectoryTest::Execute() {
 
   if (m_trajectory.has_value())
   {
+    m_choreoEventRunner.ScheduleActiveCommands(m_trajectory.value().events, m_timer.Get(), units::millisecond_t(100));
+    
     if (auto sample = m_trajectory.value().SampleAt(m_timer.Get(), false))
     {
       frc::SmartDashboard::PutNumber("trajectory:alive", alive++);

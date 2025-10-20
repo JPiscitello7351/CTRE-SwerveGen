@@ -12,6 +12,8 @@
 #include "commands/autonomous/autonomous_command.h"
 
 #include "subsystems/CommandSwerveDrivetrain.h"
+#include "summer_lib/choreo_event_manager.h"
+#include "summer_lib/choreo_event_runner.h"
 
 /**
  * An example command.
@@ -27,7 +29,9 @@ class TrajectoryTest
   /* You should consider using the more terse Command factories API instead
    * https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands
    */
-  TrajectoryTest(subsystems::CommandSwerveDrivetrain& drivetrain, std::optional<choreo::Trajectory<choreo::SwerveSample>> trajectory);
+  TrajectoryTest(subsystems::CommandSwerveDrivetrain& drivetrain, 
+                  std::optional<choreo::Trajectory<choreo::SwerveSample>> trajectory,
+                  ChoreoEventManager &choreoEventManager);
 
   void Initialize() override;
 
@@ -39,10 +43,12 @@ class TrajectoryTest
 
   std::string GetName() const;
 
-  frc2::CommandPtr GetCommand();;
+  frc2::CommandPtr GetCommand();
 
 private:
   subsystems::CommandSwerveDrivetrain& m_swerveDrivetrain;
-  frc::Timer m_timer;
   std::optional<choreo::Trajectory<choreo::SwerveSample>> m_trajectory;
+  ChoreoEventRunner m_choreoEventRunner;
+  frc::Timer m_timer;
+
 };

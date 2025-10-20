@@ -15,7 +15,6 @@
  * command-specific namespaces within this header, which can then be used where
  * they are needed.
  */
-
 namespace ids
 {
     constexpr int spinBoi = 9;
