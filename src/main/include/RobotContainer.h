@@ -18,6 +18,7 @@
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_driveForward.h"
 #include "commands/autonomous/autonomous_spinBoi.h"
+#include "commands/autonomous/trajectory_test.h"
 #include "commands/PrintStuff.h"
 
 class RobotContainer 
@@ -63,6 +64,7 @@ private:
     AutonomousNothing m_autoNothing;
     AutonomousDriveForward m_autoDriveForward;
     AutonomousSpinBoi m_autoSpinBoi;
+    TrajectoryTest m_trajectoryTest;
     
     AutoSelector m_autoSelector;
     ChoreoEventManager m_choreoEventManager;

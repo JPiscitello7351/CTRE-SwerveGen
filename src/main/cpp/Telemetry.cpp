@@ -5,7 +5,7 @@ using namespace ctre::phoenix6;
 
 Telemetry::Telemetry(units::meters_per_second_t maxSpeed) : MaxSpeed{maxSpeed}
 {
-    SignalLogger::Start();
+    //SignalLogger::Start();
 
     /* Set up the module state Mechanism2d telemetry */
     for (size_t i = 0; i < m_moduleSpeeds.size(); ++i) {
@@ -33,10 +33,12 @@ void Telemetry::Telemeterize(subsystems::CommandSwerveDrivetrain::SwerveDriveSta
         moduleTargetsArray[i*2 + 0] = state.ModuleTargets[i].angle.Radians().value();
         moduleTargetsArray[i*2 + 1] = state.ModuleTargets[i].speed.value();
     }
+    /*
     SignalLogger::WriteDoubleArray("DriveState/Pose", {state.Pose.X().value(), state.Pose.Y().value(), state.Pose.Rotation().Degrees().value()});
     SignalLogger::WriteDoubleArray("DriveState/ModuleStates", moduleStatesArray);
     SignalLogger::WriteDoubleArray("DriveState/ModuleTargets", moduleTargetsArray);
     SignalLogger::WriteValue("DriveState/OdometryPeriod", state.OdometryPeriod);
+    */
 
     /* Telemeterize the pose to a Field2d */
     fieldTypePub.Set("Field2d");

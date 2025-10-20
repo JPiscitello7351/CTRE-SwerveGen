@@ -46,10 +46,13 @@ class CommandSwerveDrivetrain : public frc2::SubsystemBase, public TunerSwerveDr
             4_V,          // Reduce dynamic step voltage to 4 V to prevent brownout
             std::nullopt, // Use default timeout (10 s)
             // Log state with SignalLogger class
+            /*
             [](frc::sysid::State state)
             {
                 SignalLogger::WriteString("SysIdTranslation_State", frc::sysid::SysIdRoutineLog::StateEnumToString(state));
             }
+            */
+           [](frc::sysid::State) {}
         },
         frc2::sysid::Mechanism{
             [this](units::volt_t output) { SetControl(m_translationCharacterization.WithVolts(output)); },
@@ -65,10 +68,13 @@ class CommandSwerveDrivetrain : public frc2::SubsystemBase, public TunerSwerveDr
             7_V,          // Use dynamic voltage of 7 V
             std::nullopt, // Use default timeout (10 s)
             // Log state with SignalLogger class
+            /*
             [](frc::sysid::State state)
             {
                 SignalLogger::WriteString("SysIdSteer_State", frc::sysid::SysIdRoutineLog::StateEnumToString(state));
             }
+            */
+           [](frc::sysid::State) {}
         },
         frc2::sysid::Mechanism{
             [this](units::volt_t output) { SetControl(m_steerCharacterization.WithVolts(output)); },
@@ -90,10 +96,13 @@ class CommandSwerveDrivetrain : public frc2::SubsystemBase, public TunerSwerveDr
             units::constants::detail::PI_VAL * 1_V,
             std::nullopt, // Use default timeout (10 s)
             // Log state with SignalLogger class
+            /*
             [](frc::sysid::State state)
             {
                 SignalLogger::WriteString("SysIdRotation_State", frc::sysid::SysIdRoutineLog::StateEnumToString(state));
             }
+            */
+           [](frc::sysid::State) {}
         },
         frc2::sysid::Mechanism{
             [this](units::volt_t output)
@@ -101,7 +110,8 @@ class CommandSwerveDrivetrain : public frc2::SubsystemBase, public TunerSwerveDr
                 /* output is actually radians per second, but SysId only supports "volts" */
                 SetControl(m_rotationCharacterization.WithRotationalRate(output * (1_rad_per_s / 1_V)));
                 /* also log the requested output for SysId */
-                SignalLogger::WriteValue("Rotational_Rate", output * (1_rad_per_s / 1_V));
+                
+                //SignalLogger::WriteValue("Rotational_Rate", output * (1_rad_per_s / 1_V));
             },
             {},
             this
