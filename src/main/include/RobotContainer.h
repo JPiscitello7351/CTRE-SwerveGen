@@ -9,15 +9,12 @@
 #include <frc2/command/button/CommandXboxController.h>
 #include <commands/DriveToPose.h>
 #include "subsystems/CommandSwerveDrivetrain.h"
-#include "subsystems/SpinBoi.h"
 #include "Telemetry.h"
 #include "Constants.h"
 
 #include "utils/auto_selector.h"
 #include "summer_lib/choreo_event_manager.h"
 #include "commands/autonomous/autonomous_nothing.h"
-#include "commands/autonomous/autonomous_driveForward.h"
-#include "commands/autonomous/autonomous_spinBoi.h"
 #include "commands/autonomous/trajectory_test.h"
 #include "commands/PrintStuff.h"
 
@@ -51,7 +48,6 @@ private:
 
 public:
     subsystems::CommandSwerveDrivetrain m_drivetrain{TunerConstants::CreateDrivetrain()};
-    subsystems::SpinBoi m_spinBoi{};
 
     RobotContainer();
 
@@ -62,8 +58,6 @@ private:
 
     //Autonomous Commands
     AutonomousNothing m_autoNothing;
-    AutonomousDriveForward m_autoDriveForward;
-    AutonomousSpinBoi m_autoSpinBoi;
     TrajectoryTest m_trajectoryTest;
     
     AutoSelector m_autoSelector;
