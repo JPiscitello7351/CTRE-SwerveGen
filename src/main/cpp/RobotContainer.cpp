@@ -25,6 +25,7 @@ RobotContainer::RobotContainer()
                     &m_autoDriveForward,
                     &m_trajectoryTest,
                     &m_autoPoseTest}, &m_autoNothing) // Add more commands here as they are implemented
+, m_testCommand(frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(-1);}, {&m_spinBoi}).ToPtr())
 , m_choreoEventManager()
 {
     ConfigureBindings();
@@ -75,6 +76,13 @@ void RobotContainer::ConfigureBindings()
     joystick.B().WhileTrue(m_drivetrain.ApplyRequest([this]() -> auto&& {
         return point.WithModuleDirection(frc::Rotation2d{-joystick.GetLeftY(), -joystick.GetLeftX()});
     }));
+    // TODO: Hijacked for debugging
+    // joystick.B().OnTrue(
+        // NOTE: This woks fine (2026-01-01) Jacob S
+        // m_testCommand.get()
+        // NOTE: This crashes :( (2026-01-01) Jacob S
+        //m_choreoEventManager.GetMap().at("spinBoi right")
+    // );
 
     joystick.Y().OnTrue(
         DriveToPose(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &m_drivetrain).ToPtr()

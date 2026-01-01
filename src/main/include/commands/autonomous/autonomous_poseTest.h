@@ -52,5 +52,6 @@ private:
   subsystems::SpinBoi& m_spinBoi;
   std::optional<choreo::Trajectory<choreo::SwerveSample>> m_trajectory;
   ChoreoEventRunner m_choreoEventRunner;
+  ChoreoEventManager m_choreoEventManager;
   frc::Timer m_timer;
 };
