@@ -17,6 +17,7 @@
 #include "summer_lib/choreo_event_manager.h"
 #include "commands/autonomous/autonomous_nothing.h"
 #include "commands/autonomous/autonomous_driveForward.h"
+#include "commands/autonomous/autonomous_poseTest.h"
 #include "commands/autonomous/autonomous_spinBoi.h"
 #include "commands/autonomous/trajectory_test.h"
 #include "commands/PrintStuff.h"
@@ -48,6 +49,8 @@ private:
     // Choreo trajectories
     std::optional<choreo::Trajectory<choreo::SwerveSample>> m_trajectory =
             choreo::Choreo::LoadTrajectory<choreo::SwerveSample>("myTrajectory");
+    std::optional<choreo::Trajectory<choreo::SwerveSample>> m_autoPoseTestTrajectory =
+            choreo::Choreo::LoadTrajectory<choreo::SwerveSample>("setPoseTraj");
 
 public:
     subsystems::CommandSwerveDrivetrain m_drivetrain{TunerConstants::CreateDrivetrain()};
@@ -64,6 +67,7 @@ private:
     AutonomousNothing m_autoNothing;
     AutonomousDriveForward m_autoDriveForward;
     AutonomousSpinBoi m_autoSpinBoi;
+    AutonomousPoseTest m_autoPoseTest;
     TrajectoryTest m_trajectoryTest;
     
     AutoSelector m_autoSelector;

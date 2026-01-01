@@ -62,8 +62,8 @@ class TunerConstants {
     // Configs for the Pigeon 2; leave this nullopt to skip applying Pigeon 2 configs
     static constexpr std::optional<configs::Pigeon2Configuration> pigeonConfigs = std::nullopt;
 
-    //static constexpr std::string_view kCANBusName = "SwerveBot_Canivore";
-    static constexpr std::string_view kCANBusName = "";
+    static constexpr std::string_view kCANBusName = "SwerveBot_Canivore";
+    //static constexpr std::string_view kCANBusName = "";
     
 
 public:
@@ -131,8 +131,8 @@ private:
     static constexpr int kFrontLeftDriveMotorId = 1;
     static constexpr int kFrontLeftSteerMotorId = 2;
     static constexpr int kFrontLeftEncoderId = 1;
-    //static constexpr units::turn_t kFrontLeftEncoderOffset = 0.249267578125_tr;
-    static constexpr units::turn_t kFrontLeftEncoderOffset = 0.272216796875_tr;
+    static constexpr units::turn_t kFrontLeftEncoderOffset = 0.249267578125_tr;
+    //static constexpr units::turn_t kFrontLeftEncoderOffset = 0.272216796875_tr;
     static constexpr bool kFrontLeftSteerMotorInverted = false;
     static constexpr bool kFrontLeftEncoderInverted = false;
 
@@ -143,8 +143,8 @@ private:
     static constexpr int kFrontRightDriveMotorId = 3;
     static constexpr int kFrontRightSteerMotorId = 4;
     static constexpr int kFrontRightEncoderId = 2;
-    //static constexpr units::turn_t kFrontRightEncoderOffset = -0.1572265625_tr;
-    static constexpr units::turn_t kFrontRightEncoderOffset = -0.117431640625_tr;
+    static constexpr units::turn_t kFrontRightEncoderOffset = -0.1572265625_tr;
+    //static constexpr units::turn_t kFrontRightEncoderOffset = -0.117431640625_tr;
     static constexpr bool kFrontRightSteerMotorInverted = false;
     static constexpr bool kFrontRightEncoderInverted = false;
 
@@ -155,8 +155,8 @@ private:
     static constexpr int kBackLeftDriveMotorId = 7;
     static constexpr int kBackLeftSteerMotorId = 8;
     static constexpr int kBackLeftEncoderId = 4;
-    //static constexpr units::turn_t kBackLeftEncoderOffset = 0.133056640625_tr;
-    static constexpr units::turn_t kBackLeftEncoderOffset = -0.07958984375_tr;
+    static constexpr units::turn_t kBackLeftEncoderOffset = 0.133056640625_tr;
+    //static constexpr units::turn_t kBackLeftEncoderOffset = -0.07958984375_tr;
     static constexpr bool kBackLeftSteerMotorInverted = false;
     static constexpr bool kBackLeftEncoderInverted = false;
 
@@ -167,8 +167,8 @@ private:
     static constexpr int kBackRightDriveMotorId = 5;
     static constexpr int kBackRightSteerMotorId = 6;
     static constexpr int kBackRightEncoderId = 3;
-    //static constexpr units::turn_t kBackRightEncoderOffset = 0.455078125_tr;
-    static constexpr units::turn_t kBackRightEncoderOffset = 0.406005859375_tr;
+    static constexpr units::turn_t kBackRightEncoderOffset = 0.455078125_tr;
+    //static constexpr units::turn_t kBackRightEncoderOffset = 0.406005859375_tr;
     static constexpr bool kBackRightSteerMotorInverted = false;
     static constexpr bool kBackRightEncoderInverted = false;
 

@@ -3,6 +3,7 @@
 #include "summer_lib/choreo_event_manager.h"
 #include <frc2/command/Command.h>
 #include <choreo/trajectory/EventMarker.h>
+#include <frc2/command/CommandScheduler.h>
 #include <vector>
 
 class ChoreoEventRunner {
