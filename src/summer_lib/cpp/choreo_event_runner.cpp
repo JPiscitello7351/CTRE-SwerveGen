@@ -22,8 +22,14 @@ void ChoreoEventRunner::ScheduleActiveCommands(const std::vector<choreo::EventMa
                 if (command != nullptr)
                 {
                     frc::SmartDashboard::PutString("Event Start Status", "Scheduling event: " + event.event);
-                    frc2::CommandScheduler& scheduler = frc2::CommandScheduler::GetInstance();
-                    scheduler.Schedule(command); 
+                    
+                    // Get Command Scheduler instance and run using scheduler command
+                        //frc2::CommandScheduler& scheduler = frc2::CommandScheduler::GetInstance();
+                        //scheduler.Schedule(command);
+
+                    // Using command -> schedule
+                        //command->Schedule();
+
                     m_triggeredEvents.push_back(event); // Mark this event as triggered
                     frc::SmartDashboard::PutString("Event Complete Status", "Triggered event: " + event.event);
                 }
