@@ -72,9 +72,14 @@ void RobotContainer::ConfigureBindings()
     );
 
     joystick.A().WhileTrue(m_drivetrain.ApplyRequest([this]() -> auto&& { return brake; }));
-    joystick.B().WhileTrue(m_drivetrain.ApplyRequest([this]() -> auto&& {
-        return point.WithModuleDirection(frc::Rotation2d{-joystick.GetLeftY(), -joystick.GetLeftX()});
-    }));
+    // TODO: Hijacked for debugging
+    // joystick.B().WhileTrue(m_drivetrain.ApplyRequest([this]() -> auto&& {
+    //     return point.WithModuleDirection(frc::Rotation2d{-joystick.GetLeftY(), -joystick.GetLeftX()});
+    // }));
+    joystick.B().OnTrue(
+        m_choreoEventManager.GetMap().at("spinBoi right")
+        //frc2::InstantCommand([this]() {m_choreoEventManager.GetMap().at("spinBoi right")->Schedule();}, {&m_spinBoi}).ToPtr()
+    );
 
     joystick.Y().OnTrue(
         DriveToPose(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &m_drivetrain).ToPtr()
