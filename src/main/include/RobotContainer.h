@@ -69,6 +69,9 @@ private:
     AutonomousSpinBoi m_autoSpinBoi;
     AutonomousPoseTest m_autoPoseTest;
     TrajectoryTest m_trajectoryTest;
+
+    // TODO: DEBUGGING
+    frc2::CommandPtr m_testCommand;
     
     AutoSelector m_autoSelector;
     ChoreoEventManager m_choreoEventManager;
