@@ -39,10 +39,21 @@ void AutonomousPoseTest::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void AutonomousPoseTest::Execute() {
   static long alive = 0;
+  bool check1 = false;
+  bool check2 = false;
 
   if (m_trajectory.has_value())
   {
-    m_choreoEventRunner.ScheduleActiveCommands(m_trajectory.value().events, m_timer.Get(), units::millisecond_t(100));
+    //m_choreoEventRunner.ScheduleActiveCommands(m_trajectory.value().events, m_timer.Get(), units::millisecond_t(100));
+
+    if(m_timer.Get() > m_trajectory.value().events[0].timestamp && !check1){
+      m_spinBoi.SetSpeed(1);
+      check1 = true;
+    }
+    if(m_timer.Get() > m_trajectory.value().events[1].timestamp && !check2){
+      m_spinBoi.SetSpeed(0);
+      check2 = true;
+    }
     
     if (auto sample = m_trajectory.value().SampleAt(m_timer.Get(), false))
     {
