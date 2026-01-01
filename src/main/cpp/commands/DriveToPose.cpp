@@ -24,9 +24,6 @@ void DriveToPose::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveToPose::Execute() {
   static size_t alive = 0;
-  // Speeds to drive at
-  units::meters_per_second_t setSpeed = 0.35_mps;
-  units::angular_velocity::radians_per_second_t rotationSetSpeed = 0.02_rad_per_s;
 
   // Calculate the individual x and y distance
   m_lastPose = m_pSwerveDrive->GetState().Pose;
@@ -63,12 +60,13 @@ bool DriveToPose::IsFinished()
   // Find distance between where we are and where we want to be
   units::meter_t distance = m_requestedPose.Translation().Distance(m_lastPose.Translation());
   units::meter_t finTol = 0.1_m;
+  units::angle::degree_t angleDiff = m_requestedPose.Rotation().Degrees() - m_lastPose.Rotation().Degrees();
   units::angle::degree_t finAngTol = 5_deg;
   // Calculate distance from current pose to requested pose
 
   frc::SmartDashboard::PutNumber("DriveDisCmd:distance", distance.value());
 
-  if (distance < finTol)
+  if (distance < finTol && angleDiff < finAngTol)
   {
     return true;
   }

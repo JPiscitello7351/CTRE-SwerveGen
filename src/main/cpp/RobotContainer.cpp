@@ -19,10 +19,12 @@ RobotContainer::RobotContainer()
 : m_autoNothing(m_drivetrain)
 , m_autoDriveForward(m_drivetrain)
 , m_autoSpinBoi(m_drivetrain, m_spinBoi)
+, m_autoPoseTest(m_drivetrain, m_spinBoi, m_autoPoseTestTrajectory, m_choreoEventManager)
 , m_trajectoryTest(m_drivetrain, m_trajectory, m_choreoEventManager)
 , m_autoSelector({  &m_autoNothing,
                     &m_autoDriveForward,
-                    &m_autoSpinBoi}, &m_autoNothing) // Add more commands here as they are implemented
+                    &m_trajectoryTest,
+                    &m_autoPoseTest}, &m_autoNothing) // Add more commands here as they are implemented
 , m_choreoEventManager()
 {
     ConfigureBindings();
@@ -31,9 +33,7 @@ RobotContainer::RobotContainer()
 void RobotContainer::ConfigureBindings()
 {
     //Configure event manager command mapping
-    m_choreoEventManager.AddKey("runIntake", PrintStuff("Running intake!").ToPtr());
-    m_choreoEventManager.AddKey("intakeDown", PrintStuff("Intake down!").ToPtr());
-    m_choreoEventManager.AddKey("intakeUp", PrintStuff("Intake up!").ToPtr());
+
     m_choreoEventManager.AddKey("spinBoi right", frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(1);}, {&m_spinBoi}).ToPtr());
     m_choreoEventManager.AddKey("spinBoi left", frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(-1);}, {&m_spinBoi}).ToPtr());
     m_choreoEventManager.AddKey("spinBoi stop", frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(0);}, {&m_spinBoi}).ToPtr());
@@ -104,7 +104,7 @@ void RobotContainer::ConfigureBindings()
     (joystick.Start() && joystick.X()).WhileTrue(m_drivetrain.SysIdQuasistatic(frc2::sysid::Direction::kReverse));
 
     // reset the field-centric heading on left bumper press
-    joystick.LeftBumper().OnTrue(m_drivetrain.RunOnce([this] {m_drivetrain.SeedFieldCentric();}));
+    joystick.LeftBumper().OnTrue(m_drivetrain.RunOnce([this] {m_drivetrain.TareEverything(); m_drivetrain.SeedFieldCentric();}));
 
     m_drivetrain.RegisterTelemetry([this](auto const &state) { logger.Telemeterize(state); });
 }
