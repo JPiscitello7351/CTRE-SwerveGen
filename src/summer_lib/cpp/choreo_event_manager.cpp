@@ -5,7 +5,7 @@
 ChoreoEventManager::ChoreoEventManager(){}
 
 void ChoreoEventManager::AddKey(std::string key, frc2::CommandPtr command){
-    m_stringToCommandPtrMap.emplace(std::make_pair(key, command.get()));
+    m_stringToCommandPtrMap.emplace(std::make_pair(key, std::move(command)));
 }
 
 void ChoreoEventManager::DeleteKey(std::string key){
@@ -16,13 +16,13 @@ void ChoreoEventManager::DeleteKey(std::string key){
     }
 }
 
-const std::map<std::string, frc2::Command*> &ChoreoEventManager::GetMap(){return m_stringToCommandPtrMap;}
+const std::unordered_map<std::string, frc2::CommandPtr> &ChoreoEventManager::GetMap(){return m_stringToCommandPtrMap;}
 
-frc2::Command* ChoreoEventManager::GetCommand(const std::string key){
-    auto command = m_stringToCommandPtrMap.find(key);
-    if (command != m_stringToCommandPtrMap.end())
+frc2::CommandPtr* ChoreoEventManager::GetCommand(const std::string key){
+    auto cmd = m_stringToCommandPtrMap.find(key);
+    if (cmd != m_stringToCommandPtrMap.end())
     {
-        return command->second;
+        return &cmd->second;
     }
     return nullptr;
 }

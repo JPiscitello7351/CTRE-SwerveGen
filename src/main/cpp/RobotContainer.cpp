@@ -25,7 +25,6 @@ RobotContainer::RobotContainer()
                     &m_autoDriveForward,
                     &m_trajectoryTest,
                     &m_autoPoseTest}, &m_autoNothing) // Add more commands here as they are implemented
-, m_testCommand(frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(-1);}, {&m_spinBoi}).ToPtr())
 , m_choreoEventManager()
 {
     ConfigureBindings();

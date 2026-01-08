@@ -28,7 +28,7 @@ void AutonomousPoseTest::Initialize() {
   m_timer.Restart();
   bool isRedAlliance = false;
 
-  
+  //m_eventChecks = std::vector<bool>(m_trajectory.value().events.size(), false);
 
   if(frc::DriverStation::GetAlliance() == frc::DriverStation::Alliance::kRed){
     isRedAlliance = true;
@@ -44,30 +44,22 @@ void AutonomousPoseTest::Initialize() {
 void AutonomousPoseTest::Execute() {
   frc2::CommandPtr command = frc2::InstantCommand([this]() {m_spinBoi.SetSpeed(1);}, {&m_spinBoi}).ToPtr();
 
-  static long alive = 0;
-  bool check1 = false;
-  bool check2 = false;
-
+  
   if (m_trajectory.has_value())
   {
-    m_choreoEventRunner.ScheduleActiveCommands(m_trajectory.value().events, m_timer.Get(), units::millisecond_t(100));
-
-
     /*
-    if(m_timer.Get() > m_trajectory.value().events[0].timestamp && !check1){
-      //command.Schedule();
-      frc2::ScheduleCommand(command.get());
-      check1 = true;
+    if(m_timer.Get() > m_trajectory.value().events[0].timestamp && !m_eventChecks[0]){
+      m_spinBoi.SetSpeed(1);
+      m_eventChecks[0] = true;
     }
-    if(m_timer.Get() > m_trajectory.value().events[1].timestamp && !check2){
+    if(m_timer.Get() > m_trajectory.value().events[1].timestamp && !m_eventChecks[1]){
       m_spinBoi.SetSpeed(0);
-      check2 = true;
+      m_eventChecks[1] = true;
     }
     */
     
     if (auto sample = m_trajectory.value().SampleAt(m_timer.Get(), false))
     {
-      frc::SmartDashboard::PutNumber("trajectory:alive", alive++);
       m_swerveDrivetrain.FollowTrajectory(sample.value());
     }
   }

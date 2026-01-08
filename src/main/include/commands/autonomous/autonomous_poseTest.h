@@ -54,4 +54,5 @@ private:
   ChoreoEventRunner m_choreoEventRunner;
   ChoreoEventManager m_choreoEventManager;
   frc::Timer m_timer;
+  //std::vector<bool> m_eventChecks;
 };
