@@ -9,6 +9,7 @@
 #include <frc2/command/button/CommandXboxController.h>
 #include <commands/DriveToPose.h>
 #include "subsystems/CommandSwerveDrivetrain.h"
+#include "subsystems/VisionSubsystem.h"
 #include "subsystems/SpinBoi.h"
 #include "Telemetry.h"
 #include "Constants.h"
@@ -53,8 +54,10 @@ private:
             choreo::Choreo::LoadTrajectory<choreo::SwerveSample>("setPoseTraj");
 
 public:
+    // Subsystems
     subsystems::CommandSwerveDrivetrain m_drivetrain{TunerConstants::CreateDrivetrain()};
     subsystems::SpinBoi m_spinBoi{};
+    subsystems::VisionSubsystem m_vision{"limelight-right"};
 
     RobotContainer();
 

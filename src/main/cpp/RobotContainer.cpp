@@ -40,28 +40,28 @@ void RobotContainer::ConfigureBindings()
     
     // Note that X is defined as forward according to WPILib convention,
     // and Y is defined as to the left according to WPILib convention.
-    m_drivetrain.SetDefaultCommand(
+    // m_drivetrain.SetDefaultCommand(
 
-        // Drivetrain will execute this command periodically
-        m_drivetrain.ApplyRequest([this]() -> auto&& {
+    //     // Drivetrain will execute this command periodically
+    //     m_drivetrain.ApplyRequest([this]() -> auto&& {
 
-            m_driveSpeedMultiplier = speeds::drive::driveSpeedMultiplier;   // Drive speed multiplier defined in constants.h
-            m_turnSpeedMultiplier = speeds::drive::turnSpeedMultiplier;     // Turn speed multiplier defined in constants.h
+    //         m_driveSpeedMultiplier = speeds::drive::driveSpeedMultiplier;   // Drive speed multiplier defined in constants.h
+    //         m_turnSpeedMultiplier = speeds::drive::turnSpeedMultiplier;     // Turn speed multiplier defined in constants.h
 
-            if(joystick.RightTrigger().Get()){ // Get the state of the right trigger and apply speed changes if bumper is pressed
-                m_driveSpeedMultiplier = speeds::drive::turboDriveSpeedMultiplier;  // Turbo speed!!!
-                m_turnSpeedMultiplier = speeds::drive::turboTurnSpeedMultiplier;    // Turbo turn rate!!!
-            }
-            else if(joystick.RightBumper().Get()){ // Get the state of the right bumper and apply speed changes if trigger is pressed
-                m_driveSpeedMultiplier = speeds::drive::slowmoDriveSpeedMultiplier; // Slowmo speed...
-                m_turnSpeedMultiplier = speeds::drive::slowmoTurnSpeedMultiplier;   // Slowmo turn rate...
-            }
+    //         if(joystick.RightTrigger().Get()){ // Get the state of the right trigger and apply speed changes if bumper is pressed
+    //             m_driveSpeedMultiplier = speeds::drive::turboDriveSpeedMultiplier;  // Turbo speed!!!
+    //             m_turnSpeedMultiplier = speeds::drive::turboTurnSpeedMultiplier;    // Turbo turn rate!!!
+    //         }
+    //         else if(joystick.RightBumper().Get()){ // Get the state of the right bumper and apply speed changes if trigger is pressed
+    //             m_driveSpeedMultiplier = speeds::drive::slowmoDriveSpeedMultiplier; // Slowmo speed...
+    //             m_turnSpeedMultiplier = speeds::drive::slowmoTurnSpeedMultiplier;   // Slowmo turn rate...
+    //         }
 
-            return drive.WithVelocityX(-joystick.GetLeftY() * MaxSpeed * m_driveSpeedMultiplier)        // Drive forward with negative Y (forward)
-                .WithVelocityY(-joystick.GetLeftX() * MaxSpeed * m_driveSpeedMultiplier)                // Drive left with negative X (left)
-                .WithRotationalRate(-joystick.GetRightX() * MaxAngularRate * m_turnSpeedMultiplier);    // Drive counterclockwise with negative X (left)
-        })
-    );
+    //         return drive.WithVelocityX(-joystick.GetLeftY() * MaxSpeed * m_driveSpeedMultiplier)        // Drive forward with negative Y (forward)
+    //             .WithVelocityY(-joystick.GetLeftX() * MaxSpeed * m_driveSpeedMultiplier)                // Drive left with negative X (left)
+    //             .WithRotationalRate(-joystick.GetRightX() * MaxAngularRate * m_turnSpeedMultiplier);    // Drive counterclockwise with negative X (left)
+    //     })
+    // );
 
     // Idle while the robot is disabled. This ensures the configured
     // neutral mode is applied to the drive motors while disabled.
@@ -72,20 +72,35 @@ void RobotContainer::ConfigureBindings()
     );
 
     joystick.A().WhileTrue(m_drivetrain.ApplyRequest([this]() -> auto&& { return brake; }));
-    joystick.B().WhileTrue(m_drivetrain.ApplyRequest([this]() -> auto&& {
-        return point.WithModuleDirection(frc::Rotation2d{-joystick.GetLeftY(), -joystick.GetLeftX()});
-    }));
+    // joystick.B().WhileTrue(m_drivetrain.ApplyRequest([this]() -> auto&& {
+    //     return point.WithModuleDirection(frc::Rotation2d{-joystick.GetLeftY(), -joystick.GetLeftX()});
+    // }));
     // TODO: Hijacked for debugging
-    // joystick.B().OnTrue(
-        // NOTE: This woks fine (2026-01-01) Jacob S
-        // m_testCommand.get()
-        // NOTE: This crashes :( (2026-01-01) Jacob S
-        //m_choreoEventManager.GetMap().at("spinBoi right")
-    // );
+    joystick.B().WhileTrue(
+        frc2::RunCommand([this]() {
+            subsystems::VisionData visd = m_vision.GetLastData();
+            units::radians_per_second_t speed;
 
-    joystick.Y().OnTrue(
-        DriveToPose(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &m_drivetrain).ToPtr()
+            if (visd.hasTargets)
+            {
+                speed = units::radians_per_second_t{-1 * visd.tx.value() * 0.2};
+            }
+            else
+            {
+                speed = 0_rad_per_s;
+            }
+
+            m_drivetrain.SetControl(drive.WithRotationalRate(speed));
+        }, {&m_drivetrain, &m_vision}).ToPtr()
+    ).OnFalse(
+        frc2::InstantCommand([this]() {
+            m_drivetrain.SetControl(brake);
+        }, {&m_drivetrain}).ToPtr()
     );
+
+    // joystick.Y().OnTrue(
+    //     DriveToPose(frc::Pose2d(frc::Translation2d(0_ft, 0_ft), frc::Rotation2d(0_deg)), &m_drivetrain).ToPtr()
+    // );
 
     // Make spin boi spin (positive)
     joystick.POVRight().OnTrue(
