@@ -7,8 +7,7 @@
 #include "commands/ServoToTag.h"
 
 ServoToTag::ServoToTag(subsystems::CommandSwerveDrivetrain *pDrivetrain, subsystems::VisionSubsystem *pVision) 
-: m_pDrive{pDrivetrain} 
-, m_pVision{pVision}
+: m_pDrive{pDrivetrain} , m_pVision{pVision}
 {
   AddRequirements({pDrivetrain, pVision});
 }

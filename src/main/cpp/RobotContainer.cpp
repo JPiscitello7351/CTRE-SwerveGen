@@ -9,6 +9,7 @@
 #include <frc2/command/RunCommand.h>
 #include <commands/DriveToPose.h>
 #include <commands/ServoToTag.h>
+#include <commands/TranslateToTag.h>
 #include <frc2/command/button/RobotModeTriggers.h>
 #include "frc/smartdashboard/SmartDashboard.h"
 
@@ -79,6 +80,9 @@ void RobotContainer::ConfigureBindings()
     // TODO: Hijacked for debugging
     joystick.B().WhileTrue(
         ServoToTag(&m_drivetrain, &m_vision).ToPtr()
+    );
+    joystick.Y().WhileTrue(
+        TranslateToTag(&m_drivetrain, &m_vision).ToPtr()
     );
 
     // joystick.Y().OnTrue(
