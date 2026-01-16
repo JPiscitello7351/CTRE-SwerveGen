@@ -8,6 +8,7 @@
 #include <frc2/command/Commands.h>
 #include <frc2/command/RunCommand.h>
 #include <commands/DriveToPose.h>
+#include <commands/ServoToTag.h>
 #include <frc2/command/button/RobotModeTriggers.h>
 #include "frc/smartdashboard/SmartDashboard.h"
 
@@ -40,28 +41,28 @@ void RobotContainer::ConfigureBindings()
     
     // Note that X is defined as forward according to WPILib convention,
     // and Y is defined as to the left according to WPILib convention.
-    // m_drivetrain.SetDefaultCommand(
+    m_drivetrain.SetDefaultCommand(
 
-    //     // Drivetrain will execute this command periodically
-    //     m_drivetrain.ApplyRequest([this]() -> auto&& {
+        // Drivetrain will execute this command periodically
+        m_drivetrain.ApplyRequest([this]() -> auto&& {
 
-    //         m_driveSpeedMultiplier = speeds::drive::driveSpeedMultiplier;   // Drive speed multiplier defined in constants.h
-    //         m_turnSpeedMultiplier = speeds::drive::turnSpeedMultiplier;     // Turn speed multiplier defined in constants.h
+            m_driveSpeedMultiplier = speeds::drive::driveSpeedMultiplier;   // Drive speed multiplier defined in constants.h
+            m_turnSpeedMultiplier = speeds::drive::turnSpeedMultiplier;     // Turn speed multiplier defined in constants.h
 
-    //         if(joystick.RightTrigger().Get()){ // Get the state of the right trigger and apply speed changes if bumper is pressed
-    //             m_driveSpeedMultiplier = speeds::drive::turboDriveSpeedMultiplier;  // Turbo speed!!!
-    //             m_turnSpeedMultiplier = speeds::drive::turboTurnSpeedMultiplier;    // Turbo turn rate!!!
-    //         }
-    //         else if(joystick.RightBumper().Get()){ // Get the state of the right bumper and apply speed changes if trigger is pressed
-    //             m_driveSpeedMultiplier = speeds::drive::slowmoDriveSpeedMultiplier; // Slowmo speed...
-    //             m_turnSpeedMultiplier = speeds::drive::slowmoTurnSpeedMultiplier;   // Slowmo turn rate...
-    //         }
+            if(joystick.RightTrigger().Get()){ // Get the state of the right trigger and apply speed changes if bumper is pressed
+                m_driveSpeedMultiplier = speeds::drive::turboDriveSpeedMultiplier;  // Turbo speed!!!
+                m_turnSpeedMultiplier = speeds::drive::turboTurnSpeedMultiplier;    // Turbo turn rate!!!
+            }
+            else if(joystick.RightBumper().Get()){ // Get the state of the right bumper and apply speed changes if trigger is pressed
+                m_driveSpeedMultiplier = speeds::drive::slowmoDriveSpeedMultiplier; // Slowmo speed...
+                m_turnSpeedMultiplier = speeds::drive::slowmoTurnSpeedMultiplier;   // Slowmo turn rate...
+            }
 
-    //         return drive.WithVelocityX(-joystick.GetLeftY() * MaxSpeed * m_driveSpeedMultiplier)        // Drive forward with negative Y (forward)
-    //             .WithVelocityY(-joystick.GetLeftX() * MaxSpeed * m_driveSpeedMultiplier)                // Drive left with negative X (left)
-    //             .WithRotationalRate(-joystick.GetRightX() * MaxAngularRate * m_turnSpeedMultiplier);    // Drive counterclockwise with negative X (left)
-    //     })
-    // );
+            return drive.WithVelocityX(-joystick.GetLeftY() * MaxSpeed * m_driveSpeedMultiplier)        // Drive forward with negative Y (forward)
+                .WithVelocityY(-joystick.GetLeftX() * MaxSpeed * m_driveSpeedMultiplier)                // Drive left with negative X (left)
+                .WithRotationalRate(-joystick.GetRightX() * MaxAngularRate * m_turnSpeedMultiplier);    // Drive counterclockwise with negative X (left)
+        })
+    );
 
     // Idle while the robot is disabled. This ensures the configured
     // neutral mode is applied to the drive motors while disabled.
@@ -77,25 +78,7 @@ void RobotContainer::ConfigureBindings()
     // }));
     // TODO: Hijacked for debugging
     joystick.B().WhileTrue(
-        frc2::RunCommand([this]() {
-            subsystems::VisionData visd = m_vision.GetLastData();
-            units::radians_per_second_t speed;
-
-            if (visd.hasTargets)
-            {
-                speed = units::radians_per_second_t{-1 * visd.tx.value() * 0.2};
-            }
-            else
-            {
-                speed = 0_rad_per_s;
-            }
-
-            m_drivetrain.SetControl(drive.WithRotationalRate(speed));
-        }, {&m_drivetrain, &m_vision}).ToPtr()
-    ).OnFalse(
-        frc2::InstantCommand([this]() {
-            m_drivetrain.SetControl(brake);
-        }, {&m_drivetrain}).ToPtr()
+        ServoToTag(&m_drivetrain, &m_vision).ToPtr()
     );
 
     // joystick.Y().OnTrue(

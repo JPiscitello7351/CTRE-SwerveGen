@@ -1,3 +1,11 @@
+/**
+ * @file VisionSubsystem.h
+ * @author Jacob Simeone
+ * @brief Simple limelight camera vision subsystem primarily for detecting AprilTags
+ * @date 2026-01-16
+ * 
+ */
+
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
@@ -5,6 +13,7 @@
 #pragma once
 
 #include <string>
+#include <chrono>
 
 #include <frc2/command/SubsystemBase.h>
 #include <frc/geometry/Pose3d.h>
@@ -13,20 +22,62 @@
 #include "LimelightHelpers.h"
 
 namespace subsystems {
+  /**
+   * @brief Holds vision data produced by the VisionSubsystem
+   * 
+   */
   class VisionData {
     public:
-      bool hasTargets;
-      units::degree_t tx;
-      units::degree_t ty;
+      bool hasTarget; ///< True if a target (with tx/ty values was detected)
+      units::degree_t tx; ///< target x-offset from center crosshair of limelight
+      units::degree_t ty; ///< Same as tx for y offset
 
-      // For more information on this data, see LimelightHelpers.h
-      std::vector<LimelightHelpers::RawFiducial> rawFiducials;
+      std::vector<LimelightHelpers::RawFiducial> rawFiducials; ///< See LimlighhtHelpers.h for more info
 
-      units::millisecond_t latency;
+      units::millisecond_t latency; ///< Combined pipeline and capture latency
+      std::chrono::time_point<std::chrono::high_resolution_clock> rxTimestamp; ///< Time this data class was constructed
 
-      frc::Pose3d targetPoseRobotSpace;
+      frc::Pose3d targetPoseRobotSpace; ///< The target pose, as a vector from the robot's origin
   };
 
+  /**
+   * @brief Example vision subystem for a single limelight camera, optimized for Apriltags.
+   * 
+   * This vision system consumes data from a Limelight camera attached to the network. 
+   * You, the user, configure the name of this limelight to match what is configured
+   * in the limelight dashboard.
+   * Data is consumed via networktables and the LimelightHelpers.h header-only library
+   * provided by Limelight themselves.
+   * 
+   * Data is polled by the periodic function, and reading can be switched off through
+   * the VisionOn/Off functions. Data is returned as a VisionData object written
+   * specifically for this subsystem, and can be viewed/edited in the header of this
+   * subsystem. 
+   * 
+   * Some improvements to this subsystem could be pipeline switching, ID filtering,
+   * or even some basic pose filtering (but I would almost wonder if a dedicated
+   * odometry class would be more appropriate for that). Further, there could be
+   * some more limelight control via LEDs or other hardware features. Note that 
+   * some other code somewhere else in the project should be responsible for
+   * converting tx/ty values to a robot heading for advanced control schemes.
+   * (Like a PID heading controller that lives in the drivetrain subsystem)
+   * 
+   * It may also be beneficial to either have multiple instances of this subsystem
+   * and rename this to "limelight" subsystem and make another wrapper for this 
+   * that holds all cameras in one "vision" subsystem or, add some capabilities
+   * to this existing code to handle multiple limelight cameras (should be pretty
+   * easy, and you could use the limelight name as the unique key for any data)
+   * 
+   * **RELATED RESOURCES**:
+   * 
+   * Limelight 4 Quick-Start: https://docs.limelightvision.io/docs/docs-limelight/getting-started/limelight-4
+   * 
+   * Apriltag Pipelines: https://docs.limelightvision.io/docs/docs-limelight/pipeline-apriltag/apriltags
+   * 
+   * Programming Guide for Limelight: https://docs.limelightvision.io/docs/docs-limelight/apis/limelight-lib
+   * 
+   * Github repo for limelight helpers: https://github.com/LimelightVision/limelightlib-wpicpp/tree/main
+   */
   class VisionSubsystem : public frc2::SubsystemBase {
   public:
     VisionSubsystem(std::string limelightName);
@@ -64,6 +115,14 @@ namespace subsystems {
      * 
      */
     void TryReadMeasurements();
+
+    /**
+     * @brief Calculate the time since the vision data was last updated. The
+     * age of the vision data returned by GetLastData()
+     * 
+     * @return units::millisecond_t Time since last measurement taken
+     */
+    units::millisecond_t GetTimeSinceLastMeasure();
 
   private:
   /**

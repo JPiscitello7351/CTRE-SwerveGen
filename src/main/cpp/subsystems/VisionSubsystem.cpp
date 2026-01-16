@@ -1,18 +1,10 @@
-/**
- * This vision system consumes data from a Limelight camera attached to the network. 
- * You, the user, configure the name of this limelight to match what is configured
- * in the limelight dashboard.
- * Data is consumed via networktables and the LimelightHelpers.h header-only library
- * provided by Limelight themselves. See the below github repo for details:
- * https://github.com/LimelightVision/limelightlib-wpicpp/tree/main
- */
-
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
 #include <string>
 #include <cmath>
+#include <chrono>
 
 #include "LimelightHelpers.h"
 #include "subsystems/VisionSubsystem.h"
@@ -41,16 +33,22 @@ VisionSubsystem::TryReadMeasurements()
     //   performance.
     if (m_reading)
     {
-        // Read in the vision data from networktables, and parse the JSON
+        // Read in the vision data from networktables via helper functions
         // You could implement some logic here to not do this *every* periodic loop.
         // Note however, if you are running at even 60fps, that's essentially 60Hz, which is ~16ms
-        //   which is still faster than the robot update loop of 50Hz (20ms)
-
-
+        //   which is still faster than the robot update loop of 50Hz (20ms). And typically, the 
+        //   camera will be running at 120fps. So everytime this gets called, you'll have new data
+        //   (at least through periodic, anyway)
+        m_visionData.rxTimestamp = std::chrono::high_resolution_clock::now();
+        // Array of raw fiducial markers with tx/ty and distance
         m_visionData.rawFiducials = getRawFiducials(m_llName);
-        m_visionData.hasTargets = m_visionData.rawFiducials.size() > 0;
+        m_visionData.hasTarget = getTV(m_llName);
+        // These next two data points are whatever the Limelight considers it's "target" this is controlled
+        //   by both the ID filters in the config interface, as well as which target is "leftmost" (or whatever)
+        //   prioritization scheme is used in the pipeline config
         m_visionData.tx = units::degree_t{getTX(m_llName)};
         m_visionData.ty = units::degree_t{getTY(m_llName)};
+        // The relative pose (vector) of the tag, from the origin of the robot, in meters.
         m_visionData.targetPoseRobotSpace = toPose3D(getTargetPose_RobotSpace(m_llName));
         m_visionData.latency = units::millisecond_t{getLatency_Capture(m_llName) + getLatency_Pipeline(m_llName)};
 
@@ -59,7 +57,6 @@ VisionSubsystem::TryReadMeasurements()
     }
 }
 
-
 VisionData VisionSubsystem::GetLastData() {return m_visionData;}
 
 void VisionSubsystem::VisionOn() { m_reading = true; }
@@ -67,6 +64,17 @@ void VisionSubsystem::VisionOn() { m_reading = true; }
 void VisionSubsystem::VisionOff() { m_reading = false; }
 
 bool VisionSubsystem::IsVisionOn() { return m_reading; }
+
+units::millisecond_t VisionSubsystem::GetTimeSinceLastMeasure()
+{
+    using namespace std::chrono;
+
+    time_point<high_resolution_clock> now = high_resolution_clock::now();
+
+    // duration cast to microseconds and divide in order to construct units::millisecond_t
+    //   with fractional milliseconds for more accurate timestamp.
+    return units::millisecond_t{duration_cast<microseconds>(now - m_visionData.rxTimestamp).count() / 1000};
+}
 
 // PRIVATE DEFINITIONS =========================================================
 
