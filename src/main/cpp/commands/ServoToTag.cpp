@@ -6,7 +6,7 @@
 #include "subsystems/VisionSubsystem.h"
 #include "commands/ServoToTag.h"
 
-ServoToTag::ServoToTag(subsystems::CommandSwerveDrivetrain *pDrivetrain, subsystems::VisionSubsystem *pVision) 
+ServoToTag::ServoToTag(subsystems::CommandSwerveDrivetrain *pDrivetrain, subsystems::VisonSubsystem *pVision) 
 : m_pDrive{pDrivetrain} , m_pVision{pVision}
 {
   AddRequirements({pDrivetrain, pVision});
@@ -27,6 +27,12 @@ void ServoToTag::Execute() {
     speed = units::radians_per_second_t{-1 * visd.tx.value() * 0.2};
   }
   else
+  {
+    speed = 0_rad_per_s;
+  }
+
+  // If the data is more than a second old... don't use it
+  if (m_pVision->GetTimeSinceLastMeasure() > 1_s)
   {
     speed = 0_rad_per_s;
   }

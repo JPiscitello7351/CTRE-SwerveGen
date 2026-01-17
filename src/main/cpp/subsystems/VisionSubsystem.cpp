@@ -14,18 +14,18 @@
 
 using namespace subsystems;
 
-VisionSubsystem::VisionSubsystem(std::string limelightName)
+VisonSubsystem::VisonSubsystem(std::string limelightName)
 : m_reading{true} // By default, periodic function will try to fetch data
 , m_llName{limelightName}
 {};
 
 // This method will be called once per scheduler run
-void VisionSubsystem::Periodic() {
+void VisonSubsystem::Periodic() {
     TryReadMeasurements();
 } 
 
 void
-VisionSubsystem::TryReadMeasurements()
+VisonSubsystem::TryReadMeasurements()
 {
     using namespace LimelightHelpers;
 
@@ -57,15 +57,15 @@ VisionSubsystem::TryReadMeasurements()
     }
 }
 
-VisionData VisionSubsystem::GetLastData() {return m_visionData;}
+VisionData VisonSubsystem::GetLastData() {return m_visionData;}
 
-void VisionSubsystem::VisionOn() { m_reading = true; }
+void VisonSubsystem::VisionOn() { m_reading = true; }
 
-void VisionSubsystem::VisionOff() { m_reading = false; }
+void VisonSubsystem::VisionOff() { m_reading = false; }
 
-bool VisionSubsystem::IsVisionOn() { return m_reading; }
+bool VisonSubsystem::IsVisionOn() { return m_reading; }
 
-units::millisecond_t VisionSubsystem::GetTimeSinceLastMeasure()
+units::millisecond_t VisonSubsystem::GetTimeSinceLastMeasure()
 {
     using namespace std::chrono;
 
@@ -79,7 +79,7 @@ units::millisecond_t VisionSubsystem::GetTimeSinceLastMeasure()
 // PRIVATE DEFINITIONS =========================================================
 
 void
-VisionSubsystem::dumpToSmartDashboard()
+VisonSubsystem::dumpToSmartDashboard()
 {
     std::string prefix{};
     std::string val{};

@@ -57,7 +57,7 @@ public:
     // Subsystems
     subsystems::CommandSwerveDrivetrain m_drivetrain{TunerConstants::CreateDrivetrain()};
     subsystems::SpinBoi m_spinBoi{};
-    subsystems::VisionSubsystem m_vision{"limelight-right"};
+    subsystems::VisonSubsystem m_vision{"limelight-right"};
 
     RobotContainer();
 

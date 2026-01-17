@@ -1,5 +1,5 @@
 /**
- * @file VisionSubsystem.h
+ * @file VisonSubsystem.h
  * @author Jacob Simeone
  * @brief Simple limelight camera vision subsystem primarily for detecting AprilTags
  * @date 2026-01-16
@@ -23,7 +23,7 @@
 
 namespace subsystems {
   /**
-   * @brief Holds vision data produced by the VisionSubsystem
+   * @brief Holds vision data produced by the VisonSubsystem
    * 
    */
   class VisionData {
@@ -77,10 +77,12 @@ namespace subsystems {
    * Programming Guide for Limelight: https://docs.limelightvision.io/docs/docs-limelight/apis/limelight-lib
    * 
    * Github repo for limelight helpers: https://github.com/LimelightVision/limelightlib-wpicpp/tree/main
+   * 
+   * @author Jacob S.
    */
-  class VisionSubsystem : public frc2::SubsystemBase {
+  class VisonSubsystem : public frc2::SubsystemBase {
   public:
-    VisionSubsystem(std::string limelightName);
+    VisonSubsystem(std::string limelightName);
 
     /**
      * Will be called periodically whenever the CommandScheduler runs.

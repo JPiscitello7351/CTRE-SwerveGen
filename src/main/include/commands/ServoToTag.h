@@ -11,11 +11,15 @@
 #include "subsystems/VisionSubsystem.h"
 
 /**
- * An example command.
- *
- * <p>Note that this extends CommandHelper, rather extending Command
- * directly; this is crucially important, or else the decorator functions in
- * Command will *not* work!
+ * @brief A basic example command for VisonSubsystem and VisionData that rotates
+ * a target to the center of the limelight crosshairs.
+ * 
+ * This example is very similar to TranslateToTag. In fact, the Execute() functions
+ * are almost identical, with this command having one less speed to calculate. 
+ * Read the header documentation for TranslateToTag first, then explore this
+ * command if you need more information.
+ * 
+ * @author Jacob S.
  */
 class ServoToTag
     : public frc2::CommandHelper<frc2::Command, ServoToTag> {
@@ -23,7 +27,7 @@ class ServoToTag
   /* You should consider using the more terse Command factories API instead
    * https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands
    */
-  ServoToTag(subsystems::CommandSwerveDrivetrain *pDrivetrain, subsystems::VisionSubsystem *pVision);
+  ServoToTag(subsystems::CommandSwerveDrivetrain *pDrivetrain, subsystems::VisonSubsystem *pVision);
 
 
   void Initialize() override;
@@ -35,8 +39,8 @@ class ServoToTag
   bool IsFinished() override;
   private:
     subsystems::CommandSwerveDrivetrain *m_pDrive;   
-    subsystems::VisionSubsystem *m_pVision;   
-    // Rotational velocity request (default 0 x/y velocity)
+    subsystems::VisonSubsystem *m_pVision;   
+    /// @brief Rotational velocity request (default 0 x/y velocity)
     swerve::requests::FieldCentric rotVelReq = swerve::requests::FieldCentric{}
         .WithDeadband(1_mps * 0.05).WithRotationalDeadband(0.75_tps * 0.05) // Add a 10% deadband
         .WithDriveRequestType(swerve::DriveRequestType::OpenLoopVoltage) // Use open-loop control for drive motors
